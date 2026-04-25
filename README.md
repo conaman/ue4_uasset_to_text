@@ -1,6 +1,6 @@
-# ue4_uasset_to_text
+# ue4-uasset-tools
 
-`ue4_uasset_to_text` is a small standalone Python toolkit for inspecting
+`ue4-uasset-tools` is a small standalone Python toolkit for inspecting
 Unreal Engine 4.27 `.uasset` files as readable JSON.
 
 It can:
@@ -237,13 +237,13 @@ macOS or Linux, when the script is executable:
 
 ```text
 Diff application:
-  /path/to/ue4_uasset_to_text/uasset_p4merge.py
+  /path/to/ue4-uasset-tools/uasset_p4merge.py
 
 Diff arguments:
   %1 %2
 
 Merge application:
-  /path/to/ue4_uasset_to_text/uasset_p4merge.py
+  /path/to/ue4-uasset-tools/uasset_p4merge.py
 
 Merge arguments:
   %b %2 %1
@@ -256,13 +256,13 @@ Diff application:
   python
 
 Diff arguments:
-  "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %1 %2
+  "C:\path\to\ue4-uasset-tools\uasset_p4merge.py" %1 %2
 
 Merge application:
   python
 
 Merge arguments:
-  "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %b %2 %1
+  "C:\path\to\ue4-uasset-tools\uasset_p4merge.py" %b %2 %1
 ```
 
 Important: this merge registration opens a JSON 3-way view. It does not write a
