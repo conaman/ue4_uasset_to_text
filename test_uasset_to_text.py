@@ -142,6 +142,11 @@ class UAssetParserValidationTests(unittest.TestCase):
             self.assertEqual(caught.exception.code, 0)
             self.assertIn(TOOL_VERSION, stdout.getvalue())
 
+    def test_uasset_diff_accepts_context_lines_option(self):
+        args = uasset_diff.parse_args(["Old.uasset", "New.uasset", "--context-lines", "8"])
+
+        self.assertEqual(args.unified, 8)
+
     def test_uasset_umg_summary_collects_widget_names_and_types(self):
         metadata = {
             "file": {"path": "/tmp/WidgetMenu.uasset"},

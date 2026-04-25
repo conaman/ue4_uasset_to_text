@@ -125,8 +125,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Number of spaces to use for JSON indentation. Defaults to 2.",
     )
     parser.add_argument(
+        "--context-lines",
         "-U",
         "--unified",
+        dest="unified",
+        metavar="LINES",
         type=int,
         default=3,
         help="Number of context lines to show in the unified diff. Defaults to 3.",

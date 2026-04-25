@@ -178,7 +178,7 @@ Common options:
 ```bash
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --quiet
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --keep-paths
-./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset -U 8
+./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --context-lines 8
 ```
 
 Exit codes:
