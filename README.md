@@ -117,12 +117,6 @@ Example export entry:
 }
 ```
 
-Include export payload locations and short byte previews:
-
-```bash
-./uasset_to_text.py /path/to/Asset.uasset --include-export-data --bytes 64
-```
-
 ### uasset_umg_summary.py
 
 `uasset_umg_summary.py` accepts a `.uasset` file directly. It uses the same
@@ -185,7 +179,6 @@ Common options:
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --quiet
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --keep-paths
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset -U 8
-./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --include-export-data --bytes 64
 ```
 
 Exit codes:
@@ -210,7 +203,6 @@ Common options:
 ./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --quiet
 ./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --keep-paths
 ./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --indent 4
-./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --include-export-data --bytes 64
 ```
 
 Exit codes:
@@ -383,11 +375,10 @@ The metadata object can include:
 - `depends`: export dependency map.
 - `soft_package_references`: soft package references.
 - `preload_dependencies`: cooked preload dependency indexes.
-- `export_data`: optional byte previews when `--include-export-data` is used.
 
 ## Limitations
 
-This tool focuses on package metadata tables and export payload locations.
+This tool focuses on package metadata tables.
 
 `uasset_p4merge.py` is a JSON comparison launcher. Even if P4Merge saves a merged
 JSON result, the original `.uasset` files are not modified.
