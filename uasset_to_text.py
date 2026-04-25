@@ -24,6 +24,9 @@ PACKAGE_FILE_TAG_SWAPPED = 0xC1832A9E
 PKG_FILTER_EDITOR_ONLY = 0x80000000
 
 CURRENT_LEGACY_FILE_VERSION = -7
+MAX_ARRAY_COUNT = 10_000_000
+MAX_FSTRING_CODE_UNITS = 1024 * 1024
+MAX_NAME_CODE_UNITS = 1024
 
 VER_UE4_OLDEST_LOADABLE_PACKAGE = 214
 VER_UE4_WORLD_LEVEL_INFO = 224
@@ -162,12 +165,12 @@ class Reader:
             raise UAssetError(f"invalid UE bool value {value} at 0x{self.pos - 4:x}")
         return bool(value)
 
-    def fstring(self) -> str:
+    def string(self, *, label: str, max_code_units: int) -> str:
         length = self.i32()
         if length == 0:
             return ""
-        if abs(length) > 1024 * 1024:
-            raise UAssetError(f"implausible FString length {length} at 0x{self.pos - 4:x}")
+        if abs(length) > max_code_units:
+            raise UAssetError(f"implausible {label} length {length} at 0x{self.pos - 4:x}")
         if length > 0:
             raw = self.read(length)
             if raw.endswith(b"\x00"):
@@ -180,6 +183,9 @@ class Reader:
             raw = raw[:-2]
         encoding = "utf-16-le" if self.endian == "<" else "utf-16-be"
         return raw.decode(encoding, errors="replace")
+
+    def fstring(self) -> str:
+        return self.string(label="FString", max_code_units=MAX_FSTRING_CODE_UNITS)
 
     def guid(self) -> str:
         a = self.u32()
@@ -200,11 +206,76 @@ class NameRef:
 
 def read_array(reader: Reader, item_reader: Callable[[], Any], *, label: str) -> list[Any]:
     count = reader.i32()
-    if count < 0:
-        raise UAssetError(f"negative {label} array count {count} at 0x{reader.tell() - 4:x}")
-    if count > 10_000_000:
-        raise UAssetError(f"implausibly large {label} array count {count}")
+    validate_count(count, f"{label} array")
     return [item_reader() for _ in range(count)]
+
+
+def validate_count(count: int, label: str, *, allow_minus_one: bool = False) -> None:
+    if allow_minus_one and count == -1:
+        return
+    if count < 0:
+        raise UAssetError(f"negative {label} count {count}")
+    if count > MAX_ARRAY_COUNT:
+        raise UAssetError(f"implausibly large {label} count {count}")
+
+
+def validate_offset(offset: int, label: str, file_size: int, *, required: bool = False) -> None:
+    if offset < 0:
+        raise UAssetError(f"negative {label} offset {offset}")
+    if required and offset == 0:
+        raise UAssetError(f"missing {label} offset for non-empty table")
+    if offset > file_size:
+        raise UAssetError(f"{label} offset {offset} is past end of file ({file_size} bytes)")
+
+
+def validate_supported_ue4_version(file_version_ue4: int, file_version_licensee_ue4: int) -> int:
+    if file_version_ue4 == 0 and file_version_licensee_ue4 == 0:
+        return VER_UE4_AUTOMATIC_VERSION
+    if file_version_ue4 < VER_UE4_OLDEST_LOADABLE_PACKAGE:
+        raise UAssetError(
+            f"unsupported UE4 package version {file_version_ue4}; "
+            f"oldest loadable version is {VER_UE4_OLDEST_LOADABLE_PACKAGE}"
+        )
+    if file_version_ue4 > VER_UE4_AUTOMATIC_VERSION:
+        raise UAssetError(
+            f"package UE4 version {file_version_ue4} is newer than this parser "
+            f"understands ({VER_UE4_AUTOMATIC_VERSION})"
+        )
+    return file_version_ue4
+
+
+def validate_summary(summary: dict[str, Any], file_size: int) -> None:
+    validate_offset(summary["total_header_size"], "total header size", file_size)
+    if summary["total_header_size"] and summary["total_header_size"] < summary["summary_size"]:
+        raise UAssetError(
+            f"total header size {summary['total_header_size']} is smaller than "
+            f"parsed summary size {summary['summary_size']}"
+        )
+
+    for count_key in (
+        "name_count",
+        "gatherable_text_data_count",
+        "export_count",
+        "import_count",
+        "soft_package_references_count",
+    ):
+        validate_count(summary[count_key], count_key)
+    validate_count(summary["preload_dependency_count"], "preload_dependency_count", allow_minus_one=True)
+
+    for count_key, offset_key, label in (
+        ("name_count", "name_offset", "name table"),
+        ("gatherable_text_data_count", "gatherable_text_data_offset", "gatherable text data"),
+        ("export_count", "export_offset", "export map"),
+        ("import_count", "import_offset", "import map"),
+        ("soft_package_references_count", "soft_package_references_offset", "soft package references"),
+        ("preload_dependency_count", "preload_dependency_offset", "preload dependencies"),
+    ):
+        count = summary[count_key]
+        if count == -1:
+            continue
+        validate_offset(summary[offset_key], label, file_size, required=count > 0)
+
+    validate_offset(summary["depends_offset"], "depends map", file_size)
 
 
 def read_name_ref(reader: Reader) -> NameRef:
@@ -312,7 +383,9 @@ def read_package_summary(reader: Reader) -> dict[str, Any]:
         custom_version_format, custom_versions = read_custom_versions(reader, legacy_file_version)
 
     b_unversioned = file_version_ue4 == 0 and file_version_licensee_ue4 == 0
-    effective_file_version_ue4 = VER_UE4_AUTOMATIC_VERSION if b_unversioned else file_version_ue4
+    effective_file_version_ue4 = validate_supported_ue4_version(
+        file_version_ue4, file_version_licensee_ue4
+    )
 
     total_header_size = reader.i32()
     folder_name = reader.fstring()
@@ -471,21 +544,7 @@ def read_name_map(reader: Reader, summary: dict[str, Any]) -> list[str]:
     names = []
     has_hashes = summary["effective_file_version_ue4"] >= VER_UE4_NAME_HASHES_SERIALIZED
     for _ in range(summary["name_count"]):
-        length = reader.i32()
-        if length == 0:
-            value = ""
-        elif length > 0:
-            raw = reader.read(length)
-            if raw.endswith(b"\x00"):
-                raw = raw[:-1]
-            value = raw.decode("utf-8", errors="replace")
-        else:
-            char_count = -length
-            raw = reader.read(char_count * 2)
-            if raw.endswith(b"\x00\x00"):
-                raw = raw[:-2]
-            encoding = "utf-16-le" if reader.endian == "<" else "utf-16-be"
-            value = raw.decode(encoding, errors="replace")
+        value = reader.string(label="name entry", max_code_units=MAX_NAME_CODE_UNITS)
         if has_hashes:
             reader.read(4)
         names.append(value)
@@ -644,7 +703,7 @@ def preview_export_data(
             "export_index": item["index"],
             "offset": offset,
             "size": size,
-            "available_in_uasset": offset >= 0 and offset + max(size, 0) <= len(data),
+            "available_in_uasset": size >= 0 and offset >= 0 and offset + size <= len(data),
         }
         if entry["available_in_uasset"] and preview_bytes > 0:
             raw = data[offset : offset + min(size, preview_bytes)]
@@ -698,6 +757,7 @@ def parse_uasset(path: str, *, include_export_data: bool, preview_bytes: int) ->
     reader = Reader(data, path)
 
     summary = read_package_summary(reader)
+    validate_summary(summary, len(data))
     names = read_name_map(reader, summary)
     imports = read_import_map(reader, summary, names)
     exports = read_export_map(reader, summary, names)

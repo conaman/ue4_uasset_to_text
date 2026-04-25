@@ -81,6 +81,12 @@ Run a syntax check:
 python3 -m py_compile uasset_to_text.py
 ```
 
+Run the tests:
+
+```bash
+python3 -m unittest
+```
+
 Try it against an engine sample asset:
 
 ```bash
