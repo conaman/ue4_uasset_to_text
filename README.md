@@ -22,6 +22,13 @@ The parser reads UE4.27 package metadata tables, especially
 
 No third-party Python packages are required.
 
+## Use Cases
+
+- Review UMG hierarchy changes in Perforce before accepting a changelist.
+- Compare binary `.uasset` metadata without launching Unreal Editor.
+- Inspect imports, exports, dependencies, and soft package references.
+- Use P4Merge as a visual JSON diff viewer for UE4 assets.
+
 ## Tools
 
 | Tool | Purpose |
@@ -59,6 +66,16 @@ Write to a specific path:
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.json
 ```
+
+## Examples
+
+Sample outputs generated from a UE4.27 UMG widget asset are available in
+`examples/`:
+
+- `WidgetMenu.summary.txt`: UMG WidgetTree summary output.
+- `WidgetMenu.metadata.sample.json`: abridged metadata JSON shaped like
+  `uasset_to_text.py` output.
+- `WidgetMenu.diff.txt`: unified metadata diff between two widget revisions.
 
 ## JSON Output
 

@@ -1,0 +1,12 @@
+Asset: WidgetMenu
+UMG: WidgetBlueprint
+ParentClass: UserWidget
+Widgets: 6
+
+WidgetTree
+  Border_0 (Border)
+  ExitButton (Button)
+  RestartButton (Button)
+  Text_ExitButton (TextBlock)
+  Text_RestartButton (TextBlock)
+  VerticalBox_48 (VerticalBox)

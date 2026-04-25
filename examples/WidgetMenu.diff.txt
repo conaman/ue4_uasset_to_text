@@ -1,0 +1,9 @@
+--- local_test_assets/UE427_UMG/WidgetMenu_Original.uasset
++++ local_test_assets/UE427_UMG/WidgetMenu_Modified.uasset
+@@ -883,5 +883,5 @@
+     {
+       "index": 195,
+-      "value": "Widget Menu"
++      "value": "Widget_Menu"
+     },
+     {
