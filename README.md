@@ -73,8 +73,8 @@ Sample outputs generated from a UE4.27 UMG widget asset are available in
 `examples/`:
 
 - `WidgetMenu.summary.txt`: UMG WidgetTree summary output.
-- `WidgetMenu.metadata.sample.json`: abridged metadata JSON shaped like
-  `uasset_to_text.py` output.
+- `WidgetMenu.metadata.json`: full metadata JSON produced by
+  `uasset_to_text.py`, with the file path shortened for readability.
 - `WidgetMenu.diff.txt`: unified metadata diff between two widget revisions.
 
 ## JSON Output

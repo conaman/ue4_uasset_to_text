@@ -1,0 +1,4937 @@
+{
+  "file": {
+    "path": "local_test_assets/UE427_UMG/WidgetMenu_Original.uasset",
+    "size": 46391
+  },
+  "summary": {
+    "tag": "0x9e2a83c1",
+    "legacy_file_version": -7,
+    "legacy_ue3_version": 864,
+    "file_version_ue4": 522,
+    "file_version_licensee_ue4": 0,
+    "effective_file_version_ue4": 522,
+    "unversioned": false,
+    "custom_version_format": "Optimized",
+    "custom_versions": [
+      {
+        "key": "375ec13c-06e4-48fb-b500-84f0262a717e",
+        "version": 4
+      },
+      {
+        "key": "601d1886-ac64-4f84-aa16-d3de0deac7d6",
+        "version": 47
+      },
+      {
+        "key": "9c54d522-a826-4fbe-9421-074661b482d0",
+        "version": 43
+      },
+      {
+        "key": "b0d832e4-1f89-4f0d-accf-7eb736fd4aa2",
+        "version": 10
+      },
+      {
+        "key": "cffc743f-43b0-4480-9391-14df171d2073",
+        "version": 37
+      },
+      {
+        "key": "e4b068ed-f494-42e9-a231-da0b2e46bb41",
+        "version": 40
+      }
+    ],
+    "total_header_size": 26135,
+    "folder_name": "None",
+    "package_flags": 262144,
+    "package_flags_hex": "0x00040000",
+    "package_flag_names": [
+      "PKG_RequiresLocalizationGather"
+    ],
+    "filter_editor_only": false,
+    "name_count": 203,
+    "name_offset": 404,
+    "localization_id": "069FFEE24CCC595BCB7B0097E7FCCDEC",
+    "gatherable_text_data_count": 0,
+    "gatherable_text_data_offset": 0,
+    "export_count": 42,
+    "export_offset": 6638,
+    "import_count": 41,
+    "import_offset": 5162,
+    "depends_offset": 11006,
+    "soft_package_references_count": 1,
+    "soft_package_references_offset": 11546,
+    "searchable_names_offset": 11554,
+    "thumbnail_table_offset": 11582,
+    "guid": "573ec58e-41f4-f70d-314a-e6b54a358c47",
+    "persistent_guid": "b2752124-4700-dbbe-f409-63bca00adf9c",
+    "owner_persistent_guid": null,
+    "generations": [
+      {
+        "export_count": 42,
+        "name_count": 203
+      }
+    ],
+    "engine_changelist": null,
+    "saved_by_engine_version": {
+      "major": 4,
+      "minor": 27,
+      "patch": 1,
+      "changelist": 17703452,
+      "branch": "++UE4+Release-4.27",
+      "text": "4.27.1-17703452+++UE4+Release-4.27"
+    },
+    "compatible_with_engine_version": {
+      "major": 4,
+      "minor": 27,
+      "patch": 0,
+      "changelist": 17155196,
+      "branch": "++UE4+Release-4.27",
+      "text": "4.27.0-17155196+++UE4+Release-4.27"
+    },
+    "compression_flags": 0,
+    "compressed_chunks": [],
+    "package_source": 2887956606,
+    "package_source_hex": "0xac22b87e",
+    "additional_packages_to_cook": [],
+    "num_texture_allocations": null,
+    "asset_registry_data_offset": 11680,
+    "bulk_data_start_offset": 46387,
+    "world_tile_info_data_offset": 0,
+    "chunk_ids": [],
+    "preload_dependency_count": -1,
+    "preload_dependency_offset": 26135,
+    "summary_size": 404
+  },
+  "names": [
+    {
+      "index": 0,
+      "value": "/Game/VRTemplate/Blueprints/WidgetMenu"
+    },
+    {
+      "index": 1,
+      "value": "/Game/VRTemplate/Blueprints/WidgetMenu.WidgetMenu"
+    },
+    {
+      "index": 2,
+      "value": "/Script/BlueprintGraph"
+    },
+    {
+      "index": 3,
+      "value": "/Script/CoreUObject"
+    },
+    {
+      "index": 4,
+      "value": "/Script/Engine"
+    },
+    {
+      "index": 5,
+      "value": "/Script/SlateCore"
+    },
+    {
+      "index": 6,
+      "value": "/Script/UMG"
+    },
+    {
+      "index": 7,
+      "value": "/Script/UMGEditor"
+    },
+    {
+      "index": 8,
+      "value": "/Script/UnrealEd"
+    },
+    {
+      "index": 9,
+      "value": "AdvancedPinDisplay"
+    },
+    {
+      "index": 10,
+      "value": "AllWidgets"
+    },
+    {
+      "index": 11,
+      "value": "ArrayProperty"
+    },
+    {
+      "index": 12,
+      "value": "bAbsolute"
+    },
+    {
+      "index": 13,
+      "value": "bAllowDeletion"
+    },
+    {
+      "index": 14,
+      "value": "bCommentBubblePinned"
+    },
+    {
+      "index": 15,
+      "value": "bCommentBubbleVisible"
+    },
+    {
+      "index": 16,
+      "value": "bCommentBubbleVisible_InDetailsPanel"
+    },
+    {
+      "index": 17,
+      "value": "bExpandedInDesigner"
+    },
+    {
+      "index": 18,
+      "value": "bHasScriptImplementedPaint"
+    },
+    {
+      "index": 19,
+      "value": "bHasScriptImplementedTick"
+    },
+    {
+      "index": 20,
+      "value": "bIgnorePlatformRestrictions"
+    },
+    {
+      "index": 21,
+      "value": "bInternalEvent"
+    },
+    {
+      "index": 22,
+      "value": "bLegacyNeedToPurgeSkelRefs"
+    },
+    {
+      "index": 23,
+      "value": "BlueprintComponentDelegateBinding"
+    },
+    {
+      "index": 24,
+      "value": "BlueprintGuid"
+    },
+    {
+      "index": 25,
+      "value": "BlueprintSystemVersion"
+    },
+    {
+      "index": 26,
+      "value": "BlueprintType"
+    },
+    {
+      "index": 27,
+      "value": "BndEvt__WidgetMenu_ExitButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature"
+    },
+    {
+      "index": 28,
+      "value": "BndEvt__WidgetMenu_RestartButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature"
+    },
+    {
+      "index": 29,
+      "value": "bool"
+    },
+    {
+      "index": 30,
+      "value": "BoolProperty"
+    },
+    {
+      "index": 31,
+      "value": "Border"
+    },
+    {
+      "index": 32,
+      "value": "BorderSlot"
+    },
+    {
+      "index": 33,
+      "value": "Bottom"
+    },
+    {
+      "index": 34,
+      "value": "bOverrideFunction"
+    },
+    {
+      "index": 35,
+      "value": "BrushColor"
+    },
+    {
+      "index": 36,
+      "value": "Button"
+    },
+    {
+      "index": 37,
+      "value": "ButtonSlot"
+    },
+    {
+      "index": 38,
+      "value": "ButtonStyle"
+    },
+    {
+      "index": 39,
+      "value": "byte"
+    },
+    {
+      "index": 40,
+      "value": "ByteProperty"
+    },
+    {
+      "index": 41,
+      "value": "Category"
+    },
+    {
+      "index": 42,
+      "value": "CategorySorting"
+    },
+    {
+      "index": 43,
+      "value": "Class"
+    },
+    {
+      "index": 44,
+      "value": "ColorAndOpacity"
+    },
+    {
+      "index": 45,
+      "value": "Comment"
+    },
+    {
+      "index": 46,
+      "value": "CommentColor"
+    },
+    {
+      "index": 47,
+      "value": "ComponentDelegateBinding"
+    },
+    {
+      "index": 48,
+      "value": "ComponentDelegateBindings"
+    },
+    {
+      "index": 49,
+      "value": "ComponentPropertyName"
+    },
+    {
+      "index": 50,
+      "value": "Construct"
+    },
+    {
+      "index": 51,
+      "value": "Content"
+    },
+    {
+      "index": 52,
+      "value": "CustomFunctionName"
+    },
+    {
+      "index": 53,
+      "value": "Default__GameplayStatics"
+    },
+    {
+      "index": 54,
+      "value": "Default__KismetSystemLibrary"
+    },
+    {
+      "index": 55,
+      "value": "Default__UserWidget"
+    },
+    {
+      "index": 56,
+      "value": "Default__WidgetBlueprint"
+    },
+    {
+      "index": 57,
+      "value": "Default__WidgetMenu_C"
+    },
+    {
+      "index": 58,
+      "value": "DefaultGraphNode"
+    },
+    {
+      "index": 59,
+      "value": "delegate"
+    },
+    {
+      "index": 60,
+      "value": "DelegateOwnerClass"
+    },
+    {
+      "index": 61,
+      "value": "DelegatePropertyDisplayName"
+    },
+    {
+      "index": 62,
+      "value": "DelegatePropertyName"
+    },
+    {
+      "index": 63,
+      "value": "DesignSizeMode"
+    },
+    {
+      "index": 64,
+      "value": "DisplayLabel"
+    },
+    {
+      "index": 65,
+      "value": "DisplayName"
+    },
+    {
+      "index": 66,
+      "value": "DynamicBindingObjects"
+    },
+    {
+      "index": 67,
+      "value": "EDesignPreviewSizeMode"
+    },
+    {
+      "index": 68,
+      "value": "EDesignPreviewSizeMode::Desired"
+    },
+    {
+      "index": 69,
+      "value": "EdGraph"
+    },
+    {
+      "index": 70,
+      "value": "EdGraphNode_Comment"
+    },
+    {
+      "index": 71,
+      "value": "EdGraphSchema_K2"
+    },
+    {
+      "index": 72,
+      "value": "EditedDocumentInfo"
+    },
+    {
+      "index": 73,
+      "value": "EditedObjectPath"
+    },
+    {
+      "index": 74,
+      "value": "EnabledState"
+    },
+    {
+      "index": 75,
+      "value": "Engine"
+    },
+    {
+      "index": 76,
+      "value": "ENodeAdvancedPins"
+    },
+    {
+      "index": 77,
+      "value": "ENodeAdvancedPins::Hidden"
+    },
+    {
+      "index": 78,
+      "value": "ENodeEnabledState"
+    },
+    {
+      "index": 79,
+      "value": "ENodeEnabledState::Disabled"
+    },
+    {
+      "index": 80,
+      "value": "EntryPoint"
+    },
+    {
+      "index": 81,
+      "value": "Enum"
+    },
+    {
+      "index": 82,
+      "value": "EnumProperty"
+    },
+    {
+      "index": 83,
+      "value": "EQuitPreference"
+    },
+    {
+      "index": 84,
+      "value": "ESlateSizeRule"
+    },
+    {
+      "index": 85,
+      "value": "ESlateSizeRule::Fill"
+    },
+    {
+      "index": 86,
+      "value": "Event Graph"
+    },
+    {
+      "index": 87,
+      "value": "EventGraph"
+    },
+    {
+      "index": 88,
+      "value": "EventReference"
+    },
+    {
+      "index": 89,
+      "value": "exec"
+    },
+    {
+      "index": 90,
+      "value": "execute"
+    },
+    {
+      "index": 91,
+      "value": "ExecuteUbergraph_WidgetMenu"
+    },
+    {
+      "index": 92,
+      "value": "ExitButton"
+    },
+    {
+      "index": 93,
+      "value": "float"
+    },
+    {
+      "index": 94,
+      "value": "FloatProperty"
+    },
+    {
+      "index": 95,
+      "value": "Font"
+    },
+    {
+      "index": 96,
+      "value": "Function"
+    },
+    {
+      "index": 97,
+      "value": "FunctionNameToBind"
+    },
+    {
+      "index": 98,
+      "value": "FunctionReference"
+    },
+    {
+      "index": 99,
+      "value": "GameplayStatics"
+    },
+    {
+      "index": 100,
+      "value": "GeneratedClass"
+    },
+    {
+      "index": 101,
+      "value": "Geometry"
+    },
+    {
+      "index": 102,
+      "value": "GraphGuid"
+    },
+    {
+      "index": 103,
+      "value": "Guid"
+    },
+    {
+      "index": 104,
+      "value": "Hovered"
+    },
+    {
+      "index": 105,
+      "value": "InDeltaTime"
+    },
+    {
+      "index": 106,
+      "value": "IntProperty"
+    },
+    {
+      "index": 107,
+      "value": "IsDesignTime"
+    },
+    {
+      "index": 108,
+      "value": "K2Node_CallFunction"
+    },
+    {
+      "index": 109,
+      "value": "K2Node_ComponentBoundEvent"
+    },
+    {
+      "index": 110,
+      "value": "K2Node_Event"
+    },
+    {
+      "index": 111,
+      "value": "Keywords"
+    },
+    {
+      "index": 112,
+      "value": "KismetSystemLibrary"
+    },
+    {
+      "index": 113,
+      "value": "LastEditedDocuments"
+    },
+    {
+      "index": 114,
+      "value": "LevelName"
+    },
+    {
+      "index": 115,
+      "value": "LinearColor"
+    },
+    {
+      "index": 116,
+      "value": "Margin"
+    },
+    {
+      "index": 117,
+      "value": "MemberName"
+    },
+    {
+      "index": 118,
+      "value": "MemberParent"
+    },
+    {
+      "index": 119,
+      "value": "MemberReference"
+    },
+    {
+      "index": 120,
+      "value": "MetaData"
+    },
+    {
+      "index": 121,
+      "value": "ModuleRelativePath"
+    },
+    {
+      "index": 122,
+      "value": "MyGeometry"
+    },
+    {
+      "index": 123,
+      "value": "name"
+    },
+    {
+      "index": 124,
+      "value": "NameProperty"
+    },
+    {
+      "index": 125,
+      "value": "NodeComment"
+    },
+    {
+      "index": 126,
+      "value": "NodeGuid"
+    },
+    {
+      "index": 127,
+      "value": "NodeHeight"
+    },
+    {
+      "index": 128,
+      "value": "NodePosX"
+    },
+    {
+      "index": 129,
+      "value": "NodePosY"
+    },
+    {
+      "index": 130,
+      "value": "Nodes"
+    },
+    {
+      "index": 131,
+      "value": "NodeWidth"
+    },
+    {
+      "index": 132,
+      "value": "None"
+    },
+    {
+      "index": 133,
+      "value": "Normal"
+    },
+    {
+      "index": 134,
+      "value": "object"
+    },
+    {
+      "index": 135,
+      "value": "Object"
+    },
+    {
+      "index": 136,
+      "value": "ObjectProperty"
+    },
+    {
+      "index": 137,
+      "value": "OnButtonClickedEvent__DelegateSignature"
+    },
+    {
+      "index": 138,
+      "value": "OnClicked"
+    },
+    {
+      "index": 139,
+      "value": "OpenLevel"
+    },
+    {
+      "index": 140,
+      "value": "Options"
+    },
+    {
+      "index": 141,
+      "value": "OutputDelegate"
+    },
+    {
+      "index": 142,
+      "value": "Package"
+    },
+    {
+      "index": 143,
+      "value": "PackageLocalizationNamespace"
+    },
+    {
+      "index": 144,
+      "value": "PackageMetaData"
+    },
+    {
+      "index": 145,
+      "value": "Padding"
+    },
+    {
+      "index": 146,
+      "value": "Parent"
+    },
+    {
+      "index": 147,
+      "value": "ParentClass"
+    },
+    {
+      "index": 148,
+      "value": "PlayerController"
+    },
+    {
+      "index": 149,
+      "value": "PointerToUberGraphFrame"
+    },
+    {
+      "index": 150,
+      "value": "PreConstruct"
+    },
+    {
+      "index": 151,
+      "value": "QuitGame"
+    },
+    {
+      "index": 152,
+      "value": "QuitPreference"
+    },
+    {
+      "index": 153,
+      "value": "Regular"
+    },
+    {
+      "index": 154,
+      "value": "RestartButton"
+    },
+    {
+      "index": 155,
+      "value": "RootWidget"
+    },
+    {
+      "index": 156,
+      "value": "SavedViewOffset"
+    },
+    {
+      "index": 157,
+      "value": "SavedZoomAmount"
+    },
+    {
+      "index": 158,
+      "value": "Schema"
+    },
+    {
+      "index": 159,
+      "value": "ScriptStruct"
+    },
+    {
+      "index": 160,
+      "value": "self"
+    },
+    {
+      "index": 161,
+      "value": "Size"
+    },
+    {
+      "index": 162,
+      "value": "SizeRule"
+    },
+    {
+      "index": 163,
+      "value": "SlateBrush"
+    },
+    {
+      "index": 164,
+      "value": "SlateChildSize"
+    },
+    {
+      "index": 165,
+      "value": "SlateColor"
+    },
+    {
+      "index": 166,
+      "value": "SlateFontInfo"
+    },
+    {
+      "index": 167,
+      "value": "Slot"
+    },
+    {
+      "index": 168,
+      "value": "Slots"
+    },
+    {
+      "index": 169,
+      "value": "SoftObjectPath"
+    },
+    {
+      "index": 170,
+      "value": "SpecificPlayer"
+    },
+    {
+      "index": 171,
+      "value": "SpecifiedColor"
+    },
+    {
+      "index": 172,
+      "value": "string"
+    },
+    {
+      "index": 173,
+      "value": "StrProperty"
+    },
+    {
+      "index": 174,
+      "value": "struct"
+    },
+    {
+      "index": 175,
+      "value": "StructProperty"
+    },
+    {
+      "index": 176,
+      "value": "Text"
+    },
+    {
+      "index": 177,
+      "value": "Text_ExitButton"
+    },
+    {
+      "index": 178,
+      "value": "Text_RestartButton"
+    },
+    {
+      "index": 179,
+      "value": "TextBlock"
+    },
+    {
+      "index": 180,
+      "value": "TextProperty"
+    },
+    {
+      "index": 181,
+      "value": "then"
+    },
+    {
+      "index": 182,
+      "value": "Tick"
+    },
+    {
+      "index": 183,
+      "value": "TintColor"
+    },
+    {
+      "index": 184,
+      "value": "ToolTip"
+    },
+    {
+      "index": 185,
+      "value": "Top"
+    },
+    {
+      "index": 186,
+      "value": "TypefaceFontName"
+    },
+    {
+      "index": 187,
+      "value": "UberGraphFrame"
+    },
+    {
+      "index": 188,
+      "value": "UberGraphFunction"
+    },
+    {
+      "index": 189,
+      "value": "UbergraphPages"
+    },
+    {
+      "index": 190,
+      "value": "UserWidget"
+    },
+    {
+      "index": 191,
+      "value": "Vector2D"
+    },
+    {
+      "index": 192,
+      "value": "VerticalBox"
+    },
+    {
+      "index": 193,
+      "value": "VerticalBoxSlot"
+    },
+    {
+      "index": 194,
+      "value": "VRTemplateMap"
+    },
+    {
+      "index": 195,
+      "value": "Widget Menu"
+    },
+    {
+      "index": 196,
+      "value": "WidgetBlueprint"
+    },
+    {
+      "index": 197,
+      "value": "WidgetBlueprintGeneratedClass"
+    },
+    {
+      "index": 198,
+      "value": "WidgetMenu"
+    },
+    {
+      "index": 199,
+      "value": "WidgetMenu_C"
+    },
+    {
+      "index": 200,
+      "value": "WidgetStyle"
+    },
+    {
+      "index": 201,
+      "value": "WidgetTree"
+    },
+    {
+      "index": 202,
+      "value": "WorldContextObject"
+    }
+  ],
+  "imports": [
+    {
+      "index": 0,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -30,
+        "kind": "import",
+        "index": 29
+      },
+      "object_name": {
+        "index": 71,
+        "number": 0,
+        "value": "EdGraphSchema_K2"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/BlueprintGraph.EdGraphSchema_K2",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 1,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -30,
+        "kind": "import",
+        "index": 29
+      },
+      "object_name": {
+        "index": 108,
+        "number": 0,
+        "value": "K2Node_CallFunction"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/BlueprintGraph.K2Node_CallFunction",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 2,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -30,
+        "kind": "import",
+        "index": 29
+      },
+      "object_name": {
+        "index": 109,
+        "number": 0,
+        "value": "K2Node_ComponentBoundEvent"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/BlueprintGraph.K2Node_ComponentBoundEvent",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 3,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -30,
+        "kind": "import",
+        "index": 29
+      },
+      "object_name": {
+        "index": 110,
+        "number": 0,
+        "value": "K2Node_Event"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/BlueprintGraph.K2Node_Event",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 4,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -31,
+        "kind": "import",
+        "index": 30
+      },
+      "object_name": {
+        "index": 96,
+        "number": 0,
+        "value": "Function"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/CoreUObject.Function",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 5,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -31,
+        "kind": "import",
+        "index": 30
+      },
+      "object_name": {
+        "index": 120,
+        "number": 0,
+        "value": "MetaData"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/CoreUObject.MetaData",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 6,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -31,
+        "kind": "import",
+        "index": 30
+      },
+      "object_name": {
+        "index": 135,
+        "number": 0,
+        "value": "Object"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/CoreUObject.Object",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 7,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 47,
+        "number": 0,
+        "value": "ComponentDelegateBinding"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.ComponentDelegateBinding",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 8,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 69,
+        "number": 0,
+        "value": "EdGraph"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.EdGraph",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 9,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 99,
+        "number": 0,
+        "value": "GameplayStatics"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.GameplayStatics",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 10,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 112,
+        "number": 0,
+        "value": "KismetSystemLibrary"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.KismetSystemLibrary",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 11,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 148,
+        "number": 0,
+        "value": "PlayerController"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.PlayerController",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 12,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 31,
+        "number": 0,
+        "value": "Border"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.Border",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 13,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 32,
+        "number": 0,
+        "value": "BorderSlot"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.BorderSlot",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 14,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 36,
+        "number": 0,
+        "value": "Button"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.Button",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 15,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 37,
+        "number": 0,
+        "value": "ButtonSlot"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.ButtonSlot",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 16,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 179,
+        "number": 0,
+        "value": "TextBlock"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.TextBlock",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 17,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 190,
+        "number": 0,
+        "value": "UserWidget"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.UserWidget",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 18,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 192,
+        "number": 0,
+        "value": "VerticalBox"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.VerticalBox",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 19,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 193,
+        "number": 0,
+        "value": "VerticalBoxSlot"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.VerticalBoxSlot",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 20,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 197,
+        "number": 0,
+        "value": "WidgetBlueprintGeneratedClass"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.WidgetBlueprintGeneratedClass",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 21,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 201,
+        "number": 0,
+        "value": "WidgetTree"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.WidgetTree",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 22,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -35,
+        "kind": "import",
+        "index": 34
+      },
+      "object_name": {
+        "index": 196,
+        "number": 0,
+        "value": "WidgetBlueprint"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMGEditor.WidgetBlueprint",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 23,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 43,
+        "number": 0,
+        "value": "Class"
+      },
+      "outer_index": {
+        "raw": -36,
+        "kind": "import",
+        "index": 35
+      },
+      "object_name": {
+        "index": 70,
+        "number": 0,
+        "value": "EdGraphNode_Comment"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UnrealEd.EdGraphNode_Comment",
+      "class": "/Script/CoreUObject.Class"
+    },
+    {
+      "index": 24,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 81,
+        "number": 0,
+        "value": "Enum"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 83,
+        "number": 0,
+        "value": "EQuitPreference"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.EQuitPreference",
+      "class": "/Script/CoreUObject.Enum"
+    },
+    {
+      "index": 25,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 96,
+        "number": 0,
+        "value": "Function"
+      },
+      "outer_index": {
+        "raw": -10,
+        "kind": "import",
+        "index": 9
+      },
+      "object_name": {
+        "index": 139,
+        "number": 0,
+        "value": "OpenLevel"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.GameplayStatics.OpenLevel",
+      "class": "/Script/CoreUObject.Function"
+    },
+    {
+      "index": 26,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 96,
+        "number": 0,
+        "value": "Function"
+      },
+      "outer_index": {
+        "raw": -11,
+        "kind": "import",
+        "index": 10
+      },
+      "object_name": {
+        "index": 151,
+        "number": 0,
+        "value": "QuitGame"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.KismetSystemLibrary.QuitGame",
+      "class": "/Script/CoreUObject.Function"
+    },
+    {
+      "index": 27,
+      "class_package": {
+        "index": 4,
+        "number": 0,
+        "value": "/Script/Engine"
+      },
+      "class_name": {
+        "index": 99,
+        "number": 0,
+        "value": "GameplayStatics"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 53,
+        "number": 0,
+        "value": "Default__GameplayStatics"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.Default__GameplayStatics",
+      "class": "/Script/Engine.GameplayStatics"
+    },
+    {
+      "index": 28,
+      "class_package": {
+        "index": 4,
+        "number": 0,
+        "value": "/Script/Engine"
+      },
+      "class_name": {
+        "index": 112,
+        "number": 0,
+        "value": "KismetSystemLibrary"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 54,
+        "number": 0,
+        "value": "Default__KismetSystemLibrary"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.Default__KismetSystemLibrary",
+      "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    {
+      "index": 29,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 142,
+        "number": 0,
+        "value": "Package"
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 2,
+        "number": 0,
+        "value": "/Script/BlueprintGraph"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/BlueprintGraph",
+      "class": "/Script/CoreUObject.Package"
+    },
+    {
+      "index": 30,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 142,
+        "number": 0,
+        "value": "Package"
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/CoreUObject",
+      "class": "/Script/CoreUObject.Package"
+    },
+    {
+      "index": 31,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 142,
+        "number": 0,
+        "value": "Package"
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 4,
+        "number": 0,
+        "value": "/Script/Engine"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine",
+      "class": "/Script/CoreUObject.Package"
+    },
+    {
+      "index": 32,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 142,
+        "number": 0,
+        "value": "Package"
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 5,
+        "number": 0,
+        "value": "/Script/SlateCore"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/SlateCore",
+      "class": "/Script/CoreUObject.Package"
+    },
+    {
+      "index": 33,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 142,
+        "number": 0,
+        "value": "Package"
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 6,
+        "number": 0,
+        "value": "/Script/UMG"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG",
+      "class": "/Script/CoreUObject.Package"
+    },
+    {
+      "index": 34,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 142,
+        "number": 0,
+        "value": "Package"
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 7,
+        "number": 0,
+        "value": "/Script/UMGEditor"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMGEditor",
+      "class": "/Script/CoreUObject.Package"
+    },
+    {
+      "index": 35,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 142,
+        "number": 0,
+        "value": "Package"
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 8,
+        "number": 0,
+        "value": "/Script/UnrealEd"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UnrealEd",
+      "class": "/Script/CoreUObject.Package"
+    },
+    {
+      "index": 36,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 159,
+        "number": 0,
+        "value": "ScriptStruct"
+      },
+      "outer_index": {
+        "raw": -32,
+        "kind": "import",
+        "index": 31
+      },
+      "object_name": {
+        "index": 149,
+        "number": 0,
+        "value": "PointerToUberGraphFrame"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/Engine.PointerToUberGraphFrame",
+      "class": "/Script/CoreUObject.ScriptStruct"
+    },
+    {
+      "index": 37,
+      "class_package": {
+        "index": 3,
+        "number": 0,
+        "value": "/Script/CoreUObject"
+      },
+      "class_name": {
+        "index": 159,
+        "number": 0,
+        "value": "ScriptStruct"
+      },
+      "outer_index": {
+        "raw": -33,
+        "kind": "import",
+        "index": 32
+      },
+      "object_name": {
+        "index": 101,
+        "number": 0,
+        "value": "Geometry"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/SlateCore.Geometry",
+      "class": "/Script/CoreUObject.ScriptStruct"
+    },
+    {
+      "index": 38,
+      "class_package": {
+        "index": 6,
+        "number": 0,
+        "value": "/Script/UMG"
+      },
+      "class_name": {
+        "index": 190,
+        "number": 0,
+        "value": "UserWidget"
+      },
+      "outer_index": {
+        "raw": -34,
+        "kind": "import",
+        "index": 33
+      },
+      "object_name": {
+        "index": 55,
+        "number": 0,
+        "value": "Default__UserWidget"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMG.Default__UserWidget",
+      "class": "/Script/UMG.UserWidget"
+    },
+    {
+      "index": 39,
+      "class_package": {
+        "index": 7,
+        "number": 0,
+        "value": "/Script/UMGEditor"
+      },
+      "class_name": {
+        "index": 196,
+        "number": 0,
+        "value": "WidgetBlueprint"
+      },
+      "outer_index": {
+        "raw": -35,
+        "kind": "import",
+        "index": 34
+      },
+      "object_name": {
+        "index": 56,
+        "number": 0,
+        "value": "Default__WidgetBlueprint"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMGEditor.Default__WidgetBlueprint",
+      "class": "/Script/UMGEditor.WidgetBlueprint"
+    },
+    {
+      "index": 40,
+      "class_package": {
+        "index": 6,
+        "number": 0,
+        "value": "/Script/UMG"
+      },
+      "class_name": {
+        "index": 201,
+        "number": 0,
+        "value": "WidgetTree"
+      },
+      "outer_index": {
+        "raw": -40,
+        "kind": "import",
+        "index": 39
+      },
+      "object_name": {
+        "index": 201,
+        "number": 0,
+        "value": "WidgetTree"
+      },
+      "package_name": {
+        "index": 132,
+        "number": 0,
+        "value": "None"
+      },
+      "path": "/Script/UMGEditor.Default__WidgetBlueprint.WidgetTree",
+      "class": "/Script/UMG.WidgetTree"
+    }
+  ],
+  "exports": [
+    {
+      "index": 0,
+      "class_index": {
+        "raw": -13,
+        "kind": "import",
+        "index": 12
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 41,
+        "kind": "export",
+        "index": 40
+      },
+      "object_name": {
+        "index": 31,
+        "number": 1,
+        "value": "Border_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 144,
+      "serial_offset": 26135,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.Border_0",
+      "class": "/Script/UMG.Border",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 1,
+      "class_index": {
+        "raw": -13,
+        "kind": "import",
+        "index": 12
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 42,
+        "kind": "export",
+        "index": 41
+      },
+      "object_name": {
+        "index": 31,
+        "number": 1,
+        "value": "Border_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 144,
+      "serial_offset": 26279,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.Border_0",
+      "class": "/Script/UMG.Border",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 2,
+      "class_index": {
+        "raw": -14,
+        "kind": "import",
+        "index": 13
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 1,
+        "kind": "export",
+        "index": 0
+      },
+      "object_name": {
+        "index": 32,
+        "number": 1,
+        "value": "BorderSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 70,
+      "serial_offset": 26423,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.Border_0.BorderSlot_0",
+      "class": "/Script/UMG.BorderSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 3,
+      "class_index": {
+        "raw": -14,
+        "kind": "import",
+        "index": 13
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 2,
+        "kind": "export",
+        "index": 1
+      },
+      "object_name": {
+        "index": 32,
+        "number": 1,
+        "value": "BorderSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 70,
+      "serial_offset": 26493,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0",
+      "class": "/Script/UMG.BorderSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 4,
+      "class_index": {
+        "raw": -15,
+        "kind": "import",
+        "index": 14
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 41,
+        "kind": "export",
+        "index": 40
+      },
+      "object_name": {
+        "index": 92,
+        "number": 0,
+        "value": "ExitButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 563,
+      "serial_offset": 26563,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.ExitButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 5,
+      "class_index": {
+        "raw": -15,
+        "kind": "import",
+        "index": 14
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 41,
+        "kind": "export",
+        "index": 40
+      },
+      "object_name": {
+        "index": 154,
+        "number": 0,
+        "value": "RestartButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 566,
+      "serial_offset": 27126,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.RestartButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 6,
+      "class_index": {
+        "raw": -15,
+        "kind": "import",
+        "index": 14
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 42,
+        "kind": "export",
+        "index": 41
+      },
+      "object_name": {
+        "index": 92,
+        "number": 0,
+        "value": "ExitButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 563,
+      "serial_offset": 27692,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.ExitButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 7,
+      "class_index": {
+        "raw": -15,
+        "kind": "import",
+        "index": 14
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 42,
+        "kind": "export",
+        "index": 41
+      },
+      "object_name": {
+        "index": 154,
+        "number": 0,
+        "value": "RestartButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 566,
+      "serial_offset": 28255,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.RestartButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 8,
+      "class_index": {
+        "raw": -16,
+        "kind": "import",
+        "index": 15
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 5,
+        "kind": "export",
+        "index": 4
+      },
+      "object_name": {
+        "index": 37,
+        "number": 1,
+        "value": "ButtonSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 70,
+      "serial_offset": 28821,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 9,
+      "class_index": {
+        "raw": -16,
+        "kind": "import",
+        "index": 15
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 6,
+        "kind": "export",
+        "index": 5
+      },
+      "object_name": {
+        "index": 37,
+        "number": 1,
+        "value": "ButtonSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 70,
+      "serial_offset": 28891,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 10,
+      "class_index": {
+        "raw": -16,
+        "kind": "import",
+        "index": 15
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 7,
+        "kind": "export",
+        "index": 6
+      },
+      "object_name": {
+        "index": 37,
+        "number": 1,
+        "value": "ButtonSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 70,
+      "serial_offset": 28961,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 11,
+      "class_index": {
+        "raw": -16,
+        "kind": "import",
+        "index": 15
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 8,
+        "kind": "export",
+        "index": 7
+      },
+      "object_name": {
+        "index": 37,
+        "number": 1,
+        "value": "ButtonSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 70,
+      "serial_offset": 29031,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 12,
+      "class_index": {
+        "raw": -8,
+        "kind": "import",
+        "index": 7
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      "object_name": {
+        "index": 47,
+        "number": 3,
+        "value": "ComponentDelegateBinding_2"
+      },
+      "object_flags": 0,
+      "object_flags_hex": "0x00000000",
+      "object_flag_names": [],
+      "serial_size": 312,
+      "serial_offset": 29101,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.ComponentDelegateBinding_2",
+      "class": "/Script/Engine.ComponentDelegateBinding",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 13,
+      "class_index": {
+        "raw": -9,
+        "kind": "import",
+        "index": 8
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 38,
+        "kind": "export",
+        "index": 37
+      },
+      "object_name": {
+        "index": 87,
+        "number": 0,
+        "value": "EventGraph"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 205,
+      "serial_offset": 29413,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph",
+      "class": "/Script/Engine.EdGraph",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 14,
+      "class_index": {
+        "raw": -24,
+        "kind": "import",
+        "index": 23
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 70,
+        "number": 7,
+        "value": "EdGraphNode_Comment_6"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 405,
+      "serial_offset": 29618,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.EdGraphNode_Comment_6",
+      "class": "/Script/UnrealEd.EdGraphNode_Comment",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 15,
+      "class_index": {
+        "raw": -24,
+        "kind": "import",
+        "index": 23
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 70,
+        "number": 8,
+        "value": "EdGraphNode_Comment_7"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 392,
+      "serial_offset": 30023,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.EdGraphNode_Comment_7",
+      "class": "/Script/UnrealEd.EdGraphNode_Comment",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 16,
+      "class_index": {
+        "raw": -5,
+        "kind": "import",
+        "index": 4
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      "object_name": {
+        "index": 27,
+        "number": 0,
+        "value": "BndEvt__WidgetMenu_ExitButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature"
+      },
+      "object_flags": 1,
+      "object_flags_hex": "0x00000001",
+      "object_flag_names": [
+        "RF_Public"
+      ],
+      "serial_size": 62,
+      "serial_offset": 30415,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.BndEvt__WidgetMenu_ExitButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature",
+      "class": "/Script/CoreUObject.Function",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 17,
+      "class_index": {
+        "raw": -5,
+        "kind": "import",
+        "index": 4
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      "object_name": {
+        "index": 28,
+        "number": 0,
+        "value": "BndEvt__WidgetMenu_RestartButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature"
+      },
+      "object_flags": 1,
+      "object_flags_hex": "0x00000001",
+      "object_flag_names": [
+        "RF_Public"
+      ],
+      "serial_size": 62,
+      "serial_offset": 30477,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.BndEvt__WidgetMenu_RestartButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature",
+      "class": "/Script/CoreUObject.Function",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 18,
+      "class_index": {
+        "raw": -5,
+        "kind": "import",
+        "index": 4
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      "object_name": {
+        "index": 91,
+        "number": 0,
+        "value": "ExecuteUbergraph_WidgetMenu"
+      },
+      "object_flags": 1,
+      "object_flags_hex": "0x00000001",
+      "object_flag_names": [
+        "RF_Public"
+      ],
+      "serial_size": 169,
+      "serial_offset": 30539,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.ExecuteUbergraph_WidgetMenu",
+      "class": "/Script/CoreUObject.Function",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 19,
+      "class_index": {
+        "raw": -2,
+        "kind": "import",
+        "index": 1
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 108,
+        "number": 1,
+        "value": "K2Node_CallFunction_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 1697,
+      "serial_offset": 30708,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.K2Node_CallFunction_0",
+      "class": "/Script/BlueprintGraph.K2Node_CallFunction",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 20,
+      "class_index": {
+        "raw": -2,
+        "kind": "import",
+        "index": 1
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 108,
+        "number": 2,
+        "value": "K2Node_CallFunction_1"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 1644,
+      "serial_offset": 32405,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.K2Node_CallFunction_1",
+      "class": "/Script/BlueprintGraph.K2Node_CallFunction",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 21,
+      "class_index": {
+        "raw": -3,
+        "kind": "import",
+        "index": 2
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 109,
+        "number": 1,
+        "value": "K2Node_ComponentBoundEvent_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 877,
+      "serial_offset": 34049,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.K2Node_ComponentBoundEvent_0",
+      "class": "/Script/BlueprintGraph.K2Node_ComponentBoundEvent",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 22,
+      "class_index": {
+        "raw": -3,
+        "kind": "import",
+        "index": 2
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 109,
+        "number": 2,
+        "value": "K2Node_ComponentBoundEvent_1"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 877,
+      "serial_offset": 34926,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.K2Node_ComponentBoundEvent_1",
+      "class": "/Script/BlueprintGraph.K2Node_ComponentBoundEvent",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 23,
+      "class_index": {
+        "raw": -4,
+        "kind": "import",
+        "index": 3
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 110,
+        "number": 1,
+        "value": "K2Node_Event_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 1035,
+      "serial_offset": 35803,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.K2Node_Event_0",
+      "class": "/Script/BlueprintGraph.K2Node_Event",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 24,
+      "class_index": {
+        "raw": -4,
+        "kind": "import",
+        "index": 3
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 110,
+        "number": 2,
+        "value": "K2Node_Event_1"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 841,
+      "serial_offset": 36838,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.K2Node_Event_1",
+      "class": "/Script/BlueprintGraph.K2Node_Event",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 25,
+      "class_index": {
+        "raw": -4,
+        "kind": "import",
+        "index": 3
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      "object_name": {
+        "index": 110,
+        "number": 3,
+        "value": "K2Node_Event_2"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 1346,
+      "serial_offset": 37679,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.EventGraph.K2Node_Event_2",
+      "class": "/Script/BlueprintGraph.K2Node_Event",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 26,
+      "class_index": {
+        "raw": -6,
+        "kind": "import",
+        "index": 5
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 144,
+        "number": 0,
+        "value": "PackageMetaData"
+      },
+      "object_flags": 2,
+      "object_flags_hex": "0x00000002",
+      "object_flag_names": [
+        "RF_Standalone"
+      ],
+      "serial_size": 2910,
+      "serial_offset": 39025,
+      "forced_export": false,
+      "not_for_client": true,
+      "not_for_server": true,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "PackageMetaData",
+      "class": "/Script/CoreUObject.MetaData",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 27,
+      "class_index": {
+        "raw": -17,
+        "kind": "import",
+        "index": 16
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 41,
+        "kind": "export",
+        "index": 40
+      },
+      "object_name": {
+        "index": 177,
+        "number": 0,
+        "value": "Text_ExitButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 418,
+      "serial_offset": 41935,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.Text_ExitButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 28,
+      "class_index": {
+        "raw": -17,
+        "kind": "import",
+        "index": 16
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 41,
+        "kind": "export",
+        "index": 40
+      },
+      "object_name": {
+        "index": 178,
+        "number": 0,
+        "value": "Text_RestartButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 419,
+      "serial_offset": 42353,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.Text_RestartButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 29,
+      "class_index": {
+        "raw": -17,
+        "kind": "import",
+        "index": 16
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 42,
+        "kind": "export",
+        "index": 41
+      },
+      "object_name": {
+        "index": 177,
+        "number": 0,
+        "value": "Text_ExitButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 418,
+      "serial_offset": 42772,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.Text_ExitButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 30,
+      "class_index": {
+        "raw": -17,
+        "kind": "import",
+        "index": 16
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 42,
+        "kind": "export",
+        "index": 41
+      },
+      "object_name": {
+        "index": 178,
+        "number": 0,
+        "value": "Text_RestartButton"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 419,
+      "serial_offset": 43190,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.Text_RestartButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 31,
+      "class_index": {
+        "raw": -19,
+        "kind": "import",
+        "index": 18
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 41,
+        "kind": "export",
+        "index": 40
+      },
+      "object_name": {
+        "index": 192,
+        "number": 49,
+        "value": "VerticalBox_48"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 112,
+      "serial_offset": 43609,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48",
+      "class": "/Script/UMG.VerticalBox",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 32,
+      "class_index": {
+        "raw": -19,
+        "kind": "import",
+        "index": 18
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 42,
+        "kind": "export",
+        "index": 41
+      },
+      "object_name": {
+        "index": 192,
+        "number": 49,
+        "value": "VerticalBox_48"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 112,
+      "serial_offset": 43721,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48",
+      "class": "/Script/UMG.VerticalBox",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 33,
+      "class_index": {
+        "raw": -20,
+        "kind": "import",
+        "index": 19
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 32,
+        "kind": "export",
+        "index": 31
+      },
+      "object_name": {
+        "index": 193,
+        "number": 1,
+        "value": "VerticalBoxSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 283,
+      "serial_offset": 43833,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 34,
+      "class_index": {
+        "raw": -20,
+        "kind": "import",
+        "index": 19
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 32,
+        "kind": "export",
+        "index": 31
+      },
+      "object_name": {
+        "index": 193,
+        "number": 2,
+        "value": "VerticalBoxSlot_1"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 283,
+      "serial_offset": 44116,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 35,
+      "class_index": {
+        "raw": -20,
+        "kind": "import",
+        "index": 19
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 33,
+        "kind": "export",
+        "index": 32
+      },
+      "object_name": {
+        "index": 193,
+        "number": 1,
+        "value": "VerticalBoxSlot_0"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 283,
+      "serial_offset": 44399,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 36,
+      "class_index": {
+        "raw": -20,
+        "kind": "import",
+        "index": 19
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 33,
+        "kind": "export",
+        "index": 32
+      },
+      "object_name": {
+        "index": 193,
+        "number": 2,
+        "value": "VerticalBoxSlot_1"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 283,
+      "serial_offset": 44682,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 37,
+      "class_index": {
+        "raw": -23,
+        "kind": "import",
+        "index": 22
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 198,
+        "number": 0,
+        "value": "WidgetMenu"
+      },
+      "object_flags": 11,
+      "object_flags_hex": "0x0000000b",
+      "object_flag_names": [
+        "RF_Public",
+        "RF_Standalone",
+        "RF_Transactional"
+      ],
+      "serial_size": 565,
+      "serial_offset": 44965,
+      "forced_export": false,
+      "not_for_client": true,
+      "not_for_server": true,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": true,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu",
+      "class": "/Script/UMGEditor.WidgetBlueprint",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 38,
+      "class_index": {
+        "raw": -21,
+        "kind": "import",
+        "index": 20
+      },
+      "super_index": {
+        "raw": -18,
+        "kind": "import",
+        "index": 17
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 199,
+        "number": 0,
+        "value": "WidgetMenu_C"
+      },
+      "object_flags": 9,
+      "object_flags_hex": "0x00000009",
+      "object_flag_names": [
+        "RF_Public",
+        "RF_Transactional"
+      ],
+      "serial_size": 495,
+      "serial_offset": 45530,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": true,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C",
+      "class": "/Script/UMG.WidgetBlueprintGeneratedClass",
+      "super": "/Script/UMG.UserWidget",
+      "template": null
+    },
+    {
+      "index": 39,
+      "class_index": {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "object_name": {
+        "index": 57,
+        "number": 0,
+        "value": "Default__WidgetMenu_C"
+      },
+      "object_flags": 49,
+      "object_flags_hex": "0x00000031",
+      "object_flag_names": [
+        "RF_Public",
+        "RF_ClassDefaultObject",
+        "RF_ArchetypeObject"
+      ],
+      "serial_size": 158,
+      "serial_offset": 46025,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "Default__WidgetMenu_C",
+      "class": "WidgetMenu_C",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 40,
+      "class_index": {
+        "raw": -22,
+        "kind": "import",
+        "index": 21
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 38,
+        "kind": "export",
+        "index": 37
+      },
+      "object_name": {
+        "index": 201,
+        "number": 0,
+        "value": "WidgetTree"
+      },
+      "object_flags": 262153,
+      "object_flags_hex": "0x00040009",
+      "object_flag_names": [
+        "RF_Public",
+        "RF_Transactional",
+        "RF_DefaultSubObject"
+      ],
+      "serial_size": 102,
+      "serial_offset": 46183,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu.WidgetTree",
+      "class": "/Script/UMG.WidgetTree",
+      "super": null,
+      "template": null
+    },
+    {
+      "index": 41,
+      "class_index": {
+        "raw": -22,
+        "kind": "import",
+        "index": 21
+      },
+      "super_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "template_index": {
+        "raw": 0,
+        "kind": "null",
+        "index": null
+      },
+      "outer_index": {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      "object_name": {
+        "index": 201,
+        "number": 0,
+        "value": "WidgetTree"
+      },
+      "object_flags": 8,
+      "object_flags_hex": "0x00000008",
+      "object_flag_names": [
+        "RF_Transactional"
+      ],
+      "serial_size": 102,
+      "serial_offset": 46285,
+      "forced_export": false,
+      "not_for_client": false,
+      "not_for_server": false,
+      "package_guid": "00000000-0000-0000-0000-000000000000",
+      "package_flags": 0,
+      "package_flags_hex": "0x00000000",
+      "package_flag_names": [],
+      "not_always_loaded_for_editor_game": false,
+      "is_asset": false,
+      "first_export_dependency": -1,
+      "serialization_before_serialization_dependencies": 0,
+      "create_before_serialization_dependencies": 0,
+      "serialization_before_create_dependencies": 0,
+      "create_before_create_dependencies": 0,
+      "path": "WidgetMenu_C.WidgetTree",
+      "class": "/Script/UMG.WidgetTree",
+      "super": null,
+      "template": null
+    }
+  ],
+  "depends": [
+    [
+      {
+        "raw": 3,
+        "kind": "export",
+        "index": 2
+      }
+    ],
+    [
+      {
+        "raw": 4,
+        "kind": "export",
+        "index": 3
+      }
+    ],
+    [
+      {
+        "raw": 1,
+        "kind": "export",
+        "index": 0
+      },
+      {
+        "raw": 32,
+        "kind": "export",
+        "index": 31
+      }
+    ],
+    [
+      {
+        "raw": 2,
+        "kind": "export",
+        "index": 1
+      },
+      {
+        "raw": 33,
+        "kind": "export",
+        "index": 32
+      }
+    ],
+    [
+      {
+        "raw": 9,
+        "kind": "export",
+        "index": 8
+      },
+      {
+        "raw": 35,
+        "kind": "export",
+        "index": 34
+      }
+    ],
+    [
+      {
+        "raw": 10,
+        "kind": "export",
+        "index": 9
+      },
+      {
+        "raw": 34,
+        "kind": "export",
+        "index": 33
+      }
+    ],
+    [
+      {
+        "raw": 11,
+        "kind": "export",
+        "index": 10
+      },
+      {
+        "raw": 37,
+        "kind": "export",
+        "index": 36
+      }
+    ],
+    [
+      {
+        "raw": 12,
+        "kind": "export",
+        "index": 11
+      },
+      {
+        "raw": 36,
+        "kind": "export",
+        "index": 35
+      }
+    ],
+    [
+      {
+        "raw": 5,
+        "kind": "export",
+        "index": 4
+      },
+      {
+        "raw": 28,
+        "kind": "export",
+        "index": 27
+      }
+    ],
+    [
+      {
+        "raw": 6,
+        "kind": "export",
+        "index": 5
+      },
+      {
+        "raw": 29,
+        "kind": "export",
+        "index": 28
+      }
+    ],
+    [
+      {
+        "raw": 7,
+        "kind": "export",
+        "index": 6
+      },
+      {
+        "raw": 30,
+        "kind": "export",
+        "index": 29
+      }
+    ],
+    [
+      {
+        "raw": 8,
+        "kind": "export",
+        "index": 7
+      },
+      {
+        "raw": 31,
+        "kind": "export",
+        "index": 30
+      }
+    ],
+    [],
+    [
+      {
+        "raw": 24,
+        "kind": "export",
+        "index": 23
+      },
+      {
+        "raw": 25,
+        "kind": "export",
+        "index": 24
+      },
+      {
+        "raw": 26,
+        "kind": "export",
+        "index": 25
+      },
+      {
+        "raw": 22,
+        "kind": "export",
+        "index": 21
+      },
+      {
+        "raw": 23,
+        "kind": "export",
+        "index": 22
+      },
+      {
+        "raw": 20,
+        "kind": "export",
+        "index": 19
+      },
+      {
+        "raw": 21,
+        "kind": "export",
+        "index": 20
+      },
+      {
+        "raw": 15,
+        "kind": "export",
+        "index": 14
+      },
+      {
+        "raw": 16,
+        "kind": "export",
+        "index": 15
+      }
+    ],
+    [],
+    [],
+    [
+      {
+        "raw": 19,
+        "kind": "export",
+        "index": 18
+      }
+    ],
+    [
+      {
+        "raw": 19,
+        "kind": "export",
+        "index": 18
+      }
+    ],
+    [
+      {
+        "raw": 19,
+        "kind": "export",
+        "index": 18
+      }
+    ],
+    [
+      {
+        "raw": 20,
+        "kind": "export",
+        "index": 19
+      },
+      {
+        "raw": 22,
+        "kind": "export",
+        "index": 21
+      },
+      {
+        "raw": -28,
+        "kind": "import",
+        "index": 27
+      }
+    ],
+    [
+      {
+        "raw": 21,
+        "kind": "export",
+        "index": 20
+      },
+      {
+        "raw": 23,
+        "kind": "export",
+        "index": 22
+      },
+      {
+        "raw": -29,
+        "kind": "import",
+        "index": 28
+      }
+    ],
+    [
+      {
+        "raw": 22,
+        "kind": "export",
+        "index": 21
+      },
+      {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      {
+        "raw": 20,
+        "kind": "export",
+        "index": 19
+      }
+    ],
+    [
+      {
+        "raw": 23,
+        "kind": "export",
+        "index": 22
+      },
+      {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      {
+        "raw": 21,
+        "kind": "export",
+        "index": 20
+      }
+    ],
+    [
+      {
+        "raw": 24,
+        "kind": "export",
+        "index": 23
+      }
+    ],
+    [
+      {
+        "raw": 25,
+        "kind": "export",
+        "index": 24
+      }
+    ],
+    [
+      {
+        "raw": 26,
+        "kind": "export",
+        "index": 25
+      }
+    ],
+    [],
+    [
+      {
+        "raw": 9,
+        "kind": "export",
+        "index": 8
+      }
+    ],
+    [
+      {
+        "raw": 10,
+        "kind": "export",
+        "index": 9
+      }
+    ],
+    [
+      {
+        "raw": 11,
+        "kind": "export",
+        "index": 10
+      }
+    ],
+    [
+      {
+        "raw": 12,
+        "kind": "export",
+        "index": 11
+      }
+    ],
+    [
+      {
+        "raw": 34,
+        "kind": "export",
+        "index": 33
+      },
+      {
+        "raw": 35,
+        "kind": "export",
+        "index": 34
+      },
+      {
+        "raw": 3,
+        "kind": "export",
+        "index": 2
+      }
+    ],
+    [
+      {
+        "raw": 36,
+        "kind": "export",
+        "index": 35
+      },
+      {
+        "raw": 37,
+        "kind": "export",
+        "index": 36
+      },
+      {
+        "raw": 4,
+        "kind": "export",
+        "index": 3
+      }
+    ],
+    [
+      {
+        "raw": 32,
+        "kind": "export",
+        "index": 31
+      },
+      {
+        "raw": 6,
+        "kind": "export",
+        "index": 5
+      }
+    ],
+    [
+      {
+        "raw": 32,
+        "kind": "export",
+        "index": 31
+      },
+      {
+        "raw": 5,
+        "kind": "export",
+        "index": 4
+      }
+    ],
+    [
+      {
+        "raw": 33,
+        "kind": "export",
+        "index": 32
+      },
+      {
+        "raw": 8,
+        "kind": "export",
+        "index": 7
+      }
+    ],
+    [
+      {
+        "raw": 33,
+        "kind": "export",
+        "index": 32
+      },
+      {
+        "raw": 7,
+        "kind": "export",
+        "index": 6
+      }
+    ],
+    [
+      {
+        "raw": 41,
+        "kind": "export",
+        "index": 40
+      },
+      {
+        "raw": 14,
+        "kind": "export",
+        "index": 13
+      },
+      {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      }
+    ],
+    [
+      {
+        "raw": 42,
+        "kind": "export",
+        "index": 41
+      },
+      {
+        "raw": 13,
+        "kind": "export",
+        "index": 12
+      },
+      {
+        "raw": 19,
+        "kind": "export",
+        "index": 18
+      },
+      {
+        "raw": 17,
+        "kind": "export",
+        "index": 16
+      },
+      {
+        "raw": 18,
+        "kind": "export",
+        "index": 17
+      },
+      {
+        "raw": 38,
+        "kind": "export",
+        "index": 37
+      },
+      {
+        "raw": 40,
+        "kind": "export",
+        "index": 39
+      }
+    ],
+    [
+      {
+        "raw": 39,
+        "kind": "export",
+        "index": 38
+      },
+      {
+        "raw": -39,
+        "kind": "import",
+        "index": 38
+      }
+    ],
+    [
+      {
+        "raw": 1,
+        "kind": "export",
+        "index": 0
+      },
+      {
+        "raw": 32,
+        "kind": "export",
+        "index": 31
+      },
+      {
+        "raw": 6,
+        "kind": "export",
+        "index": 5
+      },
+      {
+        "raw": 29,
+        "kind": "export",
+        "index": 28
+      },
+      {
+        "raw": 5,
+        "kind": "export",
+        "index": 4
+      },
+      {
+        "raw": 28,
+        "kind": "export",
+        "index": 27
+      },
+      {
+        "raw": -41,
+        "kind": "import",
+        "index": 40
+      },
+      {
+        "raw": -40,
+        "kind": "import",
+        "index": 39
+      }
+    ],
+    [
+      {
+        "raw": 2,
+        "kind": "export",
+        "index": 1
+      },
+      {
+        "raw": 33,
+        "kind": "export",
+        "index": 32
+      },
+      {
+        "raw": 8,
+        "kind": "export",
+        "index": 7
+      },
+      {
+        "raw": 31,
+        "kind": "export",
+        "index": 30
+      },
+      {
+        "raw": 7,
+        "kind": "export",
+        "index": 6
+      },
+      {
+        "raw": 30,
+        "kind": "export",
+        "index": 29
+      }
+    ]
+  ],
+  "soft_package_references": [
+    {
+      "index": 0,
+      "number": 0,
+      "value": "/Game/VRTemplate/Blueprints/WidgetMenu"
+    }
+  ],
+  "preload_dependencies": []
+}
