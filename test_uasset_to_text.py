@@ -10,6 +10,7 @@ import unittest
 import text_to_uasset
 import uasset_diff
 import uasset_diff3
+import uasset_p4merge
 import uasset_to_text as uasset
 
 
@@ -89,6 +90,22 @@ def make_minimal_uasset(*, package_source: int = 0) -> bytes:
     write("ii", -1, 0)  # preload dependencies
     struct.pack_into("<i", binary, 24, len(binary))
     return bytes(binary)
+
+
+def write_fake_p4merge(tool_path: str, log_path: str) -> None:
+    script = "\n".join(
+        [
+            "#!/usr/bin/env python3",
+            "import json",
+            "import sys",
+            f"with open({log_path!r}, 'w', encoding='utf-8') as file:",
+            "    json.dump(sys.argv[1:], file)",
+            "",
+        ]
+    )
+    with open(tool_path, "w", encoding="utf-8") as file:
+        file.write(script)
+    os.chmod(tool_path, 0o755)
 
 
 class UAssetParserValidationTests(unittest.TestCase):
@@ -245,6 +262,71 @@ class UAssetParserValidationTests(unittest.TestCase):
         self.assertEqual(report["summary"], {"changes": 0, "conflicts": 0})
         self.assertEqual(report["changes"], [])
         self.assertEqual(report["conflicts"], [])
+
+    def test_uasset_p4merge_runs_2_way_compare_with_json_files(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tool_path = os.path.join(temp_dir, "fake_p4merge.py")
+            log_path = os.path.join(temp_dir, "argv.json")
+            left_path = os.path.join(temp_dir, "Left.uasset")
+            right_path = os.path.join(temp_dir, "Right.uasset")
+            write_fake_p4merge(tool_path, log_path)
+            with open(left_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=0))
+            with open(right_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=1))
+
+            run = uasset_p4merge.run_uasset_p4merge(
+                [left_path, right_path],
+                tool=tool_path,
+                temp_root=temp_dir,
+            )
+
+            with open(log_path, "r", encoding="utf-8") as file:
+                p4_args = json.load(file)
+            with open(p4_args[0], "r", encoding="utf-8") as file:
+                left_json = json.load(file)
+
+        self.assertEqual(run.returncode, 0)
+        self.assertEqual(len(p4_args), 2)
+        self.assertTrue(os.path.basename(p4_args[0]).startswith("left_Left.uasset"))
+        self.assertTrue(os.path.basename(p4_args[1]).startswith("right_Right.uasset"))
+        self.assertEqual(left_json["summary"]["package_source"], 0)
+
+    def test_uasset_p4merge_runs_3_way_in_perforce_argument_order(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tool_path = os.path.join(temp_dir, "fake_p4merge.py")
+            log_path = os.path.join(temp_dir, "argv.json")
+            base_path = os.path.join(temp_dir, "Base.uasset")
+            ours_path = os.path.join(temp_dir, "Ours.uasset")
+            theirs_path = os.path.join(temp_dir, "Theirs.uasset")
+            result_path = os.path.join(temp_dir, "Merged.json")
+            write_fake_p4merge(tool_path, log_path)
+            with open(base_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=0))
+            with open(ours_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=1))
+            with open(theirs_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=2))
+
+            run = uasset_p4merge.run_uasset_p4merge(
+                [base_path, ours_path, theirs_path],
+                tool=tool_path,
+                result_path=result_path,
+                temp_root=temp_dir,
+            )
+
+            with open(log_path, "r", encoding="utf-8") as file:
+                p4_args = json.load(file)
+            with open(result_path, "r", encoding="utf-8") as file:
+                result_json = json.load(file)
+
+        self.assertEqual(run.returncode, 0)
+        self.assertEqual(len(p4_args), 4)
+        self.assertTrue(os.path.basename(p4_args[0]).startswith("base_Base.uasset"))
+        self.assertTrue(os.path.basename(p4_args[1]).startswith("theirs_Theirs.uasset"))
+        self.assertTrue(os.path.basename(p4_args[2]).startswith("ours_Ours.uasset"))
+        self.assertEqual(p4_args[3], os.path.abspath(result_path))
+        self.assertEqual(result_json["summary"]["package_source"], 1)
 
     def test_name_entry_length_is_bounded_like_ue4(self):
         data = struct.pack("<i", uasset.MAX_NAME_CODE_UNITS + 1)

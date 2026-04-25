@@ -52,6 +52,14 @@ Print a 3-way metadata diff report between a common base, ours, and theirs:
 ./uasset_diff3.py /path/to/Base.uasset /path/to/Ours.uasset /path/to/Theirs.uasset
 ```
 
+Open P4Merge with generated JSON files. Pass two `.uasset` files for 2-way
+compare, or pass `base ours theirs` for 3-way merge:
+
+```bash
+./uasset_p4merge.py /path/to/Old.uasset /path/to/New.uasset
+./uasset_p4merge.py /path/to/Base.uasset /path/to/Ours.uasset /path/to/Theirs.uasset
+```
+
 Include export payload location and byte previews:
 
 ```bash
@@ -88,6 +96,7 @@ Diff the full reversible JSON wrapper, including embedded base64 bytes:
 ```bash
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --full-text
 ./uasset_diff3.py /path/to/Base.uasset /path/to/Ours.uasset /path/to/Theirs.uasset --full-text
+./uasset_p4merge.py /path/to/Old.uasset /path/to/New.uasset --full-text
 ```
 
 ## Output
@@ -135,7 +144,7 @@ data.
 Run a syntax check:
 
 ```bash
-python3 -m py_compile uasset_to_text.py text_to_uasset.py uasset_diff.py uasset_diff3.py
+python3 -m py_compile uasset_to_text.py text_to_uasset.py uasset_diff.py uasset_diff3.py uasset_p4_common.py uasset_p4merge.py
 ```
 
 Run the tests:
