@@ -10,6 +10,7 @@ import unittest
 import text_to_uasset
 import uasset_diff
 import uasset_diff3
+import uasset_p4_common
 import uasset_p4merge
 import uasset_to_text as uasset
 
@@ -326,6 +327,86 @@ class UAssetParserValidationTests(unittest.TestCase):
         self.assertTrue(os.path.basename(p4_args[1]).startswith("theirs_Theirs.uasset"))
         self.assertTrue(os.path.basename(p4_args[2]).startswith("ours_Ours.uasset"))
         self.assertEqual(p4_args[3], os.path.abspath(result_path))
+        self.assertEqual(result_json["summary"]["package_source"], 1)
+
+    def test_uasset_p4merge_rejects_uasset_result_path(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tool_path = os.path.join(temp_dir, "fake_p4merge.py")
+            log_path = os.path.join(temp_dir, "argv.json")
+            base_path = os.path.join(temp_dir, "Base.uasset")
+            ours_path = os.path.join(temp_dir, "Ours.uasset")
+            theirs_path = os.path.join(temp_dir, "Theirs.uasset")
+            write_fake_p4merge(tool_path, log_path)
+            for path in (base_path, ours_path, theirs_path):
+                with open(path, "wb") as file:
+                    file.write(make_minimal_uasset())
+
+            with self.assertRaisesRegex(uasset_p4_common.P4ToolError, ".json"):
+                uasset_p4merge.run_uasset_p4merge(
+                    [base_path, ours_path, theirs_path],
+                    tool=tool_path,
+                    result_path=ours_path,
+                    temp_root=temp_dir,
+                )
+
+    def test_uasset_p4merge_refuses_to_overwrite_existing_result(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tool_path = os.path.join(temp_dir, "fake_p4merge.py")
+            log_path = os.path.join(temp_dir, "argv.json")
+            base_path = os.path.join(temp_dir, "Base.uasset")
+            ours_path = os.path.join(temp_dir, "Ours.uasset")
+            theirs_path = os.path.join(temp_dir, "Theirs.uasset")
+            result_path = os.path.join(temp_dir, "Merged.json")
+            write_fake_p4merge(tool_path, log_path)
+            for path in (base_path, ours_path, theirs_path):
+                with open(path, "wb") as file:
+                    file.write(make_minimal_uasset())
+            with open(result_path, "w", encoding="utf-8") as file:
+                file.write("keep me")
+
+            with self.assertRaisesRegex(uasset_p4_common.P4ToolError, "already exists"):
+                uasset_p4merge.run_uasset_p4merge(
+                    [base_path, ours_path, theirs_path],
+                    tool=tool_path,
+                    result_path=result_path,
+                    temp_root=temp_dir,
+                )
+
+            with open(result_path, "r", encoding="utf-8") as file:
+                result_text = file.read()
+
+        self.assertEqual(result_text, "keep me")
+
+    def test_uasset_p4merge_can_overwrite_existing_result_when_requested(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tool_path = os.path.join(temp_dir, "fake_p4merge.py")
+            log_path = os.path.join(temp_dir, "argv.json")
+            base_path = os.path.join(temp_dir, "Base.uasset")
+            ours_path = os.path.join(temp_dir, "Ours.uasset")
+            theirs_path = os.path.join(temp_dir, "Theirs.uasset")
+            result_path = os.path.join(temp_dir, "Merged.json")
+            write_fake_p4merge(tool_path, log_path)
+            with open(base_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=0))
+            with open(ours_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=1))
+            with open(theirs_path, "wb") as file:
+                file.write(make_minimal_uasset(package_source=2))
+            with open(result_path, "w", encoding="utf-8") as file:
+                file.write("replace me")
+
+            run = uasset_p4merge.run_uasset_p4merge(
+                [base_path, ours_path, theirs_path],
+                tool=tool_path,
+                result_path=result_path,
+                overwrite_result=True,
+                temp_root=temp_dir,
+            )
+
+            with open(result_path, "r", encoding="utf-8") as file:
+                result_json = json.load(file)
+
+        self.assertEqual(run.returncode, 0)
         self.assertEqual(result_json["summary"]["package_source"], 1)
 
     def test_name_entry_length_is_bounded_like_ue4(self):

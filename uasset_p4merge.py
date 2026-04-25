@@ -92,11 +92,35 @@ def default_result_path(temp_dir: str, ours_path: str) -> str:
     return os.path.join(temp_dir, uasset_p4_common.safe_json_name("result", ours_path))
 
 
+def validate_result_path(
+    result_path: str,
+    input_paths: list[str],
+    *,
+    overwrite_result: bool,
+) -> str:
+    resolved = os.path.abspath(result_path)
+    if os.path.splitext(resolved)[1].lower() != ".json":
+        raise uasset_p4_common.P4ToolError(
+            "--result must be a .json path; original .uasset files are never merge targets"
+        )
+
+    input_path_set = {os.path.abspath(path) for path in input_paths}
+    if resolved in input_path_set:
+        raise uasset_p4_common.P4ToolError("--result must not be one of the input files")
+
+    if os.path.exists(resolved) and not overwrite_result:
+        raise uasset_p4_common.P4ToolError(
+            f"result file already exists: {resolved}; use --overwrite-result to replace it"
+        )
+    return resolved
+
+
 def run_uasset_p4merge(
     input_paths: list[str],
     *,
     tool: str | None = None,
     result_path: str | None = None,
+    overwrite_result: bool = False,
     temp_root: str | None = None,
     delete_temp: bool = False,
     full_text: bool = False,
@@ -132,7 +156,11 @@ def run_uasset_p4merge(
 
         if len(json_paths) == 3:
             final_result_path = (
-                os.path.abspath(result_path)
+                validate_result_path(
+                    result_path,
+                    input_paths,
+                    overwrite_result=overwrite_result,
+                )
                 if result_path is not None
                 else default_result_path(temp_dir, input_paths[1])
             )
@@ -167,6 +195,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "-o",
         "--result",
         help="Result JSON path for 3-way merge. Defaults to a generated temp JSON file.",
+    )
+    parser.add_argument(
+        "--overwrite-result",
+        action="store_true",
+        help="Allow --result to replace an existing .json file.",
     )
     parser.add_argument(
         "--tool",
@@ -229,6 +262,7 @@ def main(argv: list[str]) -> int:
             args.uassets,
             tool=args.tool,
             result_path=args.result,
+            overwrite_result=args.overwrite_result,
             temp_root=args.temp_dir,
             delete_temp=args.delete_temp,
             full_text=args.full_text,

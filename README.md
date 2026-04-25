@@ -60,6 +60,10 @@ compare, or pass `base ours theirs` for 3-way merge:
 ./uasset_p4merge.py /path/to/Base.uasset /path/to/Ours.uasset /path/to/Theirs.uasset
 ```
 
+P4Merge only edits generated `.json` files; the original `.uasset` inputs are
+not merge targets. If you provide `--result`, it must be a `.json` path and
+existing files are preserved unless `--overwrite-result` is used.
+
 Include export payload location and byte previews:
 
 ```bash
