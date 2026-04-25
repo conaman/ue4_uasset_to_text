@@ -7,6 +7,7 @@ It can:
 
 - Convert a `.uasset` file to a pretty JSON file.
 - Restore a reversible JSON wrapper back to the exact original `.uasset` bytes.
+- Print a compact UMG widget tree summary with widget names and types.
 - Print 2-way and 3-way JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated JSON files for visual comparison.
 
@@ -28,6 +29,7 @@ No third-party Python packages are required.
 | --- | --- |
 | `uasset_to_text.py` | Convert `.uasset` to JSON. |
 | `text_to_uasset.py` | Restore a reversible JSON wrapper to `.uasset`. |
+| `uasset_umg_summary.py` | Print a UMG WidgetTree summary from a `.uasset` or generated JSON file. |
 | `uasset_diff.py` | Print a unified 2-way diff between two `.uasset` files. |
 | `uasset_diff3.py` | Print a structured 3-way diff report. |
 | `uasset_p4merge.py` | Convert `.uasset` files to JSON, then open P4Merge. |
@@ -51,6 +53,12 @@ Print JSON to the console instead of writing a file:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset --stdout
+```
+
+Print a UMG widget summary directly from a `.uasset` file:
+
+```bash
+./uasset_umg_summary.py /path/to/Widget.uasset
 ```
 
 Write to a specific path:
@@ -92,6 +100,56 @@ Include export payload locations and short byte previews:
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset --include-export-data --bytes 64
 ```
+
+## UMG Widget Summary
+
+`uasset_umg_summary.py` accepts a `.uasset` file directly. It uses the same
+parser as `uasset_to_text.py` internally, then prints a focused WidgetTree
+summary to stdout without creating an intermediate JSON file.
+
+```bash
+./uasset_umg_summary.py /path/to/Widget.uasset
+```
+
+Example output:
+
+```text
+Asset: WidgetMenu
+UMG: WidgetBlueprint
+ParentClass: UserWidget
+Widgets: 6
+
+WidgetTree
+  CanvasPanel_0 (CanvasPanel)
+    HorizontalBox_0 (HorizontalBox)
+      StartButton (Button)
+        StartText (TextBlock)
+    SizeBox_0 (SizeBox)
+      TitleText (TextBlock)
+```
+
+The default output shows `Name (Type)` entries. UMG slot exports are hidden by
+default, but can be included when you need to inspect layout slot entries:
+
+```bash
+./uasset_umg_summary.py /path/to/Widget.uasset --include-slots
+```
+
+Print the summary as JSON:
+
+```bash
+./uasset_umg_summary.py /path/to/Widget.uasset --json
+```
+
+Generated JSON from `uasset_to_text.py` can also be used as input:
+
+```bash
+./uasset_to_text.py /path/to/Widget.uasset
+./uasset_umg_summary.py Widget.json
+```
+
+If the input does not look like a UMG asset, the command prints an error and
+exits with a non-zero status.
 
 ## Diffing
 

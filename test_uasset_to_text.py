@@ -14,6 +14,7 @@ import uasset_diff
 import uasset_diff3
 import uasset_p4_common
 import uasset_p4merge
+import uasset_umg_summary
 import uasset_to_text as uasset
 
 
@@ -123,6 +124,7 @@ class UAssetParserValidationTests(unittest.TestCase):
             uasset_diff3,
             uasset_p4_common,
             uasset_p4merge,
+            uasset_umg_summary,
         )
         for module in modules:
             self.assertEqual(module.TOOL_VERSION, TOOL_VERSION)
@@ -134,6 +136,7 @@ class UAssetParserValidationTests(unittest.TestCase):
             uasset_diff,
             uasset_diff3,
             uasset_p4merge,
+            uasset_umg_summary,
         )
         for module in modules:
             stdout = io.StringIO()
@@ -142,6 +145,129 @@ class UAssetParserValidationTests(unittest.TestCase):
                     module.parse_args(["--version"])
             self.assertEqual(caught.exception.code, 0)
             self.assertIn(TOOL_VERSION, stdout.getvalue())
+
+    def test_uasset_umg_summary_collects_widget_names_and_types(self):
+        metadata = {
+            "file": {"path": "/tmp/WidgetMenu.uasset"},
+            "exports": [
+                {
+                    "class": "/Script/UMGEditor.WidgetBlueprint",
+                    "is_asset": True,
+                    "object_name": {"value": "WidgetMenu"},
+                },
+                {
+                    "class": "/Script/UMG.WidgetBlueprintGeneratedClass",
+                    "object_name": {"value": "WidgetMenu_C"},
+                    "super": "/Script/UMG.UserWidget",
+                },
+                {
+                    "class": "/Script/UMG.Button",
+                    "object_name": {"value": "ExitButton"},
+                    "path": "WidgetMenu.WidgetTree.ExitButton",
+                },
+                {
+                    "class": "/Script/UMG.Button",
+                    "object_name": {"value": "ExitButton"},
+                    "path": "WidgetMenu_C.WidgetTree.ExitButton",
+                },
+                {
+                    "class": "/Script/UMG.ButtonSlot",
+                    "object_name": {"value": "ButtonSlot_0"},
+                    "path": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0",
+                },
+                {
+                    "class": "/Script/UMG.WidgetTree",
+                    "object_name": {"value": "WidgetTree"},
+                    "path": "WidgetMenu.WidgetTree",
+                },
+                {
+                    "class": "/Script/BlueprintGraph.K2Node_CallFunction",
+                    "object_name": {"value": "K2Node_CallFunction_0"},
+                },
+            ],
+        }
+
+        summary = uasset_umg_summary.summarize_umg(metadata)
+
+        self.assertEqual(summary["asset_name"], "WidgetMenu")
+        self.assertEqual(summary["umg_kind"], "WidgetBlueprint")
+        self.assertEqual(summary["parent_class"], "/Script/UMG.UserWidget")
+        self.assertEqual(
+            summary["widgets"],
+            [
+                {
+                    "name": "ExitButton",
+                    "type": "Button",
+                    "class": "/Script/UMG.Button",
+                    "tree_path": ["ExitButton"],
+                    "paths": [
+                        "WidgetMenu.WidgetTree.ExitButton",
+                        "WidgetMenu_C.WidgetTree.ExitButton",
+                    ],
+                }
+            ],
+        )
+
+    def test_uasset_umg_summary_formats_widget_tree(self):
+        summary = {
+            "source": "/tmp/WidgetMenu.uasset",
+            "asset_name": "WidgetMenu",
+            "umg_kind": "WidgetBlueprint",
+            "parent_class": "/Script/UMG.UserWidget",
+            "widgets": [
+                {
+                    "name": "Panel",
+                    "type": "VerticalBox",
+                    "tree_path": ["Panel"],
+                    "paths": ["WidgetMenu.WidgetTree.Panel"],
+                },
+                {
+                    "name": "StartButton",
+                    "type": "Button",
+                    "tree_path": ["Panel", "StartButton"],
+                    "paths": ["WidgetMenu.WidgetTree.Panel.StartButton"],
+                },
+            ],
+        }
+
+        output = uasset_umg_summary.format_widget_tree(summary)
+
+        self.assertIn("ParentClass: UserWidget", output)
+        self.assertIn("WidgetTree\n  Panel (VerticalBox)\n    StartButton (Button)", output)
+        self.assertNotIn("Exports", output)
+
+    def test_uasset_umg_summary_can_include_slots_and_internal_exports(self):
+        metadata = {
+            "exports": [
+                {"class": "/Script/UMG.WidgetTree", "object_name": {"value": "WidgetTree"}},
+                {"class": "/Script/UMG.ButtonSlot", "object_name": {"value": "ButtonSlot_0"}},
+            ],
+        }
+
+        summary = uasset_umg_summary.summarize_umg(
+            metadata,
+            include_slots=True,
+            include_internal=True,
+        )
+
+        self.assertEqual(
+            [(item["name"], item["type"]) for item in summary["widgets"]],
+            [("ButtonSlot_0", "ButtonSlot"), ("WidgetTree", "WidgetTree")],
+        )
+
+    def test_uasset_umg_summary_rejects_non_umg_assets(self):
+        metadata = {
+            "file": {"path": "/tmp/Material.uasset"},
+            "exports": [
+                {
+                    "class": "/Script/Engine.Material",
+                    "object_name": {"value": "M_Test"},
+                }
+            ],
+        }
+
+        with self.assertRaisesRegex(uasset_umg_summary.UMGSummaryError, "not look like a UMG"):
+            uasset_umg_summary.summarize_umg(metadata)
 
     def test_pretty_json_is_indented(self):
         text = uasset.format_json({"outer": {"inner": 1}}, compact=False, indent=4)
