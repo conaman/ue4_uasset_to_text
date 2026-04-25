@@ -1,0 +1,260 @@
+{
+  "file": {
+    "path": "local_test_assets/UE427_UMG/WidgetMenu_Original.uasset",
+    "size": 46391
+  },
+  "exports": [
+    {
+      "path": "WidgetMenu.WidgetTree.Border_0",
+      "class": "/Script/UMG.Border",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Border_0",
+      "class": "/Script/UMG.Border",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.Border_0.BorderSlot_0",
+      "class": "/Script/UMG.BorderSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0",
+      "class": "/Script/UMG.BorderSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.ExitButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.RestartButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.ExitButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.RestartButton",
+      "class": "/Script/UMG.Button",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.ComponentDelegateBinding_2",
+      "class": "/Script/Engine.ComponentDelegateBinding",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph",
+      "class": "/Script/Engine.EdGraph",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.EdGraphNode_Comment_6",
+      "class": "/Script/UnrealEd.EdGraphNode_Comment",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.EdGraphNode_Comment_7",
+      "class": "/Script/UnrealEd.EdGraphNode_Comment",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.BndEvt__WidgetMenu_ExitButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature",
+      "class": "/Script/CoreUObject.Function",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.BndEvt__WidgetMenu_RestartButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature",
+      "class": "/Script/CoreUObject.Function",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.ExecuteUbergraph_WidgetMenu",
+      "class": "/Script/CoreUObject.Function",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.K2Node_CallFunction_0",
+      "class": "/Script/BlueprintGraph.K2Node_CallFunction",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.K2Node_CallFunction_1",
+      "class": "/Script/BlueprintGraph.K2Node_CallFunction",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.K2Node_ComponentBoundEvent_0",
+      "class": "/Script/BlueprintGraph.K2Node_ComponentBoundEvent",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.K2Node_ComponentBoundEvent_1",
+      "class": "/Script/BlueprintGraph.K2Node_ComponentBoundEvent",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.K2Node_Event_0",
+      "class": "/Script/BlueprintGraph.K2Node_Event",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.K2Node_Event_1",
+      "class": "/Script/BlueprintGraph.K2Node_Event",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.EventGraph.K2Node_Event_2",
+      "class": "/Script/BlueprintGraph.K2Node_Event",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "PackageMetaData",
+      "class": "/Script/CoreUObject.MetaData",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.Text_ExitButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.Text_RestartButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Text_ExitButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Text_RestartButton",
+      "class": "/Script/UMG.TextBlock",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48",
+      "class": "/Script/UMG.VerticalBox",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48",
+      "class": "/Script/UMG.VerticalBox",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu",
+      "class": "/Script/UMGEditor.WidgetBlueprint",
+      "super": null,
+      "is_asset": true
+    },
+    {
+      "path": "WidgetMenu_C",
+      "class": "/Script/UMG.WidgetBlueprintGeneratedClass",
+      "super": "/Script/UMG.UserWidget",
+      "is_asset": true
+    },
+    {
+      "path": "Default__WidgetMenu_C",
+      "class": "WidgetMenu_C",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu.WidgetTree",
+      "class": "/Script/UMG.WidgetTree",
+      "super": null,
+      "is_asset": false
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree",
+      "class": "/Script/UMG.WidgetTree",
+      "super": null,
+      "is_asset": false
+    }
+  ]
+}

@@ -782,6 +782,22 @@ def parse_uasset(path: str, *, include_export_data: bool, preview_bytes: int) ->
     return result
 
 
+def export_summary(metadata: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "file": metadata.get("file"),
+        "exports": [
+            {
+                "path": export.get("path"),
+                "class": export.get("class"),
+                "super": export.get("super"),
+                "is_asset": bool(export.get("is_asset")),
+            }
+            for export in metadata.get("exports", [])
+            if isinstance(export, dict)
+        ],
+    }
+
+
 def default_json_path(path: str) -> str:
     root, _ = os.path.splitext(os.path.basename(path))
     return os.path.join(os.getcwd(), root + ".json")
@@ -811,6 +827,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--include-export-data",
         action="store_true",
         help="Also include serial data availability and byte previews in metadata.",
+    )
+    parser.add_argument(
+        "--exports-only",
+        action="store_true",
+        help="Only print a compact export list with path, class, super, and is_asset.",
     )
     parser.add_argument(
         "--bytes",
@@ -846,6 +867,8 @@ def main(argv: list[str]) -> int:
             include_export_data=args.include_export_data,
             preview_bytes=max(0, args.bytes),
         )
+        if args.exports_only:
+            result = export_summary(result)
     except (OSError, UAssetError, struct.error) as exc:
         print(f"uasset_to_text: {exc}", file=sys.stderr)
         return 1

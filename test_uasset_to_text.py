@@ -288,6 +288,50 @@ class UAssetParserValidationTests(unittest.TestCase):
             finally:
                 os.chdir(old_cwd)
 
+    def test_export_summary_keeps_human_readable_export_fields(self):
+        metadata = {
+            "file": {"path": "/tmp/WidgetMenu.uasset", "size": 123},
+            "exports": [
+                {
+                    "index": 4,
+                    "path": "WidgetMenu.WidgetTree.ExitButton",
+                    "class": "/Script/UMG.Button",
+                    "super": None,
+                    "is_asset": False,
+                    "serial_size": 563,
+                },
+                {
+                    "index": 38,
+                    "path": "WidgetMenu_C",
+                    "class": "/Script/UMG.WidgetBlueprintGeneratedClass",
+                    "super": "/Script/UMG.UserWidget",
+                    "is_asset": True,
+                    "serial_size": 495,
+                },
+            ],
+        }
+
+        self.assertEqual(
+            uasset.export_summary(metadata),
+            {
+                "file": {"path": "/tmp/WidgetMenu.uasset", "size": 123},
+                "exports": [
+                    {
+                        "path": "WidgetMenu.WidgetTree.ExitButton",
+                        "class": "/Script/UMG.Button",
+                        "super": None,
+                        "is_asset": False,
+                    },
+                    {
+                        "path": "WidgetMenu_C",
+                        "class": "/Script/UMG.WidgetBlueprintGeneratedClass",
+                        "super": "/Script/UMG.UserWidget",
+                        "is_asset": True,
+                    },
+                ],
+            },
+        )
+
     def test_uasset_diff_reports_metadata_changes(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             left_path = os.path.join(temp_dir, "Left.uasset")

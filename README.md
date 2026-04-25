@@ -73,6 +73,7 @@ Sample outputs generated from a UE4.27 UMG widget asset are available in
 `examples/`:
 
 - `WidgetMenu.summary.txt`: UMG WidgetTree summary output.
+- `WidgetMenu.exports.json`: compact export list with path and class fields.
 - `WidgetMenu.metadata.json`: full metadata JSON produced by
   `uasset_to_text.py`, with the file path shortened for readability.
 - `WidgetMenu.diff.txt`: unified metadata diff between two widget revisions.
@@ -94,6 +95,23 @@ Include export payload locations and short byte previews:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset --include-export-data --bytes 64
+```
+
+Print a compact export list:
+
+```bash
+./uasset_to_text.py /path/to/Asset.uasset --exports-only
+```
+
+Example export entry:
+
+```json
+{
+  "path": "WidgetMenu.WidgetTree.ExitButton",
+  "class": "/Script/UMG.Button",
+  "super": null,
+  "is_asset": false
+}
 ```
 
 ## UMG Widget Summary
