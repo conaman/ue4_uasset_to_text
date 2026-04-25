@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import contextlib
 import hashlib
+import io
 import json
 import os
 import struct
@@ -328,6 +330,40 @@ class UAssetParserValidationTests(unittest.TestCase):
         self.assertTrue(os.path.basename(p4_args[2]).startswith("ours_Ours.uasset"))
         self.assertEqual(p4_args[3], os.path.abspath(result_path))
         self.assertEqual(result_json["summary"]["package_source"], 1)
+
+    def test_uasset_p4merge_prints_result_path_to_stdout(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tool_path = os.path.join(temp_dir, "fake_p4merge.py")
+            log_path = os.path.join(temp_dir, "argv.json")
+            base_path = os.path.join(temp_dir, "Base.uasset")
+            ours_path = os.path.join(temp_dir, "Ours.uasset")
+            theirs_path = os.path.join(temp_dir, "Theirs.uasset")
+            result_path = os.path.join(temp_dir, "Merged.json")
+            write_fake_p4merge(tool_path, log_path)
+            for path in (base_path, ours_path, theirs_path):
+                with open(path, "wb") as file:
+                    file.write(make_minimal_uasset())
+
+            stdout = io.StringIO()
+            stderr = io.StringIO()
+            with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+                status = uasset_p4merge.main(
+                    [
+                        base_path,
+                        ours_path,
+                        theirs_path,
+                        "--tool",
+                        tool_path,
+                        "--result",
+                        result_path,
+                        "--temp-dir",
+                        temp_dir,
+                    ]
+                )
+
+        self.assertEqual(status, 0)
+        self.assertEqual(stdout.getvalue(), os.path.abspath(result_path) + "\n")
+        self.assertIn("merge result JSON:", stderr.getvalue())
 
     def test_uasset_p4merge_rejects_uasset_result_path(self):
         with tempfile.TemporaryDirectory() as temp_dir:

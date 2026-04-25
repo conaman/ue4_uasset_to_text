@@ -115,6 +115,18 @@ def validate_result_path(
     return resolved
 
 
+def path_is_inside(path: str, directory: str) -> bool:
+    path = os.path.abspath(path)
+    directory = os.path.abspath(directory)
+    return os.path.commonpath([path, directory]) == directory
+
+
+def result_path_is_kept(run: P4MergeRun, *, delete_temp: bool) -> bool:
+    if run.result_path is None:
+        return False
+    return not delete_temp or not path_is_inside(run.result_path, run.temp_dir)
+
+
 def run_uasset_p4merge(
     input_paths: list[str],
     *,
@@ -247,7 +259,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument(
         "--quiet",
         action="store_true",
-        help="Do not print generated temp paths.",
+        help="Do not print generated temp or result paths.",
     )
     args = parser.parse_args(argv)
     if len(args.uassets) not in (2, 3):
@@ -280,10 +292,15 @@ def main(argv: list[str]) -> int:
         print(f"uasset_p4merge: {exc}", file=sys.stderr)
         return 2
 
-    if not args.quiet and not args.delete_temp:
-        print(f"generated JSON directory: {run.temp_dir}", file=sys.stderr)
-        if run.result_path is not None:
+    if not args.quiet:
+        if not args.delete_temp:
+            print(f"generated JSON directory: {run.temp_dir}", file=sys.stderr)
+        result_kept = result_path_is_kept(run, delete_temp=args.delete_temp)
+        if run.result_path is not None and result_kept:
             print(f"merge result JSON: {run.result_path}", file=sys.stderr)
+            print(run.result_path)
+        elif run.result_path is not None:
+            print(f"merge result JSON deleted with temp files: {run.result_path}", file=sys.stderr)
     return run.returncode
 
 
