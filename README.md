@@ -28,16 +28,16 @@ No third-party Python packages are required.
 
 ## Usage
 
-Convert `Asset.uasset` to `Asset.txt`:
+Convert `Asset.uasset` to `./Asset.json` in the current directory:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset
 ```
 
-Restore `Asset.txt` to `Asset.uasset`:
+Restore `Asset.json` to `./Asset.uasset` in the current directory:
 
 ```bash
-./text_to_uasset.py /path/to/Asset.txt
+./text_to_uasset.py /path/to/Asset.json
 ```
 
 Include export payload location and byte previews:
@@ -58,7 +58,7 @@ Print compact JSON:
 ./uasset_to_text.py /path/to/Asset.uasset --compact
 ```
 
-Print to the console instead of writing a `.txt` file:
+Print to the console instead of writing a `.json` file:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset --stdout
@@ -67,8 +67,8 @@ Print to the console instead of writing a `.txt` file:
 Write to a specific path:
 
 ```bash
-./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.txt
-./text_to_uasset.py /tmp/Asset.txt -o /tmp/Asset.uasset
+./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.json
+./text_to_uasset.py /tmp/Asset.json -o /tmp/Asset.uasset
 ```
 
 ## Output

@@ -812,9 +812,9 @@ def build_text_document(
     }
 
 
-def default_text_path(path: str) -> str:
-    root, _ = os.path.splitext(path)
-    return root + ".txt"
+def default_json_path(path: str) -> str:
+    root, _ = os.path.splitext(os.path.basename(path))
+    return os.path.join(os.getcwd(), root + ".json")
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
@@ -825,12 +825,12 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument(
         "-o",
         "--output",
-        help="Output text path. Defaults to the input filename with a .txt extension.",
+        help="Output JSON path. Defaults to the input filename with a .json extension in the current directory.",
     )
     parser.add_argument(
         "--stdout",
         action="store_true",
-        help="Print the text document to stdout instead of writing a .txt file.",
+        help="Print the JSON document to stdout instead of writing a .json file.",
     )
     parser.add_argument(
         "--metadata-only",
@@ -894,7 +894,7 @@ def main(argv: list[str]) -> int:
         except BrokenPipeError:
             return 0
     else:
-        output_path = args.output or default_text_path(args.uasset)
+        output_path = args.output or default_json_path(args.uasset)
         try:
             with open(output_path, "w", encoding="utf-8") as file:
                 file.write(text)

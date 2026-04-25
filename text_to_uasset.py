@@ -23,8 +23,8 @@ class TextUAssetError(Exception):
 
 
 def default_uasset_path(path: str) -> str:
-    root, _ = os.path.splitext(path)
-    return root + ".uasset"
+    root, _ = os.path.splitext(os.path.basename(path))
+    return os.path.join(os.getcwd(), root + ".uasset")
 
 
 def decode_uasset_data(document: dict[str, Any]) -> bytes:
@@ -88,11 +88,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Restore a .uasset file from a reversible JSON text file.",
     )
-    parser.add_argument("text", help="Path to a .txt file created by uasset_to_text.py")
+    parser.add_argument("text", help="Path to a .json file created by uasset_to_text.py")
     parser.add_argument(
         "-o",
         "--output",
-        help="Output .uasset path. Defaults to the input filename with a .uasset extension.",
+        help="Output .uasset path. Defaults to the input filename with a .uasset extension in the current directory.",
     )
     return parser.parse_args(argv)
 

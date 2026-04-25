@@ -45,11 +45,29 @@ class UAssetParserValidationTests(unittest.TestCase):
 
         self.assertEqual(text, '{"outer":{"inner":1}}')
 
-    def test_default_text_path_replaces_extension(self):
-        self.assertEqual(uasset.default_text_path("/tmp/Asset.uasset"), "/tmp/Asset.txt")
+    def test_default_json_path_uses_current_directory(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            old_cwd = os.getcwd()
+            try:
+                os.chdir(temp_dir)
+                self.assertEqual(
+                    uasset.default_json_path("/tmp/Somewhere/Asset.uasset"),
+                    os.path.join(os.getcwd(), "Asset.json"),
+                )
+            finally:
+                os.chdir(old_cwd)
 
-    def test_default_uasset_path_replaces_extension(self):
-        self.assertEqual(text_to_uasset.default_uasset_path("/tmp/Asset.txt"), "/tmp/Asset.uasset")
+    def test_default_uasset_path_uses_current_directory(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            old_cwd = os.getcwd()
+            try:
+                os.chdir(temp_dir)
+                self.assertEqual(
+                    text_to_uasset.default_uasset_path("/tmp/Somewhere/Asset.json"),
+                    os.path.join(os.getcwd(), "Asset.uasset"),
+                )
+            finally:
+                os.chdir(old_cwd)
 
     def test_text_document_round_trips_to_original_bytes(self):
         binary = bytearray()
@@ -108,7 +126,7 @@ class UAssetParserValidationTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as temp_dir:
             uasset_path = os.path.join(temp_dir, "RoundTrip.uasset")
-            text_path = os.path.join(temp_dir, "RoundTrip.txt")
+            text_path = os.path.join(temp_dir, "RoundTrip.json")
             restored_path = os.path.join(temp_dir, "Restored.uasset")
             with open(uasset_path, "wb") as file:
                 file.write(binary)
