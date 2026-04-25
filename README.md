@@ -179,10 +179,10 @@ Examples:
 ./uasset_p4merge.py A.uasset B.uasset --tool "/Applications/p4merge.app/Contents/Resources/launchp4merge"
 ```
 
-On Windows, use the installed `p4merge.exe` path if it is not on `PATH`:
+On Windows, this README assumes `python3` and `p4merge` are both on `PATH`:
 
 ```bat
-uasset_p4merge.py A.uasset B.uasset --tool "C:\Program Files\Perforce\p4merge.exe"
+python3 uasset_p4merge.py A.uasset B.uasset
 ```
 
 ### Registering in P4V
@@ -222,20 +222,20 @@ Merge arguments:
   %b %2 %1
 ```
 
-Windows, using Python launcher:
+Windows, assuming `python3` is on `PATH`:
 
 ```text
 Diff application:
-  py
+  python3
 
 Diff arguments:
-  -3 "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %1 %2 --tool "C:\Program Files\Perforce\p4merge.exe"
+  "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %1 %2
 
 Merge application:
-  py
+  python3
 
 Merge arguments:
-  -3 "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %b %2 %1 --tool "C:\Program Files\Perforce\p4merge.exe"
+  "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %b %2 %1
 ```
 
 Important: this merge registration opens a JSON 3-way view. It does not write a
