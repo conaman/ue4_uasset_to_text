@@ -42,29 +42,28 @@ No third-party Python packages are required.
 
 ## Quick Start
 
-Convert `Asset.uasset` to metadata JSON at `./Asset.json` in the current
-directory:
+Convert a `.uasset` to metadata JSON:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset
 ```
 
-Print JSON to the console instead of writing a file:
-
-```bash
-./uasset_to_text.py /path/to/Asset.uasset --stdout
-```
-
-Print a UMG widget summary directly from a `.uasset` file:
+Print a compact UMG WidgetTree summary:
 
 ```bash
 ./uasset_umg_summary.py /path/to/Widget.uasset
 ```
 
-Write to a specific path:
+Compare two `.uasset` files as metadata JSON:
 
 ```bash
-./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.json
+./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset
+```
+
+Open P4Merge on generated metadata JSON:
+
+```bash
+./uasset_p4merge.py /path/to/Old.uasset /path/to/New.uasset
 ```
 
 ## Examples
@@ -78,23 +77,27 @@ Sample outputs generated from a UE4.27 UMG widget asset are available in
   `uasset_to_text.py`, with the file path shortened for readability.
 - `WidgetMenu.diff.txt`: unified metadata diff between two widget revisions.
 
-## JSON Output
+## Usage
+
+### uasset_to_text.py
 
 `uasset_to_text.py` writes parsed metadata as readable JSON. The output is for
 inspection, summaries, and diff workflows. It is not a `.uasset` editing format
 and cannot be converted back into a modified `.uasset` file.
 
-Useful formatting options:
+Default output path is `./Asset.json` in the current directory:
 
 ```bash
-./uasset_to_text.py /path/to/Asset.uasset --indent 4
-./uasset_to_text.py /path/to/Asset.uasset --compact
+./uasset_to_text.py /path/to/Asset.uasset
 ```
 
-Include export payload locations and short byte previews:
+Common options:
 
 ```bash
-./uasset_to_text.py /path/to/Asset.uasset --include-export-data --bytes 64
+./uasset_to_text.py /path/to/Asset.uasset --stdout
+./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.json
+./uasset_to_text.py /path/to/Asset.uasset --indent 4
+./uasset_to_text.py /path/to/Asset.uasset --compact
 ```
 
 Print a compact export list:
@@ -114,7 +117,13 @@ Example export entry:
 }
 ```
 
-## UMG Widget Summary
+Include export payload locations and short byte previews:
+
+```bash
+./uasset_to_text.py /path/to/Asset.uasset --include-export-data --bytes 64
+```
+
+### uasset_umg_summary.py
 
 `uasset_umg_summary.py` accepts a `.uasset` file directly. It uses the same
 parser as `uasset_to_text.py` internally, then prints a focused WidgetTree
@@ -142,16 +151,14 @@ WidgetTree
 ```
 
 The default output shows `Name (Type)` entries. UMG slot exports are hidden by
-default, but can be included when you need to inspect layout slot entries:
+default.
+
+Common options:
 
 ```bash
 ./uasset_umg_summary.py /path/to/Widget.uasset --include-slots
-```
-
-Print the summary as JSON:
-
-```bash
 ./uasset_umg_summary.py /path/to/Widget.uasset --json
+./uasset_umg_summary.py /path/to/Widget.uasset --show-paths
 ```
 
 Metadata JSON from `uasset_to_text.py` can also be used as input:
@@ -164,7 +171,7 @@ Metadata JSON from `uasset_to_text.py` can also be used as input:
 If the input does not look like a UMG asset, the command prints an error and
 exits with a non-zero status.
 
-## Diffing
+### uasset_diff.py
 
 Print a unified metadata diff between two `.uasset` files:
 
@@ -172,10 +179,13 @@ Print a unified metadata diff between two `.uasset` files:
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset
 ```
 
-Return only the exit status:
+Common options:
 
 ```bash
 ./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --quiet
+./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --keep-paths
+./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset -U 8
+./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --include-export-data --bytes 64
 ```
 
 Exit codes:
@@ -184,7 +194,7 @@ Exit codes:
 - `1`: differences found.
 - `2`: error.
 
-## 3-Way Diff
+### uasset_diff3.py
 
 Print a structured 3-way JSON diff report:
 
@@ -194,6 +204,15 @@ Print a structured 3-way JSON diff report:
 
 The report separates non-conflicting `changes` from `conflicts`.
 
+Common options:
+
+```bash
+./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --quiet
+./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --keep-paths
+./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --indent 4
+./uasset_diff3.py Base.uasset Ours.uasset Theirs.uasset --include-export-data --bytes 64
+```
+
 Exit codes:
 
 - `0`: no changes.
@@ -201,7 +220,7 @@ Exit codes:
 - `2`: conflicts found.
 - `3`: error.
 
-## P4Merge Integration
+### uasset_p4merge.py
 
 `uasset_p4merge.py` converts `.uasset` files to temporary metadata JSON files,
 then opens Perforce P4Merge.
@@ -224,6 +243,16 @@ Internally, P4Merge is invoked in Perforce's expected order:
 base theirs yours result
 ```
 
+Common options:
+
+```bash
+./uasset_p4merge.py A.uasset B.uasset --tool "open -a p4merge --args"
+./uasset_p4merge.py A.uasset B.uasset --keep-paths
+./uasset_p4merge.py A.uasset B.uasset --delete-temp
+./uasset_p4merge.py Base.uasset Ours.uasset Theirs.uasset --result /tmp/Merged.json
+./uasset_p4merge.py Base.uasset Ours.uasset Theirs.uasset --overwrite-result
+```
+
 ### P4Merge Tool Path
 
 The script looks for P4Merge in this order:
@@ -234,7 +263,7 @@ The script looks for P4Merge in this order:
 - `p4merge` or `launchp4merge` on `PATH`
 - common macOS P4Merge app paths
 
-Examples:
+Tool path examples:
 
 ```bash
 ./uasset_p4merge.py A.uasset B.uasset --tool "open -a p4merge --args"
