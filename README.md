@@ -185,6 +185,64 @@ On Windows, use the installed `p4merge.exe` path if it is not on `PATH`:
 uasset_p4merge.py A.uasset B.uasset --tool "C:\Program Files\Perforce\p4merge.exe"
 ```
 
+### Registering in P4V
+
+P4V can register external diff and merge applications by file type. In P4V,
+open Preferences, then configure Diff and Merge applications for the `.uasset`
+extension.
+
+P4V diff placeholders:
+
+- `%1`: first file.
+- `%2`: second file.
+
+P4V merge placeholders:
+
+- `%b`: base file.
+- `%1`: their/source file.
+- `%2`: your/target file.
+- `%r`: result file.
+
+`uasset_p4merge.py` expects 3-way input as `base ours theirs`, so P4V merge
+arguments must use `%b %2 %1`.
+
+macOS or Linux, when the script is executable:
+
+```text
+Diff application:
+  /path/to/ue4_uasset_to_text/uasset_p4merge.py
+
+Diff arguments:
+  %1 %2
+
+Merge application:
+  /path/to/ue4_uasset_to_text/uasset_p4merge.py
+
+Merge arguments:
+  %b %2 %1
+```
+
+Windows, using Python launcher:
+
+```text
+Diff application:
+  py
+
+Diff arguments:
+  -3 "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %1 %2 --tool "C:\Program Files\Perforce\p4merge.exe"
+
+Merge application:
+  py
+
+Merge arguments:
+  -3 "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %b %2 %1 --tool "C:\Program Files\Perforce\p4merge.exe"
+```
+
+Important: this merge registration opens a JSON 3-way view. It does not write a
+merged `.uasset` result back to P4V. Do not pass P4V's `%r` placeholder to
+`--result`, because `%r` is normally the original `.uasset` merge target and
+`uasset_p4merge.py` intentionally only allows `.json` result files.
+
 ### Result Files
 
 For 3-way P4Merge runs, the merge result is a generated `.json` file. When the
