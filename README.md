@@ -28,7 +28,7 @@ No third-party Python packages are required.
 | Tool | Purpose |
 | --- | --- |
 | `uasset_to_text.py` | Convert `.uasset` to JSON. |
-| `text_to_uasset.py` | Restore a reversible JSON wrapper to `.uasset`. |
+| `text_to_uasset.py` | Restore generated JSON back to a `.uasset` file. |
 | `uasset_umg_summary.py` | Print a UMG WidgetTree summary from a `.uasset` or generated JSON file. |
 | `uasset_diff.py` | Print a unified 2-way diff between two `.uasset` files. |
 | `uasset_diff3.py` | Print a structured 3-way diff report. |
