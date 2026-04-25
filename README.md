@@ -179,10 +179,10 @@ Examples:
 ./uasset_p4merge.py A.uasset B.uasset --tool "/Applications/p4merge.app/Contents/Resources/launchp4merge"
 ```
 
-On Windows, this README assumes `python3` and `p4merge` are both on `PATH`:
+On Windows, this README assumes `python` and `p4merge` are both on `PATH`:
 
 ```bat
-python3 uasset_p4merge.py A.uasset B.uasset
+python uasset_p4merge.py A.uasset B.uasset
 ```
 
 ### Registering in P4V
@@ -222,17 +222,17 @@ Merge arguments:
   %b %2 %1
 ```
 
-Windows, assuming `python3` is on `PATH`:
+Windows, assuming `python` is on `PATH`:
 
 ```text
 Diff application:
-  python3
+  python
 
 Diff arguments:
   "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %1 %2
 
 Merge application:
-  python3
+  python
 
 Merge arguments:
   "C:\path\to\ue4_uasset_to_text\uasset_p4merge.py" %b %2 %1
