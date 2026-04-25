@@ -8,9 +8,9 @@ It can:
 - Convert a `.uasset` file to readable metadata JSON.
 - Print a compact UMG widget tree summary with widget names and types.
 - Print 2-way and 3-way JSON diffs for `.uasset` files.
-- Open Perforce P4Merge on generated JSON files for visual comparison.
+- Open Perforce P4Merge on generated metadata JSON files for visual comparison.
 
-The parser is based on UE4.27 package serialization structures, especially
+The parser reads UE4.27 package metadata tables, especially
 `FPackageFileSummary`, `FNameEntrySerialized`, `FObjectImport`, and
 `FObjectExport`. It does not link against Unreal Engine.
 
@@ -26,16 +26,17 @@ No third-party Python packages are required.
 
 | Tool | Purpose |
 | --- | --- |
-| `uasset_to_text.py` | Convert `.uasset` to JSON. |
-| `uasset_umg_summary.py` | Print a UMG WidgetTree summary from a `.uasset` or generated JSON file. |
+| `uasset_to_text.py` | Convert `.uasset` to metadata JSON. |
+| `uasset_umg_summary.py` | Print a UMG WidgetTree summary from a `.uasset` or metadata JSON file. |
 | `uasset_diff.py` | Print a unified 2-way diff between two `.uasset` files. |
 | `uasset_diff3.py` | Print a structured 3-way diff report. |
-| `uasset_p4merge.py` | Convert `.uasset` files to JSON, then open P4Merge. |
+| `uasset_p4merge.py` | Convert `.uasset` files to metadata JSON, then open P4Merge. |
 | `uasset_p4_common.py` | Internal helper code used by `uasset_p4merge.py`. |
 
 ## Quick Start
 
-Convert `Asset.uasset` to `./Asset.json` in the current directory:
+Convert `Asset.uasset` to metadata JSON at `./Asset.json` in the current
+directory:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset
@@ -118,7 +119,7 @@ Print the summary as JSON:
 ./uasset_umg_summary.py /path/to/Widget.uasset --json
 ```
 
-Generated JSON from `uasset_to_text.py` can also be used as input:
+Metadata JSON from `uasset_to_text.py` can also be used as input:
 
 ```bash
 ./uasset_to_text.py /path/to/Widget.uasset
@@ -167,8 +168,8 @@ Exit codes:
 
 ## P4Merge Integration
 
-`uasset_p4merge.py` converts `.uasset` files to temporary JSON files, then opens
-Perforce P4Merge.
+`uasset_p4merge.py` converts `.uasset` files to temporary metadata JSON files,
+then opens Perforce P4Merge.
 
 Use two files for a 2-way compare:
 
@@ -267,13 +268,13 @@ Merge arguments:
 Important: this merge registration opens a JSON 3-way view. It does not write a
 merged `.uasset` result back to P4V. Do not pass P4V's `%r` placeholder to
 `--result`, because `%r` is normally the original `.uasset` merge target and
-`uasset_p4merge.py` intentionally only allows `.json` result files.
+`uasset_p4merge.py` intentionally only allows `.json` review result files.
 
 ### Result Files
 
-For 3-way P4Merge runs, the merge result is a generated `.json` file. When the
-result file is kept and `--quiet` is not used, its path is printed to stdout as
-a single line:
+For 3-way P4Merge runs, the merge result is a generated `.json` review file.
+When the result file is kept and `--quiet` is not used, its path is printed to
+stdout as a single line:
 
 ```bash
 result_json=$(./uasset_p4merge.py Base.uasset Ours.uasset Theirs.uasset)
@@ -291,7 +292,7 @@ You can choose a result path:
 Safety rules:
 
 - Original `.uasset` inputs are never used as merge result targets.
-- `--result` must be a `.json` path.
+- `--result` must be a `.json` review path.
 - Existing result files are preserved unless `--overwrite-result` is used.
 - Generated temp JSON files are kept by default because some GUI launchers
   return before P4Merge finishes reading the files.
@@ -321,15 +322,12 @@ The metadata object can include:
 
 ## Limitations
 
-This tool parses package header tables and reports export payload locations. It
-does not fully deserialize arbitrary UObject property data. Full UObject
-deserialization needs the relevant UE classes and engine serializers loaded at
-runtime.
+This tool focuses on package metadata tables and export payload locations.
 
-`uasset_p4merge.py` is a JSON comparison wrapper. Even if P4Merge saves a merged
+`uasset_p4merge.py` is a JSON comparison launcher. Even if P4Merge saves a merged
 JSON result, the original `.uasset` files are not modified.
 
 The implementation targets Unreal Engine 4.27 package layout. Older UE4 assets
-may work when their serialized fields match the covered version branches, but
-the parser is intentionally conservative when it sees unsupported or implausible
-data.
+may work when their package metadata matches the layouts this parser handles,
+but the parser is intentionally conservative when it sees unsupported or
+implausible data.
