@@ -16,6 +16,8 @@ import uasset_p4_common
 import uasset_to_text
 
 
+TOOL_VERSION = "2026-04-26"
+
 P4MERGE_EXECUTABLE_PATHS = (
     "/Applications/p4merge.app/Contents/Resources/launchp4merge",
     "/Applications/P4Merge.app/Contents/Resources/launchp4merge",
@@ -194,6 +196,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
             "Convert .uasset files to JSON, then open P4Merge. "
             "Use two files for 2-way compare or three files for 3-way merge."
         ),
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {TOOL_VERSION}",
     )
     parser.add_argument(
         "uassets",

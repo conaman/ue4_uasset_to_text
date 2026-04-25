@@ -17,6 +17,9 @@ import uasset_p4merge
 import uasset_to_text as uasset
 
 
+TOOL_VERSION = "2026-04-26"
+
+
 def make_summary(**overrides):
     summary = {
         "total_header_size": 64,
@@ -112,6 +115,34 @@ def write_fake_p4merge(tool_path: str, log_path: str) -> None:
 
 
 class UAssetParserValidationTests(unittest.TestCase):
+    def test_script_versions_use_korean_release_date(self):
+        modules = (
+            text_to_uasset,
+            uasset,
+            uasset_diff,
+            uasset_diff3,
+            uasset_p4_common,
+            uasset_p4merge,
+        )
+        for module in modules:
+            self.assertEqual(module.TOOL_VERSION, TOOL_VERSION)
+
+    def test_cli_scripts_print_version(self):
+        modules = (
+            text_to_uasset,
+            uasset,
+            uasset_diff,
+            uasset_diff3,
+            uasset_p4merge,
+        )
+        for module in modules:
+            stdout = io.StringIO()
+            with contextlib.redirect_stdout(stdout):
+                with self.assertRaises(SystemExit) as caught:
+                    module.parse_args(["--version"])
+            self.assertEqual(caught.exception.code, 0)
+            self.assertIn(TOOL_VERSION, stdout.getvalue())
+
     def test_pretty_json_is_indented(self):
         text = uasset.format_json({"outer": {"inner": 1}}, compact=False, indent=4)
 

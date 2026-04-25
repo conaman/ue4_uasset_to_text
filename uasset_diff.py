@@ -15,6 +15,9 @@ from typing import Any
 import uasset_to_text
 
 
+TOOL_VERSION = "2026-04-26"
+
+
 def normalize_paths(document: dict[str, Any], *, keep_paths: bool) -> dict[str, Any]:
     if keep_paths:
         return document
@@ -108,6 +111,11 @@ def diff_uassets(
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Diff two .uasset files by comparing their uasset_to_text JSON.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {TOOL_VERSION}",
     )
     parser.add_argument("left", help="First .uasset file")
     parser.add_argument("right", help="Second .uasset file")

@@ -14,6 +14,7 @@ import uasset_diff
 import uasset_to_text
 
 
+TOOL_VERSION = "2026-04-26"
 MISSING = object()
 
 
@@ -224,6 +225,11 @@ def exit_status(report: dict[str, Any]) -> int:
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Diff three .uasset files by comparing their uasset_to_text JSON.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {TOOL_VERSION}",
     )
     parser.add_argument("base", help="Common base .uasset file")
     parser.add_argument("ours", help="Our changed .uasset file")

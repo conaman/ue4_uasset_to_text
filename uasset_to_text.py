@@ -26,6 +26,7 @@ PACKAGE_FILE_TAG_SWAPPED = 0xC1832A9E
 PKG_FILTER_EDITOR_ONLY = 0x80000000
 
 TEXT_FORMAT = "ue4-uasset-text-v1"
+TOOL_VERSION = "2026-04-26"
 BASE64_LINE_LENGTH = 76
 CURRENT_LEGACY_FILE_VERSION = -7
 MAX_ARRAY_COUNT = 10_000_000
@@ -820,6 +821,11 @@ def default_json_path(path: str) -> str:
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Convert a UE4.27 .uasset package to a reversible JSON text file.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {TOOL_VERSION}",
     )
     parser.add_argument("uasset", help="Path to a .uasset file")
     parser.add_argument(

@@ -16,6 +16,7 @@ from typing import Any
 
 
 TEXT_FORMAT = "ue4-uasset-text-v1"
+TOOL_VERSION = "2026-04-26"
 
 
 class TextUAssetError(Exception):
@@ -87,6 +88,11 @@ def restore_uasset(text_path: str, output_path: str) -> None:
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Restore a .uasset file from a reversible JSON text file.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {TOOL_VERSION}",
     )
     parser.add_argument("text", help="Path to a .json file created by uasset_to_text.py")
     parser.add_argument(
