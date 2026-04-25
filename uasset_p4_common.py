@@ -83,7 +83,6 @@ def write_uasset_json(
     source_path: str,
     output_path: str,
     *,
-    full_text: bool,
     keep_paths: bool,
     include_export_data: bool,
     preview_bytes: int,
@@ -92,7 +91,6 @@ def write_uasset_json(
     document = uasset_diff.normalize_paths(
         uasset_diff.document_for_diff(
             source_path,
-            full_text=full_text,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
         ),

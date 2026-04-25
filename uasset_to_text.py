@@ -10,8 +10,6 @@ UObject property payload, which requires loaded classes and engine serializers.
 from __future__ import annotations
 
 import argparse
-import base64
-import hashlib
 import json
 import os
 import string
@@ -25,9 +23,7 @@ PACKAGE_FILE_TAG = 0x9E2A83C1
 PACKAGE_FILE_TAG_SWAPPED = 0xC1832A9E
 PKG_FILTER_EDITOR_ONLY = 0x80000000
 
-TEXT_FORMAT = "ue4-uasset-text-v1"
 TOOL_VERSION = "2026-04-26"
-BASE64_LINE_LENGTH = 76
 CURRENT_LEGACY_FILE_VERSION = -7
 MAX_ARRAY_COUNT = 10_000_000
 MAX_FSTRING_CODE_UNITS = 1024 * 1024
@@ -721,14 +717,6 @@ def preview_export_data(
     return previews
 
 
-def encode_base64_lines(data: bytes) -> list[str]:
-    encoded = base64.b64encode(data).decode("ascii")
-    return [
-        encoded[index : index + BASE64_LINE_LENGTH]
-        for index in range(0, len(encoded), BASE64_LINE_LENGTH)
-    ]
-
-
 def resolve_references(imports: list[dict[str, Any]], exports: list[dict[str, Any]]) -> None:
     def resolve_index(index_info: dict[str, Any], seen: set[tuple[str, int]] | None = None) -> str | None:
         if seen is None:
@@ -794,25 +782,6 @@ def parse_uasset(path: str, *, include_export_data: bool, preview_bytes: int) ->
     return result
 
 
-def build_text_document(
-    path: str, *, include_export_data: bool, preview_bytes: int
-) -> dict[str, Any]:
-    with open(path, "rb") as file:
-        data = file.read()
-    return {
-        "format": TEXT_FORMAT,
-        "source_path": os.path.abspath(path),
-        "source_filename": os.path.basename(path),
-        "sha256": hashlib.sha256(data).hexdigest(),
-        "metadata": parse_uasset(
-            path,
-            include_export_data=include_export_data,
-            preview_bytes=preview_bytes,
-        ),
-        "data_base64_lines": encode_base64_lines(data),
-    }
-
-
 def default_json_path(path: str) -> str:
     root, _ = os.path.splitext(os.path.basename(path))
     return os.path.join(os.getcwd(), root + ".json")
@@ -820,7 +789,7 @@ def default_json_path(path: str) -> str:
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Convert a UE4.27 .uasset package to a reversible JSON text file.",
+        description="Convert a UE4.27 .uasset package to readable metadata JSON.",
     )
     parser.add_argument(
         "--version",
@@ -837,11 +806,6 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--stdout",
         action="store_true",
         help="Print the JSON document to stdout instead of writing a .json file.",
-    )
-    parser.add_argument(
-        "--metadata-only",
-        action="store_true",
-        help="Only write parsed metadata. This output cannot be converted back to .uasset.",
     )
     parser.add_argument(
         "--include-export-data",
@@ -877,18 +841,11 @@ def format_json(result: dict[str, Any], *, compact: bool, indent: int) -> str:
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
     try:
-        if args.metadata_only:
-            result = parse_uasset(
-                args.uasset,
-                include_export_data=args.include_export_data,
-                preview_bytes=max(0, args.bytes),
-            )
-        else:
-            result = build_text_document(
-                args.uasset,
-                include_export_data=args.include_export_data,
-                preview_bytes=max(0, args.bytes),
-            )
+        result = parse_uasset(
+            args.uasset,
+            include_export_data=args.include_export_data,
+            preview_bytes=max(0, args.bytes),
+        )
     except (OSError, UAssetError, struct.error) as exc:
         print(f"uasset_to_text: {exc}", file=sys.stderr)
         return 1

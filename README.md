@@ -5,8 +5,7 @@ Unreal Engine 4.27 `.uasset` files as readable JSON.
 
 It can:
 
-- Convert a `.uasset` file to a pretty JSON file.
-- Restore a reversible JSON wrapper back to the exact original `.uasset` bytes.
+- Convert a `.uasset` file to readable metadata JSON.
 - Print a compact UMG widget tree summary with widget names and types.
 - Print 2-way and 3-way JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated JSON files for visual comparison.
@@ -28,7 +27,6 @@ No third-party Python packages are required.
 | Tool | Purpose |
 | --- | --- |
 | `uasset_to_text.py` | Convert `.uasset` to JSON. |
-| `text_to_uasset.py` | Restore generated JSON back to a `.uasset` file. |
 | `uasset_umg_summary.py` | Print a UMG WidgetTree summary from a `.uasset` or generated JSON file. |
 | `uasset_diff.py` | Print a unified 2-way diff between two `.uasset` files. |
 | `uasset_diff3.py` | Print a structured 3-way diff report. |
@@ -41,12 +39,6 @@ Convert `Asset.uasset` to `./Asset.json` in the current directory:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset
-```
-
-Restore `Asset.json` to `./Asset.uasset` in the current directory:
-
-```bash
-./text_to_uasset.py /path/to/Asset.json
 ```
 
 Print JSON to the console instead of writing a file:
@@ -65,28 +57,13 @@ Write to a specific path:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.json
-./text_to_uasset.py /tmp/Asset.json -o /tmp/Asset.uasset
 ```
 
 ## JSON Output
 
-By default, `uasset_to_text.py` writes a reversible JSON wrapper. It contains:
-
-- `format`: text wrapper version.
-- `source_path`: original input path.
-- `source_filename`: original input filename.
-- `sha256`: checksum of the embedded package bytes.
-- `metadata`: parsed package metadata.
-- `data_base64_lines`: original `.uasset` bytes encoded as text.
-
-Use `--metadata-only` when you only want parsed metadata:
-
-```bash
-./uasset_to_text.py /path/to/Asset.uasset --metadata-only
-```
-
-Metadata-only JSON cannot be restored with `text_to_uasset.py` because it does
-not contain the original binary bytes.
+`uasset_to_text.py` writes parsed metadata as readable JSON. The output is for
+inspection, summaries, and diff workflows. It is not a `.uasset` editing format
+and cannot be converted back into a modified `.uasset` file.
 
 Useful formatting options:
 
@@ -170,15 +147,6 @@ Exit codes:
 - `0`: no diff.
 - `1`: differences found.
 - `2`: error.
-
-Diff the full reversible JSON wrapper, including embedded base64 bytes:
-
-```bash
-./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --full-text
-```
-
-`--full-text` is useful when you need to verify the exact wrapper output, but it
-can be very noisy because binary payloads are represented as base64.
 
 ## 3-Way Diff
 
@@ -358,14 +326,8 @@ does not fully deserialize arbitrary UObject property data. Full UObject
 deserialization needs the relevant UE classes and engine serializers loaded at
 runtime.
 
-The reversible JSON format is a lossless wrapper around the original binary
-package. Editing metadata fields alone does not rewrite the embedded `.uasset`
-bytes. Use it for readable inspection, exact round-trips, and diff workflows.
-
 `uasset_p4merge.py` is a JSON comparison wrapper. Even if P4Merge saves a merged
-JSON result, the original `.uasset` files are not modified. A merged JSON file
-is only restorable with `text_to_uasset.py` if it is a valid reversible wrapper
-containing embedded base64 data.
+JSON result, the original `.uasset` files are not modified.
 
 The implementation targets Unreal Engine 4.27 package layout. Older UE4 assets
 may work when their serialized fields match the covered version branches, but

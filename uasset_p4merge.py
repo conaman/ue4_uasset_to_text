@@ -48,7 +48,6 @@ def write_json_files(
     labels: tuple[str, ...],
     temp_dir: str,
     *,
-    full_text: bool,
     keep_paths: bool,
     include_export_data: bool,
     preview_bytes: int,
@@ -63,7 +62,6 @@ def write_json_files(
         uasset_p4_common.write_uasset_json(
             input_path,
             json_path,
-            full_text=full_text,
             keep_paths=keep_paths,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
@@ -137,7 +135,6 @@ def run_uasset_p4merge(
     overwrite_result: bool = False,
     temp_root: str | None = None,
     delete_temp: bool = False,
-    full_text: bool = False,
     keep_paths: bool = False,
     include_export_data: bool = False,
     preview_bytes: int = 64,
@@ -161,7 +158,6 @@ def run_uasset_p4merge(
             input_paths,
             labels,
             temp_dir,
-            full_text=full_text,
             keep_paths=keep_paths,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
@@ -237,11 +233,6 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         ),
     )
     parser.add_argument(
-        "--full-text",
-        action="store_true",
-        help="Compare the full reversible JSON wrapper, including embedded base64 bytes.",
-    )
-    parser.add_argument(
         "--keep-paths",
         action="store_true",
         help="Keep source file paths in the JSON before opening P4Merge.",
@@ -284,7 +275,6 @@ def main(argv: list[str]) -> int:
             overwrite_result=args.overwrite_result,
             temp_root=args.temp_dir,
             delete_temp=args.delete_temp,
-            full_text=args.full_text,
             keep_paths=args.keep_paths,
             include_export_data=args.include_export_data,
             preview_bytes=max(0, args.bytes),

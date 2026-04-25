@@ -26,29 +26,15 @@ def normalize_paths(document: dict[str, Any], *, keep_paths: bool) -> dict[str, 
     if "file" in normalized and isinstance(normalized["file"], dict):
         normalized["file"].pop("path", None)
 
-    metadata = normalized.get("metadata")
-    if isinstance(metadata, dict):
-        file_info = metadata.get("file")
-        if isinstance(file_info, dict):
-            file_info.pop("path", None)
-        normalized.pop("source_path", None)
-
     return normalized
 
 
 def document_for_diff(
     path: str,
     *,
-    full_text: bool,
     include_export_data: bool,
     preview_bytes: int,
 ) -> dict[str, Any]:
-    if full_text:
-        return uasset_to_text.build_text_document(
-            path,
-            include_export_data=include_export_data,
-            preview_bytes=preview_bytes,
-        )
     return uasset_to_text.parse_uasset(
         path,
         include_export_data=include_export_data,
@@ -60,7 +46,6 @@ def diff_uassets(
     left_path: str,
     right_path: str,
     *,
-    full_text: bool = False,
     keep_paths: bool = False,
     include_export_data: bool = False,
     preview_bytes: int = 64,
@@ -70,7 +55,6 @@ def diff_uassets(
     left_document = normalize_paths(
         document_for_diff(
             left_path,
-            full_text=full_text,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
         ),
@@ -79,7 +63,6 @@ def diff_uassets(
     right_document = normalize_paths(
         document_for_diff(
             right_path,
-            full_text=full_text,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
         ),
@@ -119,11 +102,6 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     )
     parser.add_argument("left", help="First .uasset file")
     parser.add_argument("right", help="Second .uasset file")
-    parser.add_argument(
-        "--full-text",
-        action="store_true",
-        help="Diff the full reversible JSON wrapper, including embedded base64 bytes.",
-    )
     parser.add_argument(
         "--keep-paths",
         action="store_true",
@@ -167,7 +145,6 @@ def main(argv: list[str]) -> int:
         diff_text = diff_uassets(
             args.left,
             args.right,
-            full_text=args.full_text,
             keep_paths=args.keep_paths,
             include_export_data=args.include_export_data,
             preview_bytes=max(0, args.bytes),

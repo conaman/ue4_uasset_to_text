@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import contextlib
-import hashlib
 import io
 import json
 import os
@@ -9,7 +8,6 @@ import struct
 import tempfile
 import unittest
 
-import text_to_uasset
 import uasset_diff
 import uasset_diff3
 import uasset_p4_common
@@ -118,7 +116,6 @@ def write_fake_p4merge(tool_path: str, log_path: str) -> None:
 class UAssetParserValidationTests(unittest.TestCase):
     def test_script_versions_use_korean_release_date(self):
         modules = (
-            text_to_uasset,
             uasset,
             uasset_diff,
             uasset_diff3,
@@ -131,7 +128,6 @@ class UAssetParserValidationTests(unittest.TestCase):
 
     def test_cli_scripts_print_version(self):
         modules = (
-            text_to_uasset,
             uasset,
             uasset_diff,
             uasset_diff3,
@@ -291,46 +287,6 @@ class UAssetParserValidationTests(unittest.TestCase):
                 )
             finally:
                 os.chdir(old_cwd)
-
-    def test_default_uasset_path_uses_current_directory(self):
-        with tempfile.TemporaryDirectory() as temp_dir:
-            old_cwd = os.getcwd()
-            try:
-                os.chdir(temp_dir)
-                self.assertEqual(
-                    text_to_uasset.default_uasset_path("/tmp/Somewhere/Asset.json"),
-                    os.path.join(os.getcwd(), "Asset.uasset"),
-                )
-            finally:
-                os.chdir(old_cwd)
-
-    def test_text_document_round_trips_to_original_bytes(self):
-        binary = make_minimal_uasset()
-
-        with tempfile.TemporaryDirectory() as temp_dir:
-            uasset_path = os.path.join(temp_dir, "RoundTrip.uasset")
-            text_path = os.path.join(temp_dir, "RoundTrip.json")
-            restored_path = os.path.join(temp_dir, "Restored.uasset")
-            with open(uasset_path, "wb") as file:
-                file.write(binary)
-
-            document = uasset.build_text_document(
-                uasset_path,
-                include_export_data=False,
-                preview_bytes=0,
-            )
-            with open(text_path, "w", encoding="utf-8") as file:
-                json.dump(document, file)
-
-            text_to_uasset.restore_uasset(text_path, restored_path)
-
-            with open(restored_path, "rb") as file:
-                restored = file.read()
-            self.assertEqual(restored, binary)
-            self.assertEqual(
-                document["sha256"],
-                hashlib.sha256(restored).hexdigest(),
-            )
 
     def test_uasset_diff_reports_metadata_changes(self):
         with tempfile.TemporaryDirectory() as temp_dir:

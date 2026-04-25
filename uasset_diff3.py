@@ -138,7 +138,6 @@ def diff3_uassets(
     ours_path: str,
     theirs_path: str,
     *,
-    full_text: bool = False,
     keep_paths: bool = False,
     include_export_data: bool = False,
     preview_bytes: int = 64,
@@ -146,7 +145,6 @@ def diff3_uassets(
     base_document = uasset_diff.normalize_paths(
         uasset_diff.document_for_diff(
             base_path,
-            full_text=full_text,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
         ),
@@ -155,7 +153,6 @@ def diff3_uassets(
     ours_document = uasset_diff.normalize_paths(
         uasset_diff.document_for_diff(
             ours_path,
-            full_text=full_text,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
         ),
@@ -164,7 +161,6 @@ def diff3_uassets(
     theirs_document = uasset_diff.normalize_paths(
         uasset_diff.document_for_diff(
             theirs_path,
-            full_text=full_text,
             include_export_data=include_export_data,
             preview_bytes=preview_bytes,
         ),
@@ -235,11 +231,6 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("ours", help="Our changed .uasset file")
     parser.add_argument("theirs", help="Their changed .uasset file")
     parser.add_argument(
-        "--full-text",
-        action="store_true",
-        help="Diff the full reversible JSON wrapper, including embedded base64 bytes.",
-    )
-    parser.add_argument(
         "--keep-paths",
         action="store_true",
         help="Keep source file paths in the JSON before diffing.",
@@ -276,7 +267,6 @@ def main(argv: list[str]) -> int:
             args.base,
             args.ours,
             args.theirs,
-            full_text=args.full_text,
             keep_paths=args.keep_paths,
             include_export_data=args.include_export_data,
             preview_bytes=max(0, args.bytes),
