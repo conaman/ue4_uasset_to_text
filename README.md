@@ -3,8 +3,6 @@
 `ue4_uasset_to_text` is a small standalone Python toolkit for inspecting
 Unreal Engine 4.27 `.uasset` files as readable JSON.
 
-Current script version: `2026-04-26` (Korea date).
-
 It can:
 
 - Convert a `.uasset` file to a pretty JSON file.
@@ -23,13 +21,6 @@ The parser is based on UE4.27 package serialization structures, especially
 - Perforce P4Merge is optional and only needed for `uasset_p4merge.py`.
 
 No third-party Python packages are required.
-
-Check a script version:
-
-```bash
-./uasset_to_text.py --version
-./uasset_p4merge.py --version
-```
 
 ## Tools
 
