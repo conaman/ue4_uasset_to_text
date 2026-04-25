@@ -1,13 +1,13 @@
 # ue4-uasset-tools
 
 `ue4-uasset-tools` is a small standalone Python toolkit for inspecting
-Unreal Engine 4.27 `.uasset` files as readable JSON.
+Unreal Engine 4.27 `.uasset` metadata as readable JSON.
 
 It can:
 
 - Convert a `.uasset` file to readable metadata JSON.
 - Print a compact UMG widget tree summary with widget names and types.
-- Print 2-way and 3-way JSON diffs for `.uasset` files.
+- Print 2-way and 3-way metadata JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated metadata JSON files for visual comparison.
 
 The parser reads UE4.27 package metadata tables, especially
@@ -265,10 +265,11 @@ Merge arguments:
   "C:\path\to\ue4-uasset-tools\uasset_p4merge.py" %b %2 %1
 ```
 
-Important: this merge registration opens a JSON 3-way view. It does not write a
-merged `.uasset` result back to P4V. Do not pass P4V's `%r` placeholder to
-`--result`, because `%r` is normally the original `.uasset` merge target and
-`uasset_p4merge.py` intentionally only allows `.json` review result files.
+Important: this merge registration opens a metadata JSON 3-way view. It does
+not write a merged `.uasset` result back to P4V. Do not pass P4V's `%r`
+placeholder to `--result`, because `%r` is normally the original `.uasset`
+merge target and `uasset_p4merge.py` intentionally only allows `.json` review
+result files.
 
 ### Result Files
 
