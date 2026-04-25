@@ -40,6 +40,18 @@ Restore `Asset.json` to `./Asset.uasset` in the current directory:
 ./text_to_uasset.py /path/to/Asset.json
 ```
 
+Print a unified metadata diff between two `.uasset` files:
+
+```bash
+./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset
+```
+
+Print a 3-way metadata diff report between a common base, ours, and theirs:
+
+```bash
+./uasset_diff3.py /path/to/Base.uasset /path/to/Ours.uasset /path/to/Theirs.uasset
+```
+
 Include export payload location and byte previews:
 
 ```bash
@@ -69,6 +81,13 @@ Write to a specific path:
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.json
 ./text_to_uasset.py /tmp/Asset.json -o /tmp/Asset.uasset
+```
+
+Diff the full reversible JSON wrapper, including embedded base64 bytes:
+
+```bash
+./uasset_diff.py /path/to/Old.uasset /path/to/New.uasset --full-text
+./uasset_diff3.py /path/to/Base.uasset /path/to/Ours.uasset /path/to/Theirs.uasset --full-text
 ```
 
 ## Output
@@ -116,7 +135,7 @@ data.
 Run a syntax check:
 
 ```bash
-python3 -m py_compile uasset_to_text.py text_to_uasset.py
+python3 -m py_compile uasset_to_text.py text_to_uasset.py uasset_diff.py uasset_diff3.py
 ```
 
 Run the tests:
