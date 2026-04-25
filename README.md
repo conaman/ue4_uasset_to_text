@@ -313,23 +313,3 @@ The implementation targets Unreal Engine 4.27 package layout. Older UE4 assets
 may work when their serialized fields match the covered version branches, but
 the parser is intentionally conservative when it sees unsupported or implausible
 data.
-
-## Development
-
-Run a syntax check:
-
-```bash
-python3 -m py_compile uasset_to_text.py text_to_uasset.py uasset_diff.py uasset_diff3.py uasset_p4_common.py uasset_p4merge.py test_uasset_to_text.py
-```
-
-Run the tests:
-
-```bash
-python3 -m unittest
-```
-
-Try it against an engine sample asset:
-
-```bash
-./uasset_to_text.py /path/to/UnrealEngine/Engine/Content/MaterialTemplates/Textures/T_Noise01.uasset
-```
