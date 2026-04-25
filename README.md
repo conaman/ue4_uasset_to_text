@@ -1,7 +1,8 @@
 # ue4_uasset_to_text
 
-`ue4_uasset_to_text` is a small standalone CLI that reads an Unreal Engine 4.27
-`.uasset` file and prints its package metadata as JSON.
+`ue4_uasset_to_text` is a small standalone CLI that converts an Unreal Engine
+4.27 `.uasset` file into a reversible JSON text file, then restores that text
+file back to the original `.uasset`.
 
 The parser is based on UE4.27 package serialization code, especially
 `FPackageFileSummary`, `FNameEntrySerialized`, `FObjectImport`, and
@@ -14,7 +15,9 @@ The parser is based on UE4.27 package serialization code, especially
 - Dumps import and export maps with resolved object paths where possible.
 - Dumps dependency, soft package reference, and preload dependency tables.
 - Optionally shows export payload offsets and a short byte preview.
-- Outputs UTF-8 JSON for easy inspection or downstream processing.
+- Writes UTF-8 JSON text for easy inspection or downstream processing.
+- Embeds the original package bytes so `text_to_uasset.py` can restore the
+  exact `.uasset` file.
 
 ## Requirements
 
@@ -25,10 +28,16 @@ No third-party Python packages are required.
 
 ## Usage
 
-Print pretty JSON to the console:
+Convert `Asset.uasset` to `Asset.txt`:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset
+```
+
+Restore `Asset.txt` to `Asset.uasset`:
+
+```bash
+./text_to_uasset.py /path/to/Asset.txt
 ```
 
 Include export payload location and byte previews:
@@ -49,15 +58,31 @@ Print compact JSON:
 ./uasset_to_text.py /path/to/Asset.uasset --compact
 ```
 
-You can redirect the output to a file:
+Print to the console instead of writing a `.txt` file:
 
 ```bash
-./uasset_to_text.py /path/to/Asset.uasset > Asset.uasset.json
+./uasset_to_text.py /path/to/Asset.uasset --stdout
+```
+
+Write to a specific path:
+
+```bash
+./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.txt
+./text_to_uasset.py /tmp/Asset.txt -o /tmp/Asset.uasset
 ```
 
 ## Output
 
-The JSON contains these top-level sections:
+The default text file contains these top-level sections:
+
+- `format`: text wrapper version.
+- `source_path`: original input path.
+- `source_filename`: original input filename.
+- `sha256`: checksum of the embedded package bytes.
+- `metadata`: parsed package metadata.
+- `data_base64_lines`: original `.uasset` bytes encoded as text.
+
+The `metadata` object contains:
 
 - `file`: input path and file size.
 - `summary`: package file summary fields and version data.
@@ -76,6 +101,11 @@ It does not fully deserialize arbitrary UObject property data. Full UObject
 deserialization needs the relevant UE classes and engine serializers loaded at
 runtime.
 
+The text format is a lossless JSON wrapper around the original binary package,
+not Unreal Engine's native editable text asset serialization. Editing metadata
+fields alone will not rewrite the embedded `.uasset` bytes. Use it for readable
+inspection and exact round-trips.
+
 The implementation targets Unreal Engine 4.27 package layout. Older UE4 assets
 may work when their serialized fields match the covered version branches, but
 the parser is intentionally conservative when it sees unsupported or implausible
@@ -86,7 +116,7 @@ data.
 Run a syntax check:
 
 ```bash
-python3 -m py_compile uasset_to_text.py
+python3 -m py_compile uasset_to_text.py text_to_uasset.py
 ```
 
 Run the tests:

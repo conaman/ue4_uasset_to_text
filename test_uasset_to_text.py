@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
+import hashlib
+import json
+import os
 import struct
+import tempfile
 import unittest
 
+import text_to_uasset
 import uasset_to_text as uasset
 
 
@@ -39,6 +44,92 @@ class UAssetParserValidationTests(unittest.TestCase):
         text = uasset.format_json({"outer": {"inner": 1}}, compact=True, indent=4)
 
         self.assertEqual(text, '{"outer":{"inner":1}}')
+
+    def test_default_text_path_replaces_extension(self):
+        self.assertEqual(uasset.default_text_path("/tmp/Asset.uasset"), "/tmp/Asset.txt")
+
+    def test_default_uasset_path_replaces_extension(self):
+        self.assertEqual(text_to_uasset.default_uasset_path("/tmp/Asset.txt"), "/tmp/Asset.uasset")
+
+    def test_text_document_round_trips_to_original_bytes(self):
+        binary = bytearray()
+
+        def write(fmt, *values):
+            binary.extend(struct.pack("<" + fmt, *values))
+
+        def write_fstring(value=""):
+            if value:
+                raw = value.encode("utf-8") + b"\x00"
+                write("i", len(raw))
+                binary.extend(raw)
+            else:
+                write("i", 0)
+
+        def write_guid():
+            write("IIII", 0, 0, 0, 0)
+
+        def write_engine_version():
+            write("HHHI", 4, 27, 0, 17703452)
+            write_fstring()
+
+        write("I", uasset.PACKAGE_FILE_TAG)
+        write("i", -7)
+        write("i", 864)
+        write("i", uasset.VER_UE4_AUTOMATIC_VERSION)
+        write("i", 0)
+        write("i", 0)  # custom version count
+        write("i", 0)  # placeholder TotalHeaderSize
+        write_fstring()
+        write("I", 0)  # package flags
+        write("ii", 0, 0)  # name count, name offset
+        write_fstring()  # localization id
+        write("ii", 0, 0)  # gatherable text data
+        write("ii", 0, 0)  # exports
+        write("ii", 0, 0)  # imports
+        write("i", 0)  # depends offset
+        write("ii", 0, 0)  # soft package references
+        write("i", 0)  # searchable names offset
+        write("i", 0)  # thumbnail table offset
+        write_guid()
+        write_guid()  # persistent guid
+        write("i", 0)  # generations count
+        write_engine_version()
+        write_engine_version()
+        write("I", 0)  # compression flags
+        write("i", 0)  # compressed chunks count
+        write("I", 0)  # package source
+        write("i", 0)  # additional packages count
+        write("iq", 0, 0)  # asset registry offset, bulk data start offset
+        write("i", 0)  # world tile info data offset
+        write("i", 0)  # chunk ids count
+        write("ii", -1, 0)  # preload dependencies
+        struct.pack_into("<i", binary, 24, len(binary))
+        binary = bytes(binary)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            uasset_path = os.path.join(temp_dir, "RoundTrip.uasset")
+            text_path = os.path.join(temp_dir, "RoundTrip.txt")
+            restored_path = os.path.join(temp_dir, "Restored.uasset")
+            with open(uasset_path, "wb") as file:
+                file.write(binary)
+
+            document = uasset.build_text_document(
+                uasset_path,
+                include_export_data=False,
+                preview_bytes=0,
+            )
+            with open(text_path, "w", encoding="utf-8") as file:
+                json.dump(document, file)
+
+            text_to_uasset.restore_uasset(text_path, restored_path)
+
+            with open(restored_path, "rb") as file:
+                restored = file.read()
+            self.assertEqual(restored, binary)
+            self.assertEqual(
+                document["sha256"],
+                hashlib.sha256(restored).hexdigest(),
+            )
 
     def test_name_entry_length_is_bounded_like_ue4(self):
         data = struct.pack("<i", uasset.MAX_NAME_CODE_UNITS + 1)
