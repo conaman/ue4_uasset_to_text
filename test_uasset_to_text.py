@@ -29,6 +29,17 @@ def make_summary(**overrides):
 
 
 class UAssetParserValidationTests(unittest.TestCase):
+    def test_pretty_json_is_indented(self):
+        text = uasset.format_json({"outer": {"inner": 1}}, compact=False, indent=4)
+
+        self.assertIn('\n    "outer"', text)
+        self.assertIn('\n        "inner"', text)
+
+    def test_compact_json_omits_extra_whitespace(self):
+        text = uasset.format_json({"outer": {"inner": 1}}, compact=True, indent=4)
+
+        self.assertEqual(text, '{"outer":{"inner":1}}')
+
     def test_name_entry_length_is_bounded_like_ue4(self):
         data = struct.pack("<i", uasset.MAX_NAME_CODE_UNITS + 1)
         reader = uasset.Reader(data, "<memory>")

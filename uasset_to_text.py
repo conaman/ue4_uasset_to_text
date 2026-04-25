@@ -783,7 +783,7 @@ def parse_uasset(path: str, *, include_export_data: bool, preview_bytes: int) ->
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Print a UE4.27 .uasset package as JSON text.",
+        description="Print a UE4.27 .uasset package as JSON text to stdout.",
     )
     parser.add_argument("uasset", help="Path to a .uasset file")
     parser.add_argument(
@@ -800,9 +800,21 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument(
         "--compact",
         action="store_true",
-        help="Print compact JSON instead of pretty JSON.",
+        help="Print compact JSON instead of indented JSON.",
+    )
+    parser.add_argument(
+        "--indent",
+        type=int,
+        default=2,
+        help="Number of spaces to use for pretty JSON indentation. Defaults to 2.",
     )
     return parser.parse_args(argv)
+
+
+def format_json(result: dict[str, Any], *, compact: bool, indent: int) -> str:
+    if compact:
+        return json.dumps(result, ensure_ascii=False, separators=(",", ":"))
+    return json.dumps(result, ensure_ascii=False, indent=max(0, indent))
 
 
 def main(argv: list[str]) -> int:
@@ -817,10 +829,7 @@ def main(argv: list[str]) -> int:
         print(f"uasset_to_text: {exc}", file=sys.stderr)
         return 1
 
-    if args.compact:
-        print(json.dumps(result, ensure_ascii=False, separators=(",", ":")))
-    else:
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+    print(format_json(result, compact=args.compact, indent=args.indent))
     return 0
 
 

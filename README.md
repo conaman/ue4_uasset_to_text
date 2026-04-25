@@ -25,6 +25,8 @@ No third-party Python packages are required.
 
 ## Usage
 
+Print pretty JSON to the console:
+
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset
 ```
@@ -33,6 +35,12 @@ Include export payload location and byte previews:
 
 ```bash
 ./uasset_to_text.py /path/to/Asset.uasset --include-export-data --bytes 64
+```
+
+Use a wider indentation:
+
+```bash
+./uasset_to_text.py /path/to/Asset.uasset --indent 4
 ```
 
 Print compact JSON:
