@@ -210,6 +210,38 @@ class UAssetParserValidationTests(unittest.TestCase):
                     "super": "/Script/UMG.UserWidget",
                 },
                 {
+                    "class": "/Script/UMG.WidgetTree",
+                    "object_name": {"value": "WidgetTree"},
+                    "path": "WidgetMenu.WidgetTree",
+                    "review_properties": {
+                        "RootWidget": "WidgetMenu.WidgetTree.Panel",
+                    },
+                },
+                {
+                    "class": "/Script/UMG.WidgetTree",
+                    "object_name": {"value": "WidgetTree"},
+                    "path": "WidgetMenu_C.WidgetTree",
+                    "review_properties": {
+                        "RootWidget": "WidgetMenu_C.WidgetTree.Panel",
+                    },
+                },
+                {
+                    "class": "/Script/UMG.VerticalBox",
+                    "object_name": {"value": "Panel"},
+                    "path": "WidgetMenu.WidgetTree.Panel",
+                    "review_properties": {
+                        "Slots": ["WidgetMenu.WidgetTree.Panel.VerticalBoxSlot_0"],
+                    },
+                },
+                {
+                    "class": "/Script/UMG.VerticalBox",
+                    "object_name": {"value": "Panel"},
+                    "path": "WidgetMenu_C.WidgetTree.Panel",
+                    "review_properties": {
+                        "Slots": ["WidgetMenu_C.WidgetTree.Panel.VerticalBoxSlot_0"],
+                    },
+                },
+                {
                     "class": "/Script/UMG.Button",
                     "object_name": {"value": "ExitButton"},
                     "path": "WidgetMenu.WidgetTree.ExitButton",
@@ -220,14 +252,30 @@ class UAssetParserValidationTests(unittest.TestCase):
                     "path": "WidgetMenu_C.WidgetTree.ExitButton",
                 },
                 {
-                    "class": "/Script/UMG.ButtonSlot",
-                    "object_name": {"value": "ButtonSlot_0"},
-                    "path": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0",
+                    "class": "/Game/UI.CustomTextBlock_C",
+                    "object_name": {"value": "TitleText"},
+                    "path": "WidgetMenu.WidgetTree.TitleText",
+                    "review_properties": {
+                        "Slot": "WidgetMenu.WidgetTree.Panel.VerticalBoxSlot_1",
+                    },
                 },
                 {
-                    "class": "/Script/UMG.WidgetTree",
-                    "object_name": {"value": "WidgetTree"},
-                    "path": "WidgetMenu.WidgetTree",
+                    "class": "/Script/UMG.VerticalBoxSlot",
+                    "object_name": {"value": "VerticalBoxSlot_0"},
+                    "path": "WidgetMenu.WidgetTree.Panel.VerticalBoxSlot_0",
+                    "review_properties": {
+                        "Parent": "WidgetMenu.WidgetTree.Panel",
+                        "Content": "WidgetMenu.WidgetTree.ExitButton",
+                    },
+                },
+                {
+                    "class": "/Script/UMG.VerticalBoxSlot",
+                    "object_name": {"value": "VerticalBoxSlot_0"},
+                    "path": "WidgetMenu_C.WidgetTree.Panel.VerticalBoxSlot_0",
+                    "review_properties": {
+                        "Parent": "WidgetMenu_C.WidgetTree.Panel",
+                        "Content": "WidgetMenu_C.WidgetTree.ExitButton",
+                    },
                 },
                 {
                     "class": "/Script/BlueprintGraph.K2Node_CallFunction",
@@ -245,16 +293,96 @@ class UAssetParserValidationTests(unittest.TestCase):
             summary["widgets"],
             [
                 {
+                    "name": "Panel",
+                    "type": "VerticalBox",
+                    "class": "/Script/UMG.VerticalBox",
+                    "tree_path": ["Panel"],
+                    "paths": [
+                        "WidgetMenu.WidgetTree.Panel",
+                        "WidgetMenu_C.WidgetTree.Panel",
+                    ],
+                },
+                {
                     "name": "ExitButton",
                     "type": "Button",
                     "class": "/Script/UMG.Button",
-                    "tree_path": ["ExitButton"],
+                    "tree_path": ["Panel", "ExitButton"],
                     "paths": [
                         "WidgetMenu.WidgetTree.ExitButton",
                         "WidgetMenu_C.WidgetTree.ExitButton",
                     ],
+                },
+                {
+                    "name": "TitleText",
+                    "type": "CustomTextBlock_C",
+                    "class": "/Game/UI.CustomTextBlock_C",
+                    "tree_path": ["TitleText"],
+                    "paths": ["WidgetMenu.WidgetTree.TitleText"],
+                },
+            ],
+        )
+
+    def test_uasset_umg_summary_can_include_slots_in_hierarchy(self):
+        metadata = {
+            "exports": [
+                {
+                    "class": "/Script/UMG.WidgetTree",
+                    "path": "WidgetMenu.WidgetTree",
+                    "object_name": {"value": "WidgetTree"},
+                    "review_properties": {
+                        "RootWidget": "WidgetMenu.WidgetTree.Panel",
+                    },
+                },
+                {
+                    "class": "/Script/UMG.VerticalBox",
+                    "path": "WidgetMenu.WidgetTree.Panel",
+                    "object_name": {"value": "Panel"},
+                },
+                {
+                    "class": "/Script/UMG.VerticalBoxSlot",
+                    "path": "WidgetMenu.WidgetTree.Panel.VerticalBoxSlot_0",
+                    "object_name": {"value": "VerticalBoxSlot_0"},
+                    "review_properties": {
+                        "Parent": "WidgetMenu.WidgetTree.Panel",
+                        "Content": "WidgetMenu.WidgetTree.StartButton",
+                    },
+                },
+                {
+                    "class": "/Script/UMG.Button",
+                    "path": "WidgetMenu.WidgetTree.StartButton",
+                    "object_name": {"value": "StartButton"},
+                },
+            ],
+        }
+
+        summary = uasset_umg_summary.summarize_umg(metadata, include_slots=True)
+
+        self.assertEqual(
+            [(item["name"], item["tree_path"]) for item in summary["widgets"]],
+            [
+                ("Panel", ["Panel"]),
+                ("VerticalBoxSlot_0", ["Panel", "VerticalBoxSlot_0"]),
+                ("StartButton", ["Panel", "VerticalBoxSlot_0", "StartButton"]),
+            ],
+        )
+
+    def test_uasset_umg_summary_accepts_widget_tree_path_custom_exports(self):
+        metadata = {
+            "exports": [
+                {
+                    "class": "/Game/UI.ModuleCustom_C",
+                    "path": "WidgetMenu.WidgetTree.ModuleCustom",
+                    "object_name": {"value": "ModuleCustom"},
                 }
             ],
+        }
+
+        summary = uasset_umg_summary.summarize_umg(metadata)
+
+        self.assertEqual(summary["umg_kind"], "UMGReference")
+        self.assertEqual(
+            [(item["name"], item["type"]) for item in summary["widgets"]],
+            [("ModuleCustom", "ModuleCustom_C")],
         )
 
     def test_uasset_umg_summary_formats_widget_tree(self):

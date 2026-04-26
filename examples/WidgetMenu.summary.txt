@@ -5,8 +5,8 @@ Widgets: 6
 
 WidgetTree
   Border_0 (Border)
-  ExitButton (Button)
-  RestartButton (Button)
-  Text_ExitButton (TextBlock)
-  Text_RestartButton (TextBlock)
-  VerticalBox_48 (VerticalBox)
+    VerticalBox_48 (VerticalBox)
+      RestartButton (Button)
+        Text_RestartButton (TextBlock)
+      ExitButton (Button)
+        Text_ExitButton (TextBlock)

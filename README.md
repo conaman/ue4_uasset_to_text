@@ -11,7 +11,7 @@ It can:
 - Extract UMG review properties such as slot padding, layout data, alignment,
   visibility, colors, widget styling, button/slider state, and custom primitive
   variables.
-- Print a compact UMG WidgetTree export summary with widget names and types.
+- Print a compact UMG WidgetTree hierarchy with widget names and types.
 - Print 2-way and 3-way metadata JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated metadata JSON files for visual comparison.
 
@@ -47,7 +47,7 @@ No third-party Python packages are required.
 | Tool | Purpose |
 | --- | --- |
 | `uasset_to_text.py` | Convert `.uasset` to metadata JSON. |
-| `uasset_umg_summary.py` | Print a UMG WidgetTree summary from a `.uasset` or metadata JSON file. |
+| `uasset_umg_summary.py` | Print a UMG WidgetTree hierarchy from a `.uasset` or metadata JSON file. |
 | `uasset_diff.py` | Print a unified 2-way diff between two `.uasset` files. |
 | `uasset_diff3.py` | Print a structured 3-way diff report. |
 | `uasset_p4merge.py` | Convert `.uasset` files to metadata JSON, then open P4Merge. |
@@ -141,8 +141,8 @@ Example export entry:
 ### uasset_umg_summary.py
 
 `uasset_umg_summary.py` accepts a `.uasset` file directly. It uses the same
-parser as `uasset_to_text.py` internally, then prints a focused list of
-WidgetTree exports without creating an intermediate JSON file.
+parser as `uasset_to_text.py` internally, then prints a focused WidgetTree
+hierarchy without creating an intermediate JSON file.
 
 ```bash
 ./uasset_umg_summary.py /path/to/Widget.uasset
@@ -158,16 +158,17 @@ Widgets: 6
 
 WidgetTree
   Border_0 (Border)
-  ExitButton (Button)
-  RestartButton (Button)
-  Text_ExitButton (TextBlock)
-  Text_RestartButton (TextBlock)
-  VerticalBox_48 (VerticalBox)
+    VerticalBox_48 (VerticalBox)
+      RestartButton (Button)
+        Text_RestartButton (TextBlock)
+      ExitButton (Button)
+        Text_ExitButton (TextBlock)
 ```
 
 The default output shows `Name (Type)` entries. UMG slot exports are hidden by
-default. Parent/content relationships are available in `review_properties`
-fields such as `Parent`, `Content`, `Slot`, and `Slots`.
+default. The hierarchy is restored from `review_properties` fields such as
+`RootWidget`, `Slots`, `Parent`, and `Content`. If those fields are unavailable,
+the tool falls back to a flat WidgetTree export list.
 
 Common options:
 
