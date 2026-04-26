@@ -1,5 +1,7 @@
 # ue4-uasset-tools
 
+Current release: `2026-04-26`
+
 `ue4-uasset-tools` is a small standalone Python toolkit for reviewing Unreal
 Engine 4.27 `.uasset` metadata and UMG widget changes as readable JSON.
 
@@ -9,7 +11,7 @@ It can:
 - Extract UMG review properties such as slot padding, layout data, alignment,
   visibility, colors, widget styling, button/slider state, and custom primitive
   variables.
-- Print a compact UMG widget tree summary with widget names and types.
+- Print a compact UMG WidgetTree export summary with widget names and types.
 - Print 2-way and 3-way metadata JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated metadata JSON files for visual comparison.
 
@@ -27,13 +29,15 @@ No third-party Python packages are required.
 ## Use Cases
 
 - Review UMG hierarchy changes in Perforce before accepting a changelist.
-- Review common UMG layout changes such as padding, anchors, alignment, and
+- Review UMG layout changes such as padding, anchors, position, alignment, and
   parent/content slot relationships.
-- Review common widget property changes on Button, CheckBox, Image, Border,
-  Slider, ProgressBar, SizeBox, ScaleBox, ScrollBox, ComboBoxString, and major
+- Review widget property changes on Button, CheckBox, Image, Border, Slider,
+  ProgressBar, SizeBox, ScaleBox, ScrollBox, ComboBoxString, and common panel
   slot types.
-- Review common TextBlock/RichTextBlock changes such as text source,
-  localization key, font, color, shadow, wrapping, and justification.
+- Review TextBlock/RichTextBlock changes such as text source, localization key,
+  font, color, shadow, wrapping, and justification.
+- See custom primitive fields serialized on widgets without maintaining a
+  property-name filter.
 - Compare binary `.uasset` metadata without launching Unreal Editor.
 - Inspect imports, exports, dependencies, and soft package references.
 - Use P4Merge as a visual JSON diff viewer for UE4 assets.
@@ -49,6 +53,9 @@ No third-party Python packages are required.
 | `uasset_p4merge.py` | Convert `.uasset` files to metadata JSON, then open P4Merge. |
 
 ## Quick Start
+
+Clone or download this repository, then run the scripts with Python 3.9 or
+newer. The scripts do not need Unreal Engine or third-party Python packages.
 
 Convert a `.uasset` to metadata JSON:
 
@@ -134,8 +141,8 @@ Example export entry:
 ### uasset_umg_summary.py
 
 `uasset_umg_summary.py` accepts a `.uasset` file directly. It uses the same
-parser as `uasset_to_text.py` internally, then prints a focused WidgetTree
-summary to stdout without creating an intermediate JSON file.
+parser as `uasset_to_text.py` internally, then prints a focused list of
+WidgetTree exports without creating an intermediate JSON file.
 
 ```bash
 ./uasset_umg_summary.py /path/to/Widget.uasset
@@ -150,16 +157,17 @@ ParentClass: UserWidget
 Widgets: 6
 
 WidgetTree
-  CanvasPanel_0 (CanvasPanel)
-    HorizontalBox_0 (HorizontalBox)
-      StartButton (Button)
-        StartText (TextBlock)
-    SizeBox_0 (SizeBox)
-      TitleText (TextBlock)
+  Border_0 (Border)
+  ExitButton (Button)
+  RestartButton (Button)
+  Text_ExitButton (TextBlock)
+  Text_RestartButton (TextBlock)
+  VerticalBox_48 (VerticalBox)
 ```
 
 The default output shows `Name (Type)` entries. UMG slot exports are hidden by
-default.
+default. Parent/content relationships are available in `review_properties`
+fields such as `Parent`, `Content`, `Slot`, and `Slots`.
 
 Common options:
 
@@ -414,6 +422,10 @@ show inherited Button fields, and a `CustomTextBlock` can show inherited
 TextBlock fields. A `ModuleWidget` can also show custom primitive fields that
 are serialized in the parent widget instance.
 
+When a property is present but its value is not decoded yet, it is kept as
+`_unparsed` with `_raw_hex`. That means the diff can still show that a value
+changed, even when this tool cannot name every field inside that value.
+
 ## Limitations
 
 This tool focuses on package metadata tables and supported UMG tagged property
@@ -422,6 +434,10 @@ values. It is not a full UObject property serializer.
 Unsupported custom serializers are marked as `_unparsed` with `_raw_hex`
 instead of guessed. Default-valued properties may not appear if Unreal did not
 serialize them into the asset.
+
+Struct arrays can be reported as `_unparsed` when the asset stream only says
+the array contains `StructProperty` values and does not include the concrete
+struct type name needed to decode each element safely.
 
 `uasset_p4merge.py` is a JSON comparison launcher. Even if P4Merge saves a merged
 JSON result, the original `.uasset` files are not modified.
