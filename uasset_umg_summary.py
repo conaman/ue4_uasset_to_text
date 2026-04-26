@@ -455,7 +455,7 @@ def format_widget_tree(summary: dict[str, Any], *, show_paths: bool = False) -> 
     for row in rows:
         tree_path = row.get("tree_path")
         depth = len(tree_path) if isinstance(tree_path, list) else 1
-        label = f"{row['name']} ({row['type']})"
+        label = f"{row['name']}: {row['type']}"
         if show_paths and row["paths"]:
             label += f" [{'; '.join(row['paths'])}]"
         lines.append(f"{'  ' * depth}{label}")

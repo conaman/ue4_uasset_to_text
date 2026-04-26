@@ -410,7 +410,7 @@ class UAssetParserValidationTests(unittest.TestCase):
         output = uasset_umg_summary.format_widget_tree(summary)
 
         self.assertIn("ParentClass: UserWidget", output)
-        self.assertIn("WidgetTree\n  Panel (VerticalBox)\n    StartButton (Button)", output)
+        self.assertIn("WidgetTree\n  Panel: VerticalBox\n    StartButton: Button", output)
         self.assertNotIn("Exports", output)
 
     def test_uasset_umg_summary_can_include_slots_and_internal_exports(self):

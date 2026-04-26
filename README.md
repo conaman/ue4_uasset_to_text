@@ -157,15 +157,15 @@ ParentClass: UserWidget
 Widgets: 6
 
 WidgetTree
-  Border_0 (Border)
-    VerticalBox_48 (VerticalBox)
-      RestartButton (Button)
-        Text_RestartButton (TextBlock)
-      ExitButton (Button)
-        Text_ExitButton (TextBlock)
+  Border_0: Border
+    VerticalBox_48: VerticalBox
+      RestartButton: Button
+        Text_RestartButton: TextBlock
+      ExitButton: Button
+        Text_ExitButton: TextBlock
 ```
 
-The default output shows `Name (Type)` entries. UMG slot exports are hidden by
+The default output shows `Name: Type` entries. UMG slot exports are hidden by
 default. The hierarchy is restored from `review_properties` fields such as
 `RootWidget`, `Slots`, `Parent`, and `Content`. If those fields are unavailable,
 the tool falls back to a flat WidgetTree export list.

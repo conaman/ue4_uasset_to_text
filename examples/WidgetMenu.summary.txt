@@ -4,9 +4,9 @@ ParentClass: UserWidget
 Widgets: 6
 
 WidgetTree
-  Border_0 (Border)
-    VerticalBox_48 (VerticalBox)
-      RestartButton (Button)
-        Text_RestartButton (TextBlock)
-      ExitButton (Button)
-        Text_ExitButton (TextBlock)
+  Border_0: Border
+    VerticalBox_48: VerticalBox
+      RestartButton: Button
+        Text_RestartButton: TextBlock
+      ExitButton: Button
+        Text_ExitButton: TextBlock
