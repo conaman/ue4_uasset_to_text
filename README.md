@@ -1,18 +1,20 @@
 # ue4-uasset-tools
 
-`ue4-uasset-tools` is a small standalone Python toolkit for inspecting
-Unreal Engine 4.27 `.uasset` metadata as readable JSON.
+`ue4-uasset-tools` is a small standalone Python toolkit for reviewing Unreal
+Engine 4.27 `.uasset` metadata and UMG widget changes as readable JSON.
 
 It can:
 
 - Convert a `.uasset` file to readable metadata JSON.
+- Extract allowlisted UMG review properties such as slot padding, layout data,
+  alignment, visibility, color, widget styling, button/slider state, and
+  TextBlock/RichTextBlock text styling.
 - Print a compact UMG widget tree summary with widget names and types.
 - Print 2-way and 3-way metadata JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated metadata JSON files for visual comparison.
 
-The parser reads UE4.27 package metadata tables, especially
-`FPackageFileSummary`, `FNameEntrySerialized`, `FObjectImport`, and
-`FObjectExport`. It does not link against Unreal Engine.
+The parser reads UE4.27 package metadata plus a conservative allowlist of UMG
+tagged properties. It does not link against Unreal Engine.
 
 ## Requirements
 
@@ -25,6 +27,13 @@ No third-party Python packages are required.
 ## Use Cases
 
 - Review UMG hierarchy changes in Perforce before accepting a changelist.
+- Review common UMG layout changes such as padding, anchors, alignment, and
+  parent/content slot relationships.
+- Review common widget property changes on Button, CheckBox, Image, Border,
+  Slider, ProgressBar, SizeBox, ScaleBox, ScrollBox, ComboBoxString, and major
+  slot types.
+- Review common TextBlock/RichTextBlock changes such as text source,
+  localization key, font, color, shadow, wrapping, and justification.
 - Compare binary `.uasset` metadata without launching Unreal Editor.
 - Inspect imports, exports, dependencies, and soft package references.
 - Use P4Merge as a visual JSON diff viewer for UE4 assets.
@@ -38,7 +47,6 @@ No third-party Python packages are required.
 | `uasset_diff.py` | Print a unified 2-way diff between two `.uasset` files. |
 | `uasset_diff3.py` | Print a structured 3-way diff report. |
 | `uasset_p4merge.py` | Convert `.uasset` files to metadata JSON, then open P4Merge. |
-| `uasset_p4_common.py` | Internal helper code used by `uasset_p4merge.py`. |
 
 ## Quick Start
 
@@ -75,6 +83,11 @@ Sample outputs generated from a UE4.27 UMG widget asset are available in
 - `WidgetMenu.exports.json`: compact export list with path and class fields.
 - `WidgetMenu.metadata.json`: full metadata JSON produced by
   `uasset_to_text.py`, with the file path shortened for readability.
+- `WidgetMenu.review_properties.json`: focused UMG `review_properties` excerpt
+  showing Button style and TextBlock text/color/font fields.
+- `Snapshot_UI_VR.review_properties.json`: focused UMG `review_properties`
+  excerpt showing CanvasPanelSlot `LayoutData` position, anchors, alignment,
+  and slot padding/alignment fields.
 - `WidgetMenu.diff.txt`: unified metadata diff between two widget revisions.
 
 ## Usage
@@ -98,6 +111,7 @@ Common options:
 ./uasset_to_text.py /path/to/Asset.uasset -o /tmp/Asset.json
 ./uasset_to_text.py /path/to/Asset.uasset --indent 4
 ./uasset_to_text.py /path/to/Asset.uasset --compact
+./uasset_to_text.py /path/to/Asset.uasset --no-review-properties
 ```
 
 Print a compact export list:
@@ -371,14 +385,38 @@ The metadata object can include:
 - `summary`: package file summary fields and version data.
 - `names`: package name table.
 - `imports`: imported object table.
-- `exports`: exported object table.
+- `exports`: exported object table, with `review_properties` on supported UMG
+  exports when allowlisted tagged properties are found.
 - `depends`: export dependency map.
 - `soft_package_references`: soft package references.
 - `preload_dependencies`: cooked preload dependency indexes.
 
+## UMG Review Coverage
+
+`review_properties` is intentionally allowlisted. It currently focuses on
+properties that are useful in code review:
+
+- hierarchy references: `Parent`, `Content`, `Slot`, `Slots`
+- layout: Canvas `LayoutData`, `Padding`, alignment, size, row/column/layer,
+  SizeBox/ScaleBox settings, and major panel slot settings
+- appearance: `Brush`, `Background`, `WidgetStyle`, colors, visibility, render
+  opacity, and render transform
+- interaction/state: Button and CheckBox methods/focus/state, Slider values,
+  ProgressBar percent/fill, ScrollBox and ComboBox behavior
+- text: TextBlock, RichTextBlock, EditableText, and EditableTextBox content,
+  font, color, shadow, wrapping, justification, and virtual keyboard options
+
+WidgetTree custom widgets are checked too. For example, a `CustomButton` can
+show inherited Button fields, and a `CustomTextBlock` can show inherited
+TextBlock fields, when those properties are serialized with the same names.
+
 ## Limitations
 
-This tool focuses on package metadata tables.
+This tool focuses on package metadata tables and a conservative UMG review
+property allowlist. It is not a full UObject property serializer.
+
+Unsupported properties are skipped instead of guessed. Default-valued properties
+may not appear if Unreal did not serialize them into the asset.
 
 `uasset_p4merge.py` is a JSON comparison launcher. Even if P4Merge saves a merged
 JSON result, the original `.uasset` files are not modified.

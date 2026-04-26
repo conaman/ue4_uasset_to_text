@@ -34,13 +34,17 @@ VER_UE4_WORLD_LEVEL_INFO = 224
 VER_UE4_CHANGED_CHUNKID_TO_BE_AN_ARRAY_OF_CHUNKIDS = 326
 VER_UE4_ENGINE_VERSION_OBJECT = 336
 VER_UE4_LOAD_FOR_EDITOR_GAME = 365
+VER_UE4_FTEXT_HISTORY = 368
 VER_UE4_ADD_STRING_ASSET_REFERENCES_MAP = 384
+VER_UE4_STRUCT_GUID_IN_PROPERTY_TAG = 441
 VER_UE4_PACKAGE_SUMMARY_HAS_COMPATIBLE_ENGINE_VERSION = 444
 VER_UE4_SERIALIZE_TEXT_IN_PACKAGES = 459
+VER_UE4_PROPERTY_GUID_IN_PROPERTY_TAG = 503
 VER_UE4_COOKED_ASSETS_IN_EDITOR_SUPPORT = 485
 VER_UE4_NAME_HASHES_SERIALIZED = 504
 VER_UE4_PRELOAD_DEPENDENCIES_IN_COOKED_EXPORTS = 507
 VER_UE4_TEMPLATE_INDEX_IN_COOKED_EXPORTS = 508
+VER_UE4_PROPERTY_TAG_SET_MAP_SUPPORT = 509
 VER_UE4_ADDED_SEARCHABLE_NAMES = 510
 VER_UE4_64BIT_EXPORTMAP_SERIALSIZES = 511
 VER_UE4_ADDED_PACKAGE_SUMMARY_LOCALIZATION_ID = 516
@@ -48,6 +52,204 @@ VER_UE4_ADDED_PACKAGE_OWNER = 518
 VER_UE4_NON_OUTER_PACKAGE_IMPORT = 520
 VER_UE4_AUTOMATIC_VERSION = 522
 VER_UE4_ADDED_CHUNKID_TO_ASSETDATA_AND_UPACKAGE = 278
+VAR_UE4_ARRAY_PROPERTY_INNER_TAGS = 282
+
+UMG_REVIEW_CLASS_PREFIXES = (
+    "/Script/UMG.",
+    "/Script/UMGEditor.",
+)
+
+UMG_REVIEW_TOP_LEVEL_PROPERTIES = {
+    # UObject relationship and widget hierarchy.
+    "Parent",
+    "Content",
+    "Slot",
+    "Slots",
+    # Shared widget appearance and transforms.
+    "WidgetStyle",
+    "Brush",
+    "Background",
+    "ColorAndOpacity",
+    "ContentColorAndOpacity",
+    "ForegroundColor",
+    "BackgroundColor",
+    "BrushColor",
+    "Visibility",
+    "RenderOpacity",
+    "RenderTransform",
+    "RenderTransformPivot",
+    "bFlipForRightToLeftFlowDirection",
+    # Layout and slot review fields.
+    "LayoutData",
+    "Padding",
+    "Size",
+    "HorizontalAlignment",
+    "VerticalAlignment",
+    "HAlign",
+    "VAlign",
+    "bAutoSize",
+    "ZOrder",
+    "Row",
+    "RowSpan",
+    "Column",
+    "ColumnSpan",
+    "Layer",
+    "Nudge",
+    "bFillEmptySpace",
+    "FillSpanWhenLessThan",
+    # Button, checkbox, slider, and progress interaction/state fields.
+    "CheckedState",
+    "ClickMethod",
+    "TouchMethod",
+    "PressMethod",
+    "IsFocusable",
+    "bIsFocusable",
+    "Value",
+    "MinValue",
+    "MaxValue",
+    "Orientation",
+    "SliderBarColor",
+    "SliderHandleColor",
+    "IndentHandle",
+    "Locked",
+    "MouseUsesStep",
+    "RequiresControllerLock",
+    "StepSize",
+    "Percent",
+    "BarFillType",
+    "bIsMarquee",
+    "BorderPadding",
+    "FillColorAndOpacity",
+    # SizeBox and ScaleBox layout controls.
+    "WidthOverride",
+    "HeightOverride",
+    "MinDesiredHeight",
+    "MaxDesiredWidth",
+    "MaxDesiredHeight",
+    "MinAspectRatio",
+    "MaxAspectRatio",
+    "bOverride_WidthOverride",
+    "bOverride_HeightOverride",
+    "bOverride_MinDesiredWidth",
+    "bOverride_MinDesiredHeight",
+    "bOverride_MaxDesiredWidth",
+    "bOverride_MaxDesiredHeight",
+    "bOverride_MinAspectRatio",
+    "bOverride_MaxAspectRatio",
+    "Stretch",
+    "StretchDirection",
+    "UserSpecifiedScale",
+    "IgnoreInheritedScale",
+    "DesiredSizeScale",
+    "bShowEffectWhenDisabled",
+    # ScrollBox and ComboBox review fields.
+    "WidgetBarStyle",
+    "ScrollBarVisibility",
+    "ConsumeMouseWheel",
+    "ScrollbarThickness",
+    "ScrollbarPadding",
+    "AlwaysShowScrollbar",
+    "AlwaysShowScrollbarTrack",
+    "AllowOverscroll",
+    "bAnimateWheelScrolling",
+    "NavigationDestination",
+    "NavigationScrollPadding",
+    "ScrollWhenFocusChanges",
+    "bAllowRightClickDragScrolling",
+    "WheelScrollMultiplier",
+    "DefaultOptions",
+    "SelectedOption",
+    "ItemStyle",
+    "ContentPadding",
+    "MaxListHeight",
+    "HasDownArrow",
+    "EnableGamepadNavigationMode",
+    # Text, rich text, and editable text review fields.
+    "Text",
+    "HintText",
+    "TextStyleSet",
+    "DecoratorClasses",
+    "bOverrideDefaultStyle",
+    "DefaultTextStyle",
+    "DefaultTextStyleOverride",
+    "TextStyle",
+    "Font",
+    "StrikeBrush",
+    "ShadowOffset",
+    "ShadowColorAndOpacity",
+    "MinDesiredWidth",
+    "MinimumDesiredWidth",
+    "bWrapWithInvalidationPanel",
+    "bAutoWrapText_DEPRECATED",
+    "TextTransformPolicy",
+    "bSimpleTextMode",
+    "ShapedTextOptions",
+    "Justification",
+    "WrappingPolicy",
+    "AutoWrapText",
+    "WrapTextAt",
+    "Margin",
+    "LineHeightPercentage",
+    "ApplyLineHeightToBottomLine",
+    "IsReadOnly",
+    "bIsReadOnly",
+    "IsPassword",
+    "IsCaretMovedWhenGainFocus",
+    "SelectAllTextWhenFocused",
+    "ClearTextSelectionOnFocusLoss",
+    "RevertTextOnEscape",
+    "ClearKeyboardFocusOnCommit",
+    "SelectAllTextOnCommit",
+    "AllowContextMenu",
+    "KeyboardType",
+    "VirtualKeyboardOptions",
+    "VirtualKeyboardTrigger",
+    "VirtualKeyboardDismissAction",
+}
+
+TAGGED_REVIEW_STRUCTS = {
+    "AnchorData",
+    "Anchors",
+    "ButtonStyle",
+    "CheckBoxStyle",
+    "ComboBoxStyle",
+    "ComboButtonStyle",
+    "EditableTextBoxStyle",
+    "EditableTextStyle",
+    "FontOutlineSettings",
+    "Margin",
+    "ProgressBarStyle",
+    "ShapedTextOptions",
+    "SlateBrush",
+    "SlateChildSize",
+    "SlateColor",
+    "SlateFontInfo",
+    "SlateSound",
+    "ScrollBarStyle",
+    "ScrollBoxStyle",
+    "SliderStyle",
+    "TableRowStyle",
+    "TextBlockStyle",
+    "VirtualKeyboardOptions",
+    "WidgetTransform",
+}
+
+TEXT_HISTORY_TYPE_NAMES = {
+    -1: "None",
+    0: "Base",
+    1: "NamedFormat",
+    2: "OrderedFormat",
+    3: "ArgumentFormat",
+    4: "AsNumber",
+    5: "AsPercent",
+    6: "AsCurrency",
+    7: "AsDate",
+    8: "AsTime",
+    9: "AsDateTime",
+    10: "Transform",
+    11: "StringTableEntry",
+    12: "TextGenerator",
+}
 
 PACKAGE_FLAG_NAMES = {
     0x00000001: "PKG_NewlyCreated",
@@ -151,6 +353,12 @@ class Reader:
     def u16(self) -> int:
         return self.unpack("H")
 
+    def u8(self) -> int:
+        return self.unpack("B")
+
+    def i8(self) -> int:
+        return self.unpack("b")
+
     def i32(self) -> int:
         return self.unpack("i")
 
@@ -159,6 +367,9 @@ class Reader:
 
     def i64(self) -> int:
         return self.unpack("q")
+
+    def f32(self) -> float:
+        return self.unpack("f")
 
     def boolean(self) -> bool:
         value = self.u32()
@@ -574,6 +785,31 @@ def package_index(raw: int) -> dict[str, Any]:
     return {"raw": raw, "kind": "import", "index": -raw - 1}
 
 
+def resolve_package_index(
+    index_info: dict[str, Any],
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+    seen: set[tuple[str, int]] | None = None,
+) -> str | None:
+    if seen is None:
+        seen = set()
+    kind = index_info["kind"]
+    index = index_info["index"]
+    if kind == "null" or index is None:
+        return None
+    key = (kind, index)
+    if key in seen:
+        return f"<cycle:{kind}[{index}]>"
+    seen.add(key)
+    table = exports if kind == "export" else imports
+    if index < 0 or index >= len(table):
+        return f"<bad-{kind}-index:{index}>"
+    item = table[index]
+    outer = resolve_package_index(item["outer_index"], imports, exports, seen)
+    name = item["object_name"]["value"]
+    return f"{outer}.{name}" if outer else name
+
+
 def flag_names(value: int, table: dict[int, str]) -> list[str]:
     return [name for bit, name in table.items() if value & bit]
 
@@ -692,6 +928,392 @@ def read_preload_dependencies(reader: Reader, summary: dict[str, Any]) -> list[d
     return [package_index(reader.i32()) for _ in range(summary["preload_dependency_count"])]
 
 
+def is_umg_export(export: dict[str, Any]) -> bool:
+    class_path = export.get("class")
+    if isinstance(class_path, str) and class_path.startswith(UMG_REVIEW_CLASS_PREFIXES):
+        return True
+    path = export.get("path")
+    return isinstance(path, str) and (".WidgetTree." in path or path.endswith(".WidgetTree"))
+
+
+def read_property_tag(
+    reader: Reader,
+    names: list[str],
+    version: int,
+) -> dict[str, Any] | None:
+    name = format_name_ref(read_name_ref(reader), names)
+    if name["value"] == "None":
+        return None
+
+    type_name = format_name_ref(read_name_ref(reader), names)
+    tag: dict[str, Any] = {
+        "name": name["value"],
+        "type": type_name["value"],
+        "type_number": type_name["number"],
+        "size": reader.i32(),
+        "array_index": reader.i32(),
+    }
+
+    if tag["type_number"] == 0:
+        if tag["type"] == "StructProperty":
+            tag["struct_name"] = format_name_ref(read_name_ref(reader), names)["value"]
+            if version >= VER_UE4_STRUCT_GUID_IN_PROPERTY_TAG:
+                tag["struct_guid"] = reader.guid()
+        elif tag["type"] == "BoolProperty":
+            tag["bool_value"] = bool(reader.u8())
+        elif tag["type"] == "ByteProperty":
+            tag["enum_name"] = format_name_ref(read_name_ref(reader), names)["value"]
+        elif tag["type"] == "EnumProperty":
+            tag["enum_name"] = format_name_ref(read_name_ref(reader), names)["value"]
+        elif tag["type"] == "ArrayProperty" and version >= VAR_UE4_ARRAY_PROPERTY_INNER_TAGS:
+            tag["inner_type"] = format_name_ref(read_name_ref(reader), names)["value"]
+        elif version >= VER_UE4_PROPERTY_TAG_SET_MAP_SUPPORT:
+            if tag["type"] == "SetProperty":
+                tag["inner_type"] = format_name_ref(read_name_ref(reader), names)["value"]
+            elif tag["type"] == "MapProperty":
+                tag["inner_type"] = format_name_ref(read_name_ref(reader), names)["value"]
+                tag["value_type"] = format_name_ref(read_name_ref(reader), names)["value"]
+
+    if version >= VER_UE4_PROPERTY_GUID_IN_PROPERTY_TAG:
+        tag["has_property_guid"] = bool(reader.u8())
+        if tag["has_property_guid"]:
+            tag["property_guid"] = reader.guid()
+    else:
+        tag["has_property_guid"] = False
+
+    return tag
+
+
+def read_tagged_review_properties(
+    reader: Reader,
+    names: list[str],
+    version: int,
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+    end_pos: int,
+    *,
+    include_all: bool,
+) -> dict[str, Any]:
+    properties: dict[str, Any] = {}
+    while reader.tell() < end_pos:
+        tag = read_property_tag(reader, names, version)
+        if tag is None:
+            break
+
+        value_start = reader.tell()
+        value_end = value_start + tag["size"]
+        if value_end > end_pos:
+            raise UAssetError(
+                f"property {tag['name']} value extends past tagged property stream"
+            )
+
+        should_keep = include_all or tag["name"] in UMG_REVIEW_TOP_LEVEL_PROPERTIES
+        value = read_review_property_value(
+            reader,
+            tag,
+            names,
+            version,
+            imports,
+            exports,
+            value_end,
+            keep_value=should_keep,
+        )
+        reader.seek(value_end)
+
+        if should_keep and value is not None:
+            properties[tag["name"]] = value
+    return properties
+
+
+def read_review_property_value(
+    reader: Reader,
+    tag: dict[str, Any],
+    names: list[str],
+    version: int,
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+    value_end: int,
+    *,
+    keep_value: bool,
+) -> Any:
+    prop_type = tag["type"]
+    size = tag["size"]
+
+    if prop_type == "BoolProperty":
+        return tag.get("bool_value") if keep_value else None
+    if prop_type == "FloatProperty" and size == 4:
+        return reader.f32() if keep_value else None
+    if prop_type == "IntProperty" and size == 4:
+        return reader.i32() if keep_value else None
+    if prop_type == "Int64Property" and size == 8:
+        return reader.i64() if keep_value else None
+    if prop_type == "StrProperty":
+        return reader.fstring() if keep_value else None
+    if prop_type == "TextProperty":
+        return read_review_text_value(
+            reader,
+            tag,
+            names,
+            version,
+            value_end,
+            keep_value=keep_value,
+        )
+    if prop_type == "NameProperty" and size == 8:
+        return format_name_ref(read_name_ref(reader), names)["value"] if keep_value else None
+    if prop_type in {"ObjectProperty", "ClassProperty"} and size == 4:
+        raw = reader.i32()
+        if not keep_value:
+            return None
+        index_info = package_index(raw)
+        resolved = resolve_package_index(index_info, imports, exports)
+        return resolved if resolved is not None else index_info
+    if prop_type in {"ByteProperty", "EnumProperty"}:
+        return read_review_enum_value(reader, tag, names, keep_value=keep_value)
+    if prop_type == "ArrayProperty":
+        return read_review_array_value(
+            reader,
+            tag,
+            names,
+            imports,
+            exports,
+            value_end,
+            keep_value=keep_value,
+        )
+    if prop_type == "StructProperty":
+        return read_review_struct_value(
+            reader,
+            tag,
+            names,
+            version,
+            imports,
+            exports,
+            value_end,
+            keep_value=keep_value,
+        )
+
+    return None
+
+
+def add_text_metadata(result: dict[str, Any], key: str, value: Any) -> None:
+    if value not in ("", None):
+        result[key] = value
+
+
+def read_review_text_value(
+    reader: Reader,
+    tag: dict[str, Any],
+    names: list[str],
+    version: int,
+    value_end: int,
+    *,
+    keep_value: bool,
+) -> Any:
+    if not keep_value:
+        return None
+    if version < VER_UE4_FTEXT_HISTORY:
+        return None
+    if reader.tell() + 5 > value_end:
+        return None
+
+    flags = reader.i32()
+    history_type = reader.i8()
+    history_name = TEXT_HISTORY_TYPE_NAMES.get(history_type, f"Unknown({history_type})")
+
+    if history_type == -1:
+        result: dict[str, Any] = {}
+        if flags:
+            result["flags"] = flags
+        if reader.tell() + 4 > value_end:
+            return result or None
+        has_culture_invariant_string = reader.boolean()
+        if has_culture_invariant_string:
+            result["source"] = reader.fstring()
+            result["culture_invariant"] = True
+            return result
+        return result if result else ""
+
+    if history_type == 0:
+        namespace = reader.fstring()
+        key = reader.fstring()
+        source = reader.fstring()
+        result = {"source": source}
+        add_text_metadata(result, "namespace", namespace)
+        add_text_metadata(result, "key", key)
+        if flags:
+            result["flags"] = flags
+        return result
+
+    if history_type == 11:
+        table_id = format_name_ref(read_name_ref(reader), names)
+        result = {
+            "string_table": table_id["value"],
+            "key": reader.fstring(),
+        }
+        if flags:
+            result["flags"] = flags
+        return result
+
+    result = {"history": history_name, "unparsed": True}
+    if flags:
+        result["flags"] = flags
+    return result
+
+
+def read_review_array_value(
+    reader: Reader,
+    tag: dict[str, Any],
+    names: list[str],
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+    value_end: int,
+    *,
+    keep_value: bool,
+) -> Any:
+    if not keep_value:
+        return None
+    if reader.tell() + 4 > value_end:
+        return None
+    count = reader.i32()
+    if count < 0 or count > MAX_ARRAY_COUNT:
+        raise UAssetError(f"invalid array length {count} for {tag['name']}")
+
+    inner_type = tag.get("inner_type")
+    values: list[Any] = []
+    for _ in range(count):
+        if inner_type in {"ObjectProperty", "ClassProperty"}:
+            raw = reader.i32()
+            index_info = package_index(raw)
+            values.append(resolve_package_index(index_info, imports, exports) or index_info)
+        elif inner_type == "NameProperty":
+            values.append(format_name_ref(read_name_ref(reader), names)["value"])
+        elif inner_type == "StrProperty":
+            values.append(reader.fstring())
+        elif inner_type == "IntProperty":
+            values.append(reader.i32())
+        elif inner_type == "FloatProperty":
+            values.append(reader.f32())
+        else:
+            return {"inner_type": inner_type, "count": count}
+    return values
+
+
+def read_review_enum_value(
+    reader: Reader,
+    tag: dict[str, Any],
+    names: list[str],
+    *,
+    keep_value: bool,
+) -> Any:
+    if not keep_value:
+        return None
+    size = tag["size"]
+    if size == 8:
+        return format_name_ref(read_name_ref(reader), names)["value"]
+    if size == 1:
+        return reader.u8()
+    if size == 4:
+        return reader.i32()
+    return None
+
+
+def read_review_struct_value(
+    reader: Reader,
+    tag: dict[str, Any],
+    names: list[str],
+    version: int,
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+    value_end: int,
+    *,
+    keep_value: bool,
+) -> Any:
+    if not keep_value:
+        return None
+
+    struct_name = tag.get("struct_name")
+    size = tag["size"]
+    if struct_name == "Vector2D" and size == 8:
+        return {"X": reader.f32(), "Y": reader.f32()}
+    if struct_name == "LinearColor" and size == 16:
+        return {
+            "R": reader.f32(),
+            "G": reader.f32(),
+            "B": reader.f32(),
+            "A": reader.f32(),
+        }
+    if struct_name == "Margin" and size == 16:
+        return {
+            "Left": reader.f32(),
+            "Top": reader.f32(),
+            "Right": reader.f32(),
+            "Bottom": reader.f32(),
+        }
+
+    if struct_name in TAGGED_REVIEW_STRUCTS:
+        try:
+            return read_tagged_review_properties(
+                reader,
+                names,
+                version,
+                imports,
+                exports,
+                value_end,
+                include_all=True,
+            )
+        except (UAssetError, struct.error, UnicodeDecodeError):
+            return None
+    return None
+
+
+def extract_review_properties_from_payload(
+    payload: bytes,
+    names: list[str],
+    version: int,
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+) -> dict[str, Any]:
+    reader = Reader(payload, "<export-payload>")
+    return read_tagged_review_properties(
+        reader,
+        names,
+        version,
+        imports,
+        exports,
+        len(payload),
+        include_all=False,
+    )
+
+
+def add_umg_review_properties(
+    data: bytes,
+    summary: dict[str, Any],
+    names: list[str],
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+) -> None:
+    version = summary["effective_file_version_ue4"]
+    for export in exports:
+        if not is_umg_export(export):
+            continue
+        offset = export["serial_offset"]
+        size = export["serial_size"]
+        if size <= 0 or offset < 0 or offset + size > len(data):
+            continue
+        payload = data[offset : offset + size]
+        try:
+            review_properties = extract_review_properties_from_payload(
+                payload,
+                names,
+                version,
+                imports,
+                exports,
+            )
+        except (UAssetError, struct.error, UnicodeDecodeError):
+            continue
+        if review_properties:
+            export["review_properties"] = review_properties
+
+
 def preview_export_data(
     data: bytes, exports: list[dict[str, Any]], preview_bytes: int
 ) -> list[dict[str, Any]]:
@@ -718,41 +1340,36 @@ def preview_export_data(
 
 
 def resolve_references(imports: list[dict[str, Any]], exports: list[dict[str, Any]]) -> None:
-    def resolve_index(index_info: dict[str, Any], seen: set[tuple[str, int]] | None = None) -> str | None:
-        if seen is None:
-            seen = set()
-        kind = index_info["kind"]
-        index = index_info["index"]
-        if kind == "null" or index is None:
-            return None
-        key = (kind, index)
-        if key in seen:
-            return f"<cycle:{kind}[{index}]>"
-        seen.add(key)
-        table = exports if kind == "export" else imports
-        if index < 0 or index >= len(table):
-            return f"<bad-{kind}-index:{index}>"
-        item = table[index]
-        outer = resolve_index(item["outer_index"], seen)
-        name = item["object_name"]["value"]
-        return f"{outer}.{name}" if outer else name
-
     for item in imports:
-        item["path"] = resolve_index({"kind": "import", "index": item["index"], "raw": -(item["index"] + 1)})
+        item["path"] = resolve_package_index(
+            {"kind": "import", "index": item["index"], "raw": -(item["index"] + 1)},
+            imports,
+            exports,
+        )
         item["class"] = (
             f"{item['class_package']['value']}.{item['class_name']['value']}"
             if item["class_package"]["value"] != "None"
             else item["class_name"]["value"]
         )
     for item in exports:
-        item["path"] = resolve_index({"kind": "export", "index": item["index"], "raw": item["index"] + 1})
-        item["class"] = resolve_index(item["class_index"])
-        item["super"] = resolve_index(item["super_index"])
+        item["path"] = resolve_package_index(
+            {"kind": "export", "index": item["index"], "raw": item["index"] + 1},
+            imports,
+            exports,
+        )
+        item["class"] = resolve_package_index(item["class_index"], imports, exports)
+        item["super"] = resolve_package_index(item["super_index"], imports, exports)
         if "template_index" in item:
-            item["template"] = resolve_index(item["template_index"])
+            item["template"] = resolve_package_index(item["template_index"], imports, exports)
 
 
-def parse_uasset(path: str, *, include_export_data: bool, preview_bytes: int) -> dict[str, Any]:
+def parse_uasset(
+    path: str,
+    *,
+    include_export_data: bool,
+    preview_bytes: int,
+    include_review_properties: bool = True,
+) -> dict[str, Any]:
     with open(path, "rb") as file:
         data = file.read()
     reader = Reader(data, path)
@@ -763,6 +1380,8 @@ def parse_uasset(path: str, *, include_export_data: bool, preview_bytes: int) ->
     imports = read_import_map(reader, summary, names)
     exports = read_export_map(reader, summary, names)
     resolve_references(imports, exports)
+    if include_review_properties:
+        add_umg_review_properties(data, summary, names, imports, exports)
 
     result: dict[str, Any] = {
         "file": {
@@ -829,6 +1448,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Also include serial data availability and byte previews in metadata.",
     )
     parser.add_argument(
+        "--no-review-properties",
+        action="store_true",
+        help="Do not include best-effort UMG review properties parsed from export payloads.",
+    )
+    parser.add_argument(
         "--exports-only",
         action="store_true",
         help="Only print a compact export list with path, class, super, and is_asset.",
@@ -866,6 +1490,7 @@ def main(argv: list[str]) -> int:
             args.uasset,
             include_export_data=args.include_export_data,
             preview_bytes=max(0, args.bytes),
+            include_review_properties=not args.no_review_properties,
         )
         if args.exports_only:
             result = export_summary(result)

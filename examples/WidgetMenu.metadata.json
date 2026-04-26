@@ -2198,7 +2198,18 @@
       "path": "WidgetMenu.WidgetTree.Border_0",
       "class": "/Script/UMG.Border",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "BrushColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 0.0
+        },
+        "Slots": [
+          "WidgetMenu.WidgetTree.Border_0.BorderSlot_0"
+        ]
+      }
     },
     {
       "index": 1,
@@ -2251,7 +2262,18 @@
       "path": "WidgetMenu_C.WidgetTree.Border_0",
       "class": "/Script/UMG.Border",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "BrushColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 0.0
+        },
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0"
+        ]
+      }
     },
     {
       "index": 2,
@@ -2304,7 +2326,11 @@
       "path": "WidgetMenu.WidgetTree.Border_0.BorderSlot_0",
       "class": "/Script/UMG.BorderSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Parent": "WidgetMenu.WidgetTree.Border_0",
+        "Content": "WidgetMenu.WidgetTree.VerticalBox_48"
+      }
     },
     {
       "index": 3,
@@ -2357,7 +2383,11 @@
       "path": "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0",
       "class": "/Script/UMG.BorderSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Parent": "WidgetMenu_C.WidgetTree.Border_0",
+        "Content": "WidgetMenu_C.WidgetTree.VerticalBox_48"
+      }
     },
     {
       "index": 4,
@@ -2410,7 +2440,35 @@
       "path": "WidgetMenu.WidgetTree.ExitButton",
       "class": "/Script/UMG.Button",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+      }
     },
     {
       "index": 5,
@@ -2463,7 +2521,35 @@
       "path": "WidgetMenu.WidgetTree.RestartButton",
       "class": "/Script/UMG.Button",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0"
+      }
     },
     {
       "index": 6,
@@ -2516,7 +2602,35 @@
       "path": "WidgetMenu_C.WidgetTree.ExitButton",
       "class": "/Script/UMG.Button",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+      }
     },
     {
       "index": 7,
@@ -2569,7 +2683,35 @@
       "path": "WidgetMenu_C.WidgetTree.RestartButton",
       "class": "/Script/UMG.Button",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0"
+      }
     },
     {
       "index": 8,
@@ -2622,7 +2764,11 @@
       "path": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0",
       "class": "/Script/UMG.ButtonSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Parent": "WidgetMenu.WidgetTree.ExitButton",
+        "Content": "WidgetMenu.WidgetTree.Text_ExitButton"
+      }
     },
     {
       "index": 9,
@@ -2675,7 +2821,11 @@
       "path": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0",
       "class": "/Script/UMG.ButtonSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Parent": "WidgetMenu.WidgetTree.RestartButton",
+        "Content": "WidgetMenu.WidgetTree.Text_RestartButton"
+      }
     },
     {
       "index": 10,
@@ -2728,7 +2878,11 @@
       "path": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0",
       "class": "/Script/UMG.ButtonSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Parent": "WidgetMenu_C.WidgetTree.ExitButton",
+        "Content": "WidgetMenu_C.WidgetTree.Text_ExitButton"
+      }
     },
     {
       "index": 11,
@@ -2781,7 +2935,11 @@
       "path": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0",
       "class": "/Script/UMG.ButtonSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Parent": "WidgetMenu_C.WidgetTree.RestartButton",
+        "Content": "WidgetMenu_C.WidgetTree.Text_RestartButton"
+      }
     },
     {
       "index": 12,
@@ -3627,7 +3785,26 @@
       "path": "WidgetMenu.WidgetTree.Text_ExitButton",
       "class": "/Script/UMG.TextBlock",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Text": {
+          "source": "Real life",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "D57C50E54B0835A02B0AA2B911D06A79"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0"
+      }
     },
     {
       "index": 28,
@@ -3680,7 +3857,26 @@
       "path": "WidgetMenu.WidgetTree.Text_RestartButton",
       "class": "/Script/UMG.TextBlock",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Text": {
+          "source": "Restart",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "0119173546D12EE2A98FAB9A2824E44E"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0"
+      }
     },
     {
       "index": 29,
@@ -3733,7 +3929,26 @@
       "path": "WidgetMenu_C.WidgetTree.Text_ExitButton",
       "class": "/Script/UMG.TextBlock",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Text": {
+          "source": "Real life",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "D57C50E54B0835A02B0AA2B911D06A79"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0"
+      }
     },
     {
       "index": 30,
@@ -3786,7 +4001,26 @@
       "path": "WidgetMenu_C.WidgetTree.Text_RestartButton",
       "class": "/Script/UMG.TextBlock",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Text": {
+          "source": "Restart",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "0119173546D12EE2A98FAB9A2824E44E"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0"
+      }
     },
     {
       "index": 31,
@@ -3839,7 +4073,14 @@
       "path": "WidgetMenu.WidgetTree.VerticalBox_48",
       "class": "/Script/UMG.VerticalBox",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Slots": [
+          "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+          "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+        ],
+        "Slot": "WidgetMenu.WidgetTree.Border_0.BorderSlot_0"
+      }
     },
     {
       "index": 32,
@@ -3892,7 +4133,14 @@
       "path": "WidgetMenu_C.WidgetTree.VerticalBox_48",
       "class": "/Script/UMG.VerticalBox",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+          "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+        ],
+        "Slot": "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0"
+      }
     },
     {
       "index": 33,
@@ -3945,7 +4193,18 @@
       "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
       "class": "/Script/UMG.VerticalBoxSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu.WidgetTree.RestartButton"
+      }
     },
     {
       "index": 34,
@@ -3998,7 +4257,18 @@
       "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
       "class": "/Script/UMG.VerticalBoxSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu.WidgetTree.ExitButton"
+      }
     },
     {
       "index": 35,
@@ -4051,7 +4321,18 @@
       "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
       "class": "/Script/UMG.VerticalBoxSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu_C.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu_C.WidgetTree.RestartButton"
+      }
     },
     {
       "index": 36,
@@ -4104,7 +4385,18 @@
       "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
       "class": "/Script/UMG.VerticalBoxSlot",
       "super": null,
-      "template": null
+      "template": null,
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu_C.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu_C.WidgetTree.ExitButton"
+      }
     },
     {
       "index": 37,

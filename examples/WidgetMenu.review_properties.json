@@ -1,0 +1,260 @@
+{
+  "file": {
+    "path": "local_test_assets/UE427_UMG/WidgetMenu_Original.uasset",
+    "note": "Focused review_properties excerpt showing Button style/slot links and TextBlock text/color/font fields."
+  },
+  "exports": [
+    {
+      "path": "WidgetMenu.WidgetTree.ExitButton",
+      "class": "/Script/UMG.Button",
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.RestartButton",
+      "class": "/Script/UMG.Button",
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.ExitButton",
+      "class": "/Script/UMG.Button",
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.RestartButton",
+      "class": "/Script/UMG.Button",
+      "review_properties": {
+        "WidgetStyle": {
+          "Normal": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.0481720007956028,
+                "G": 0.0481720007956028,
+                "B": 0.0481720007956028,
+                "A": 1.0
+              }
+            }
+          },
+          "Hovered": {
+            "TintColor": {
+              "SpecifiedColor": {
+                "R": 0.7011020183563232,
+                "G": 0.22322799265384674,
+                "B": 0.002732000080868602,
+                "A": 1.0
+              }
+            }
+          }
+        },
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0"
+        ],
+        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "review_properties": {
+        "Parent": "WidgetMenu.WidgetTree.ExitButton",
+        "Content": "WidgetMenu.WidgetTree.Text_ExitButton"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "review_properties": {
+        "Parent": "WidgetMenu.WidgetTree.RestartButton",
+        "Content": "WidgetMenu.WidgetTree.Text_RestartButton"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "review_properties": {
+        "Parent": "WidgetMenu_C.WidgetTree.ExitButton",
+        "Content": "WidgetMenu_C.WidgetTree.Text_ExitButton"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0",
+      "class": "/Script/UMG.ButtonSlot",
+      "review_properties": {
+        "Parent": "WidgetMenu_C.WidgetTree.RestartButton",
+        "Content": "WidgetMenu_C.WidgetTree.Text_RestartButton"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.Text_ExitButton",
+      "class": "/Script/UMG.TextBlock",
+      "review_properties": {
+        "Text": {
+          "source": "Real life",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "D57C50E54B0835A02B0AA2B911D06A79"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.Text_RestartButton",
+      "class": "/Script/UMG.TextBlock",
+      "review_properties": {
+        "Text": {
+          "source": "Restart",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "0119173546D12EE2A98FAB9A2824E44E"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Text_ExitButton",
+      "class": "/Script/UMG.TextBlock",
+      "review_properties": {
+        "Text": {
+          "source": "Real life",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "D57C50E54B0835A02B0AA2B911D06A79"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Text_RestartButton",
+      "class": "/Script/UMG.TextBlock",
+      "review_properties": {
+        "Text": {
+          "source": "Restart",
+          "namespace": "[069FFEE24CCC595BCB7B0097E7FCCDEC]",
+          "key": "0119173546D12EE2A98FAB9A2824E44E"
+        },
+        "ColorAndOpacity": {
+          "SpecifiedColor": {
+            "R": 0.6866850256919861,
+            "G": 0.6866850256919861,
+            "B": 0.6866850256919861,
+            "A": 1.0
+          }
+        },
+        "Font": {
+          "TypefaceFontName": "Regular"
+        },
+        "Slot": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0"
+      }
+    }
+  ]
+}

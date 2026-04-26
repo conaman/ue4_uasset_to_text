@@ -97,6 +97,54 @@ def make_minimal_uasset(*, package_source: int = 0) -> bytes:
     return bytes(binary)
 
 
+def write_test_name_ref(binary: bytearray, names: list[str], value: str, number: int = 0) -> None:
+    binary.extend(struct.pack("<ii", names.index(value), number))
+
+
+def make_test_fstring(value: str) -> bytes:
+    raw = value.encode("utf-8") + b"\x00"
+    return struct.pack("<i", len(raw)) + raw
+
+
+def make_test_property(
+    names: list[str],
+    name: str,
+    prop_type: str,
+    value: bytes = b"",
+    *,
+    struct_name=None,
+    bool_value=None,
+    enum_name=None,
+    inner_type=None,
+) -> bytes:
+    binary = bytearray()
+    write_test_name_ref(binary, names, name)
+    write_test_name_ref(binary, names, prop_type)
+    binary.extend(struct.pack("<ii", len(value), 0))
+    if prop_type == "StructProperty":
+        assert struct_name is not None
+        write_test_name_ref(binary, names, struct_name)
+        binary.extend(b"\x00" * 16)
+    elif prop_type == "BoolProperty":
+        assert bool_value is not None
+        binary.extend(struct.pack("<B", 1 if bool_value else 0))
+    elif prop_type == "ByteProperty":
+        assert enum_name is not None
+        write_test_name_ref(binary, names, enum_name)
+    elif prop_type == "ArrayProperty":
+        assert inner_type is not None
+        write_test_name_ref(binary, names, inner_type)
+    binary.extend(b"\x00")  # HasPropertyGuid
+    binary.extend(value)
+    return bytes(binary)
+
+
+def make_test_none_property(names: list[str]) -> bytes:
+    binary = bytearray()
+    write_test_name_ref(binary, names, "None")
+    return bytes(binary)
+
+
 def write_fake_p4merge(tool_path: str, log_path: str) -> None:
     script = "\n".join(
         [
@@ -335,6 +383,373 @@ class UAssetParserValidationTests(unittest.TestCase):
                     },
                 ],
             },
+        )
+
+    def test_review_property_parser_extracts_umg_padding(self):
+        names = [
+            "Padding",
+            "StructProperty",
+            "Margin",
+            "Top",
+            "Bottom",
+            "FloatProperty",
+            "None",
+        ]
+        margin_value = b"".join(
+            [
+                make_test_property(names, "Top", "FloatProperty", struct.pack("<f", 4.0)),
+                make_test_property(names, "Bottom", "FloatProperty", struct.pack("<f", 8.0)),
+                make_test_none_property(names),
+            ]
+        )
+        payload = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "Padding",
+                    "StructProperty",
+                    margin_value,
+                    struct_name="Margin",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(properties, {"Padding": {"Top": 4.0, "Bottom": 8.0}})
+
+    def test_review_property_parser_extracts_canvas_layout_data(self):
+        names = [
+            "LayoutData",
+            "StructProperty",
+            "AnchorData",
+            "Offsets",
+            "Margin",
+            "Left",
+            "Top",
+            "FloatProperty",
+            "Anchors",
+            "Maximum",
+            "Vector2D",
+            "None",
+        ]
+        offsets_value = b"".join(
+            [
+                make_test_property(names, "Left", "FloatProperty", struct.pack("<f", 120.0)),
+                make_test_property(names, "Top", "FloatProperty", struct.pack("<f", 96.0)),
+                make_test_none_property(names),
+            ]
+        )
+        anchors_value = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "Maximum",
+                    "StructProperty",
+                    struct.pack("<ff", 1.0, 1.0),
+                    struct_name="Vector2D",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+        layout_value = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "Offsets",
+                    "StructProperty",
+                    offsets_value,
+                    struct_name="Margin",
+                ),
+                make_test_property(
+                    names,
+                    "Anchors",
+                    "StructProperty",
+                    anchors_value,
+                    struct_name="Anchors",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+        payload = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "LayoutData",
+                    "StructProperty",
+                    layout_value,
+                    struct_name="AnchorData",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(
+            properties,
+            {
+                "LayoutData": {
+                    "Offsets": {"Left": 120.0, "Top": 96.0},
+                    "Anchors": {"Maximum": {"X": 1.0, "Y": 1.0}},
+                }
+            },
+        )
+
+    def test_review_property_parser_extracts_textblock_review_fields(self):
+        names = [
+            "Text",
+            "TextProperty",
+            "ColorAndOpacity",
+            "StructProperty",
+            "SlateColor",
+            "SpecifiedColor",
+            "LinearColor",
+            "Font",
+            "SlateFontInfo",
+            "TypefaceFontName",
+            "NameProperty",
+            "Regular",
+            "None",
+        ]
+        text_value = b"".join(
+            [
+                struct.pack("<ib", 0, 0),
+                make_test_fstring("[namespace]"),
+                make_test_fstring("text-key"),
+                make_test_fstring("Ready"),
+            ]
+        )
+        color_value = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "SpecifiedColor",
+                    "StructProperty",
+                    struct.pack("<ffff", 0.25, 0.5, 0.75, 1.0),
+                    struct_name="LinearColor",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+        font_value = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "TypefaceFontName",
+                    "NameProperty",
+                    struct.pack("<ii", names.index("Regular"), 0),
+                ),
+                make_test_none_property(names),
+            ]
+        )
+        payload = b"".join(
+            [
+                make_test_property(names, "Text", "TextProperty", text_value),
+                make_test_property(
+                    names,
+                    "ColorAndOpacity",
+                    "StructProperty",
+                    color_value,
+                    struct_name="SlateColor",
+                ),
+                make_test_property(
+                    names,
+                    "Font",
+                    "StructProperty",
+                    font_value,
+                    struct_name="SlateFontInfo",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(
+            properties,
+            {
+                "Text": {
+                    "source": "Ready",
+                    "namespace": "[namespace]",
+                    "key": "text-key",
+                },
+                "ColorAndOpacity": {
+                    "SpecifiedColor": {"R": 0.25, "G": 0.5, "B": 0.75, "A": 1.0}
+                },
+                "Font": {"TypefaceFontName": "Regular"},
+            },
+        )
+
+    def test_review_property_parser_extracts_button_review_fields(self):
+        names = [
+            "WidgetStyle",
+            "StructProperty",
+            "ButtonStyle",
+            "NormalPadding",
+            "Margin",
+            "Left",
+            "Right",
+            "FloatProperty",
+            "BackgroundColor",
+            "LinearColor",
+            "ClickMethod",
+            "ByteProperty",
+            "EButtonClickMethod",
+            "IsFocusable",
+            "BoolProperty",
+            "None",
+        ]
+        style_value = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "NormalPadding",
+                    "StructProperty",
+                    b"".join(
+                        [
+                            make_test_property(
+                                names,
+                                "Left",
+                                "FloatProperty",
+                                struct.pack("<f", 6.0),
+                            ),
+                            make_test_property(
+                                names,
+                                "Right",
+                                "FloatProperty",
+                                struct.pack("<f", 10.0),
+                            ),
+                            make_test_none_property(names),
+                        ]
+                    ),
+                    struct_name="Margin",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+        payload = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "WidgetStyle",
+                    "StructProperty",
+                    style_value,
+                    struct_name="ButtonStyle",
+                ),
+                make_test_property(
+                    names,
+                    "BackgroundColor",
+                    "StructProperty",
+                    struct.pack("<ffff", 1.0, 0.5, 0.25, 1.0),
+                    struct_name="LinearColor",
+                ),
+                make_test_property(
+                    names,
+                    "ClickMethod",
+                    "ByteProperty",
+                    b"\x02",
+                    enum_name="EButtonClickMethod",
+                ),
+                make_test_property(
+                    names,
+                    "IsFocusable",
+                    "BoolProperty",
+                    bool_value=True,
+                ),
+                make_test_none_property(names),
+            ]
+        )
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(
+            properties,
+            {
+                "WidgetStyle": {"NormalPadding": {"Left": 6.0, "Right": 10.0}},
+                "BackgroundColor": {"R": 1.0, "G": 0.5, "B": 0.25, "A": 1.0},
+                "ClickMethod": 2,
+                "IsFocusable": True,
+            },
+        )
+
+    def test_review_property_parser_extracts_rich_text_decorator_classes(self):
+        names = [
+            "DecoratorClasses",
+            "ArrayProperty",
+            "ClassProperty",
+            "None",
+        ]
+        payload = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "DecoratorClasses",
+                    "ArrayProperty",
+                    struct.pack("<ii", 1, -1),
+                    inner_type="ClassProperty",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+        imports = [
+            {
+                "outer_index": {"raw": 0, "kind": "null", "index": None},
+                "object_name": {"value": "MyRichTextDecorator"},
+            }
+        ]
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            imports,
+            [],
+        )
+
+        self.assertEqual(properties, {"DecoratorClasses": ["MyRichTextDecorator"]})
+
+    def test_widget_tree_custom_widget_exports_are_review_candidates(self):
+        self.assertTrue(
+            uasset.is_umg_export(
+                {
+                    "class": "/Game/UI.CustomTextBlock_C",
+                    "path": "InventoryMenu.WidgetTree.TitleText",
+                }
+            )
+        )
+        self.assertFalse(
+            uasset.is_umg_export(
+                {
+                    "class": "/Game/UI.CustomTextBlock_C",
+                    "path": "InventoryMenu.SomeGraphNode",
+                }
+            )
         )
 
     def test_uasset_diff_reports_metadata_changes(self):

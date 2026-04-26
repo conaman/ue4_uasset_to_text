@@ -1,0 +1,147 @@
+{
+  "file": {
+    "path": "local_test_assets/UE427_UMG/Snapshot_UI_VR.uasset",
+    "note": "Focused review_properties excerpt from a UE4.27 UMG asset with CanvasPanelSlot position data."
+  },
+  "exports": [
+    {
+      "path": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0.CanvasPanelSlot_1",
+      "class": "/Script/UMG.CanvasPanelSlot",
+      "review_properties": {
+        "LayoutData": {
+          "Offsets": {
+            "Left": 100.0,
+            "Top": 100.0,
+            "Bottom": 100.0
+          },
+          "Anchors": {
+            "Maximum": {
+              "X": 1.0,
+              "Y": 1.0
+            }
+          },
+          "Alignment": {
+            "X": 0.5,
+            "Y": 0.5
+          }
+        },
+        "Parent": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0",
+        "Content": "Snapshot_UI_VR.WidgetTree.Flash"
+      }
+    },
+    {
+      "path": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0.CanvasPanelSlot_10",
+      "class": "/Script/UMG.CanvasPanelSlot",
+      "review_properties": {
+        "LayoutData": {
+          "Offsets": {
+            "Bottom": 16.0
+          },
+          "Anchors": {
+            "Minimum": {
+              "X": 1.0,
+              "Y": 0.0
+            },
+            "Maximum": {
+              "X": 1.0,
+              "Y": 0.0
+            }
+          },
+          "Alignment": {
+            "X": 1.0,
+            "Y": 0.0
+          }
+        },
+        "Parent": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0",
+        "Content": "Snapshot_UI_VR.WidgetTree.HLine_RT"
+      }
+    },
+    {
+      "path": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0.CanvasPanelSlot_11",
+      "class": "/Script/UMG.CanvasPanelSlot",
+      "review_properties": {
+        "LayoutData": {
+          "Offsets": {
+            "Right": 16.0,
+            "Bottom": 100.0
+          },
+          "Anchors": {
+            "Minimum": {
+              "X": 1.0,
+              "Y": 0.0
+            },
+            "Maximum": {
+              "X": 1.0,
+              "Y": 0.0
+            }
+          },
+          "Alignment": {
+            "X": 1.0,
+            "Y": 0.0
+          }
+        },
+        "Parent": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0",
+        "Content": "Snapshot_UI_VR.WidgetTree.VLine_RT"
+      }
+    },
+    {
+      "path": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0.CanvasPanelSlot_12",
+      "class": "/Script/UMG.CanvasPanelSlot",
+      "review_properties": {
+        "LayoutData": {
+          "Offsets": {
+            "Bottom": 16.0
+          },
+          "Anchors": {
+            "Minimum": {
+              "X": 0.0,
+              "Y": 1.0
+            },
+            "Maximum": {
+              "X": 0.0,
+              "Y": 1.0
+            }
+          },
+          "Alignment": {
+            "X": 0.0,
+            "Y": 1.0
+          }
+        },
+        "Parent": "Snapshot_UI_VR.WidgetTree.CanvasPanel_0",
+        "Content": "Snapshot_UI_VR.WidgetTree.HLine_LB"
+      }
+    },
+    {
+      "path": "Snapshot_UI_VR.WidgetTree.MakePhotoButton.ButtonSlot_1",
+      "class": "/Script/UMG.ButtonSlot",
+      "review_properties": {
+        "Padding": {
+          "Left": 0.0,
+          "Top": 0.0,
+          "Right": 0.0,
+          "Bottom": 0.0
+        },
+        "HorizontalAlignment": "HAlign_Left",
+        "VerticalAlignment": "VAlign_Fill",
+        "Parent": "Snapshot_UI_VR.WidgetTree.MakePhotoButton",
+        "Content": "Snapshot_UI_VR.WidgetTree.Image_61"
+      }
+    },
+    {
+      "path": "Snapshot_UI_VR_C.WidgetTree.MakePhotoButton.ButtonSlot_1",
+      "class": "/Script/UMG.ButtonSlot",
+      "review_properties": {
+        "Padding": {
+          "Left": 0.0,
+          "Top": 0.0,
+          "Right": 0.0,
+          "Bottom": 0.0
+        },
+        "HorizontalAlignment": "HAlign_Left",
+        "VerticalAlignment": "VAlign_Fill",
+        "Parent": "Snapshot_UI_VR_C.WidgetTree.MakePhotoButton",
+        "Content": "Snapshot_UI_VR_C.WidgetTree.Image_61"
+      }
+    }
+  ]
+}
