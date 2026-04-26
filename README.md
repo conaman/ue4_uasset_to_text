@@ -6,15 +6,15 @@ Engine 4.27 `.uasset` metadata and UMG widget changes as readable JSON.
 It can:
 
 - Convert a `.uasset` file to readable metadata JSON.
-- Extract allowlisted UMG review properties such as slot padding, layout data,
-  alignment, visibility, color, widget styling, button/slider state, and
-  TextBlock/RichTextBlock text styling.
+- Extract UMG review properties such as slot padding, layout data, alignment,
+  visibility, colors, widget styling, button/slider state, and custom primitive
+  variables.
 - Print a compact UMG widget tree summary with widget names and types.
 - Print 2-way and 3-way metadata JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated metadata JSON files for visual comparison.
 
-The parser reads UE4.27 package metadata plus a conservative allowlist of UMG
-tagged properties. It does not link against Unreal Engine.
+The parser reads UE4.27 package metadata plus supported UMG tagged property
+values. It does not link against Unreal Engine.
 
 ## Requirements
 
@@ -83,8 +83,8 @@ Sample outputs generated from a UE4.27 UMG widget asset are available in
 - `WidgetMenu.exports.json`: compact export list with path and class fields.
 - `WidgetMenu.metadata.json`: full metadata JSON produced by
   `uasset_to_text.py`, with the file path shortened for readability.
-- `WidgetMenu.review_properties.json`: focused UMG `review_properties` excerpt
-  showing Button style and TextBlock text/color/font fields.
+- `WidgetMenu.review_properties.json`: UMG `review_properties` excerpt showing
+  every parsed export property and `_raw_hex` for unparsed values.
 - `Snapshot_UI_VR.review_properties.json`: focused UMG `review_properties`
   excerpt showing CanvasPanelSlot `LayoutData` position, anchors, alignment,
   and slot padding/alignment fields.
@@ -386,15 +386,16 @@ The metadata object can include:
 - `names`: package name table.
 - `imports`: imported object table.
 - `exports`: exported object table, with `review_properties` on supported UMG
-  exports when allowlisted tagged properties are found.
+  exports when tagged properties are found.
 - `depends`: export dependency map.
 - `soft_package_references`: soft package references.
 - `preload_dependencies`: cooked preload dependency indexes.
 
 ## UMG Review Coverage
 
-`review_properties` is intentionally allowlisted. It currently focuses on
-properties that are useful in code review:
+`review_properties` is emitted for UMG and WidgetTree exports when the parser
+can read the tagged property stream. Property names are not filtered, so custom
+primitive fields on widgets can show up too.
 
 - hierarchy references: `Parent`, `Content`, `Slot`, `Slots`
 - layout: Canvas `LayoutData`, `Padding`, alignment, size, row/column/layer,
@@ -405,18 +406,22 @@ properties that are useful in code review:
   ProgressBar percent/fill, ScrollBox and ComboBox behavior
 - text: TextBlock, RichTextBlock, EditableText, and EditableTextBox content,
   font, color, shadow, wrapping, justification, and virtual keyboard options
+- custom values: supported primitive properties such as bool, int, float,
+  string, text, name, enum, object/class references, and arrays of those values
 
 WidgetTree custom widgets are checked too. For example, a `CustomButton` can
 show inherited Button fields, and a `CustomTextBlock` can show inherited
-TextBlock fields, when those properties are serialized with the same names.
+TextBlock fields. A `ModuleWidget` can also show custom primitive fields that
+are serialized in the parent widget instance.
 
 ## Limitations
 
-This tool focuses on package metadata tables and a conservative UMG review
-property allowlist. It is not a full UObject property serializer.
+This tool focuses on package metadata tables and supported UMG tagged property
+values. It is not a full UObject property serializer.
 
-Unsupported properties are skipped instead of guessed. Default-valued properties
-may not appear if Unreal did not serialize them into the asset.
+Unsupported custom serializers are marked as `_unparsed` with `_raw_hex`
+instead of guessed. Default-valued properties may not appear if Unreal did not
+serialize them into the asset.
 
 `uasset_p4merge.py` is a JSON comparison launcher. Even if P4Merge saves a merged
 JSON result, the original `.uasset` files are not modified.

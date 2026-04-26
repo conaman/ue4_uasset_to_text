@@ -59,181 +59,6 @@ UMG_REVIEW_CLASS_PREFIXES = (
     "/Script/UMGEditor.",
 )
 
-UMG_REVIEW_TOP_LEVEL_PROPERTIES = {
-    # UObject relationship and widget hierarchy.
-    "Parent",
-    "Content",
-    "Slot",
-    "Slots",
-    # Shared widget appearance and transforms.
-    "WidgetStyle",
-    "Brush",
-    "Background",
-    "ColorAndOpacity",
-    "ContentColorAndOpacity",
-    "ForegroundColor",
-    "BackgroundColor",
-    "BrushColor",
-    "Visibility",
-    "RenderOpacity",
-    "RenderTransform",
-    "RenderTransformPivot",
-    "bFlipForRightToLeftFlowDirection",
-    # Layout and slot review fields.
-    "LayoutData",
-    "Padding",
-    "Size",
-    "HorizontalAlignment",
-    "VerticalAlignment",
-    "HAlign",
-    "VAlign",
-    "bAutoSize",
-    "ZOrder",
-    "Row",
-    "RowSpan",
-    "Column",
-    "ColumnSpan",
-    "Layer",
-    "Nudge",
-    "bFillEmptySpace",
-    "FillSpanWhenLessThan",
-    # Button, checkbox, slider, and progress interaction/state fields.
-    "CheckedState",
-    "ClickMethod",
-    "TouchMethod",
-    "PressMethod",
-    "IsFocusable",
-    "bIsFocusable",
-    "Value",
-    "MinValue",
-    "MaxValue",
-    "Orientation",
-    "SliderBarColor",
-    "SliderHandleColor",
-    "IndentHandle",
-    "Locked",
-    "MouseUsesStep",
-    "RequiresControllerLock",
-    "StepSize",
-    "Percent",
-    "BarFillType",
-    "bIsMarquee",
-    "BorderPadding",
-    "FillColorAndOpacity",
-    # SizeBox and ScaleBox layout controls.
-    "WidthOverride",
-    "HeightOverride",
-    "MinDesiredHeight",
-    "MaxDesiredWidth",
-    "MaxDesiredHeight",
-    "MinAspectRatio",
-    "MaxAspectRatio",
-    "bOverride_WidthOverride",
-    "bOverride_HeightOverride",
-    "bOverride_MinDesiredWidth",
-    "bOverride_MinDesiredHeight",
-    "bOverride_MaxDesiredWidth",
-    "bOverride_MaxDesiredHeight",
-    "bOverride_MinAspectRatio",
-    "bOverride_MaxAspectRatio",
-    "Stretch",
-    "StretchDirection",
-    "UserSpecifiedScale",
-    "IgnoreInheritedScale",
-    "DesiredSizeScale",
-    "bShowEffectWhenDisabled",
-    # ScrollBox and ComboBox review fields.
-    "WidgetBarStyle",
-    "ScrollBarVisibility",
-    "ConsumeMouseWheel",
-    "ScrollbarThickness",
-    "ScrollbarPadding",
-    "AlwaysShowScrollbar",
-    "AlwaysShowScrollbarTrack",
-    "AllowOverscroll",
-    "bAnimateWheelScrolling",
-    "NavigationDestination",
-    "NavigationScrollPadding",
-    "ScrollWhenFocusChanges",
-    "bAllowRightClickDragScrolling",
-    "WheelScrollMultiplier",
-    "DefaultOptions",
-    "SelectedOption",
-    "ItemStyle",
-    "ContentPadding",
-    "MaxListHeight",
-    "HasDownArrow",
-    "EnableGamepadNavigationMode",
-    # Text, rich text, and editable text review fields.
-    "Text",
-    "HintText",
-    "TextStyleSet",
-    "DecoratorClasses",
-    "bOverrideDefaultStyle",
-    "DefaultTextStyle",
-    "DefaultTextStyleOverride",
-    "TextStyle",
-    "Font",
-    "StrikeBrush",
-    "ShadowOffset",
-    "ShadowColorAndOpacity",
-    "MinDesiredWidth",
-    "MinimumDesiredWidth",
-    "bWrapWithInvalidationPanel",
-    "bAutoWrapText_DEPRECATED",
-    "TextTransformPolicy",
-    "bSimpleTextMode",
-    "ShapedTextOptions",
-    "Justification",
-    "WrappingPolicy",
-    "AutoWrapText",
-    "WrapTextAt",
-    "Margin",
-    "LineHeightPercentage",
-    "ApplyLineHeightToBottomLine",
-    "IsReadOnly",
-    "bIsReadOnly",
-    "IsPassword",
-    "IsCaretMovedWhenGainFocus",
-    "SelectAllTextWhenFocused",
-    "ClearTextSelectionOnFocusLoss",
-    "RevertTextOnEscape",
-    "ClearKeyboardFocusOnCommit",
-    "SelectAllTextOnCommit",
-    "AllowContextMenu",
-    "KeyboardType",
-    "VirtualKeyboardOptions",
-    "VirtualKeyboardTrigger",
-    "VirtualKeyboardDismissAction",
-}
-
-TAGGED_REVIEW_STRUCTS = {
-    "AnchorData",
-    "Anchors",
-    "ButtonStyle",
-    "CheckBoxStyle",
-    "ComboBoxStyle",
-    "ComboButtonStyle",
-    "EditableTextBoxStyle",
-    "EditableTextStyle",
-    "FontOutlineSettings",
-    "Margin",
-    "ProgressBarStyle",
-    "ShapedTextOptions",
-    "SlateBrush",
-    "SlateChildSize",
-    "SlateColor",
-    "SlateFontInfo",
-    "SlateSound",
-    "ScrollBarStyle",
-    "ScrollBoxStyle",
-    "SliderStyle",
-    "TableRowStyle",
-    "TextBlockStyle",
-    "VirtualKeyboardOptions",
-    "WidgetTransform",
-}
-
 TEXT_HISTORY_TYPE_NAMES = {
     -1: "None",
     0: "Base",
@@ -368,8 +193,14 @@ class Reader:
     def i64(self) -> int:
         return self.unpack("q")
 
+    def u64(self) -> int:
+        return self.unpack("Q")
+
     def f32(self) -> float:
         return self.unpack("f")
+
+    def f64(self) -> float:
+        return self.unpack("d")
 
     def boolean(self) -> bool:
         value = self.u32()
@@ -991,8 +822,6 @@ def read_tagged_review_properties(
     imports: list[dict[str, Any]],
     exports: list[dict[str, Any]],
     end_pos: int,
-    *,
-    include_all: bool,
 ) -> dict[str, Any]:
     properties: dict[str, Any] = {}
     while reader.tell() < end_pos:
@@ -1007,22 +836,48 @@ def read_tagged_review_properties(
                 f"property {tag['name']} value extends past tagged property stream"
             )
 
-        should_keep = include_all or tag["name"] in UMG_REVIEW_TOP_LEVEL_PROPERTIES
-        value = read_review_property_value(
-            reader,
-            tag,
-            names,
-            version,
-            imports,
-            exports,
-            value_end,
-            keep_value=should_keep,
-        )
+        raw_value = reader.data[value_start:value_end]
+        try:
+            value = read_review_property_value(
+                reader,
+                tag,
+                names,
+                version,
+                imports,
+                exports,
+                value_end,
+                keep_value=True,
+            )
+        except (UAssetError, struct.error, UnicodeDecodeError):
+            value = unparsed_review_property(tag, raw_value)
         reader.seek(value_end)
 
-        if should_keep and value is not None:
-            properties[tag["name"]] = value
+        if value is None:
+            value = unparsed_review_property(tag, raw_value)
+        elif isinstance(value, dict) and value.get("_unparsed") and "_raw_hex" not in value:
+            value["_raw_hex"] = raw_value.hex(" ")
+        properties[tag["name"]] = value
     return properties
+
+
+def unparsed_review_property(
+    tag: dict[str, Any],
+    raw_value: bytes | None = None,
+) -> dict[str, Any]:
+    value: dict[str, Any] = {
+        "_type": tag["type"],
+        "_size": tag["size"],
+        "_unparsed": True,
+    }
+    if "struct_name" in tag:
+        value["_struct"] = tag["struct_name"]
+    if "inner_type" in tag:
+        value["_inner_type"] = tag["inner_type"]
+    if "value_type" in tag:
+        value["_value_type"] = tag["value_type"]
+    if raw_value is not None:
+        value["_raw_hex"] = raw_value.hex(" ")
+    return value
 
 
 def read_review_property_value(
@@ -1043,10 +898,22 @@ def read_review_property_value(
         return tag.get("bool_value") if keep_value else None
     if prop_type == "FloatProperty" and size == 4:
         return reader.f32() if keep_value else None
+    if prop_type == "DoubleProperty" and size == 8:
+        return reader.f64() if keep_value else None
+    if prop_type == "Int8Property" and size == 1:
+        return reader.i8() if keep_value else None
+    if prop_type == "Int16Property" and size == 2:
+        return reader.unpack("h") if keep_value else None
     if prop_type == "IntProperty" and size == 4:
         return reader.i32() if keep_value else None
     if prop_type == "Int64Property" and size == 8:
         return reader.i64() if keep_value else None
+    if prop_type == "UInt16Property" and size == 2:
+        return reader.u16() if keep_value else None
+    if prop_type == "UInt32Property" and size == 4:
+        return reader.u32() if keep_value else None
+    if prop_type == "UInt64Property" and size == 8:
+        return reader.u64() if keep_value else None
     if prop_type == "StrProperty":
         return reader.fstring() if keep_value else None
     if prop_type == "TextProperty":
@@ -1067,6 +934,25 @@ def read_review_property_value(
         index_info = package_index(raw)
         resolved = resolve_package_index(index_info, imports, exports)
         return resolved if resolved is not None else index_info
+    if prop_type == "InterfaceProperty" and size >= 4:
+        raw = reader.i32()
+        if not keep_value:
+            return None
+        index_info = package_index(raw)
+        resolved = resolve_package_index(index_info, imports, exports)
+        return resolved if resolved is not None else index_info
+    if prop_type == "DelegateProperty" and size >= 12:
+        raw = reader.i32()
+        if not keep_value:
+            return None
+        index_info = package_index(raw)
+        resolved = resolve_package_index(index_info, imports, exports)
+        return {
+            "object": resolved if resolved is not None else index_info,
+            "function": format_name_ref(read_name_ref(reader), names)["value"],
+        }
+    if prop_type in {"SoftObjectProperty", "SoftClassProperty"}:
+        return read_review_soft_object_value(reader, names, value_end, keep_value=keep_value)
     if prop_type in {"ByteProperty", "EnumProperty"}:
         return read_review_enum_value(reader, tag, names, keep_value=keep_value)
     if prop_type == "ArrayProperty":
@@ -1091,7 +977,7 @@ def read_review_property_value(
             keep_value=keep_value,
         )
 
-    return None
+    return unparsed_review_property(tag) if keep_value else None
 
 
 def add_text_metadata(result: dict[str, Any], key: str, value: Any) -> None:
@@ -1153,9 +1039,27 @@ def read_review_text_value(
             result["flags"] = flags
         return result
 
-    result = {"history": history_name, "unparsed": True}
+    result = {"history": history_name, "_unparsed": True}
     if flags:
         result["flags"] = flags
+    return result
+
+
+def read_review_soft_object_value(
+    reader: Reader,
+    names: list[str],
+    value_end: int,
+    *,
+    keep_value: bool,
+) -> Any:
+    if not keep_value:
+        return None
+    if reader.tell() + 8 > value_end:
+        return None
+    asset_path_name = format_name_ref(read_name_ref(reader), names)["value"]
+    result: dict[str, Any] = {"asset_path": asset_path_name}
+    if reader.tell() < value_end:
+        result["sub_path"] = reader.fstring()
     return result
 
 
@@ -1188,12 +1092,28 @@ def read_review_array_value(
             values.append(format_name_ref(read_name_ref(reader), names)["value"])
         elif inner_type == "StrProperty":
             values.append(reader.fstring())
+        elif inner_type == "BoolProperty":
+            values.append(reader.boolean())
+        elif inner_type == "Int8Property":
+            values.append(reader.i8())
+        elif inner_type == "Int16Property":
+            values.append(reader.unpack("h"))
         elif inner_type == "IntProperty":
             values.append(reader.i32())
+        elif inner_type == "Int64Property":
+            values.append(reader.i64())
+        elif inner_type == "UInt16Property":
+            values.append(reader.u16())
+        elif inner_type == "UInt32Property":
+            values.append(reader.u32())
+        elif inner_type == "UInt64Property":
+            values.append(reader.u64())
         elif inner_type == "FloatProperty":
             values.append(reader.f32())
+        elif inner_type == "DoubleProperty":
+            values.append(reader.f64())
         else:
-            return {"inner_type": inner_type, "count": count}
+            return {"_inner_type": inner_type, "_count": count, "_unparsed": True}
     return values
 
 
@@ -1232,14 +1152,39 @@ def read_review_struct_value(
 
     struct_name = tag.get("struct_name")
     size = tag["size"]
+    if struct_name == "Guid" and size == 16:
+        return reader.guid()
     if struct_name == "Vector2D" and size == 8:
         return {"X": reader.f32(), "Y": reader.f32()}
+    if struct_name == "IntPoint" and size == 8:
+        return {"X": reader.i32(), "Y": reader.i32()}
+    if struct_name in {"Vector", "Rotator"} and size == 12:
+        x_key, y_key, z_key = (
+            ("X", "Y", "Z")
+            if struct_name == "Vector"
+            else ("Pitch", "Yaw", "Roll")
+        )
+        return {x_key: reader.f32(), y_key: reader.f32(), z_key: reader.f32()}
+    if struct_name in {"Vector4", "Quat"} and size == 16:
+        return {
+            "X": reader.f32(),
+            "Y": reader.f32(),
+            "Z": reader.f32(),
+            "W": reader.f32(),
+        }
     if struct_name == "LinearColor" and size == 16:
         return {
             "R": reader.f32(),
             "G": reader.f32(),
             "B": reader.f32(),
             "A": reader.f32(),
+        }
+    if struct_name == "Color" and size == 4:
+        return {
+            "B": reader.u8(),
+            "G": reader.u8(),
+            "R": reader.u8(),
+            "A": reader.u8(),
         }
     if struct_name == "Margin" and size == 16:
         return {
@@ -1249,20 +1194,17 @@ def read_review_struct_value(
             "Bottom": reader.f32(),
         }
 
-    if struct_name in TAGGED_REVIEW_STRUCTS:
-        try:
-            return read_tagged_review_properties(
-                reader,
-                names,
-                version,
-                imports,
-                exports,
-                value_end,
-                include_all=True,
-            )
-        except (UAssetError, struct.error, UnicodeDecodeError):
-            return None
-    return None
+    try:
+        return read_tagged_review_properties(
+            reader,
+            names,
+            version,
+            imports,
+            exports,
+            value_end,
+        )
+    except (UAssetError, struct.error, UnicodeDecodeError):
+        return unparsed_review_property(tag)
 
 
 def extract_review_properties_from_payload(
@@ -1280,7 +1222,6 @@ def extract_review_properties_from_payload(
         imports,
         exports,
         len(payload),
-        include_all=False,
     )
 
 

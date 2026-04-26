@@ -9,3 +9,12 @@
      },
      {
        "index": 196,
+@@ -4476,7 +4476,7 @@
+         ],
+         "CategorySorting": [
+           "Event Graph",
+-          "Widget Menu"
++          "Widget_Menu"
+         ],
+         "LastEditedDocuments": {
+           "_inner_type": "StructProperty",

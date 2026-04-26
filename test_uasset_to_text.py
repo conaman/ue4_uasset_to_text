@@ -698,6 +698,120 @@ class UAssetParserValidationTests(unittest.TestCase):
             },
         )
 
+    def test_review_property_parser_keeps_custom_primitive_names(self):
+        names = [
+            "CustomInt",
+            "IntProperty",
+            "CustomFloat",
+            "FloatProperty",
+            "CustomString",
+            "StrProperty",
+            "None",
+        ]
+        payload = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "CustomInt",
+                    "IntProperty",
+                    struct.pack("<i", 42),
+                ),
+                make_test_property(
+                    names,
+                    "CustomFloat",
+                    "FloatProperty",
+                    struct.pack("<f", 3.5),
+                ),
+                make_test_property(
+                    names,
+                    "CustomString",
+                    "StrProperty",
+                    make_test_fstring("ModuleWidget"),
+                ),
+                make_test_none_property(names),
+            ]
+        )
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(
+            properties,
+            {
+                "CustomInt": 42,
+                "CustomFloat": 3.5,
+                "CustomString": "ModuleWidget",
+            },
+        )
+
+    def test_review_property_parser_marks_unsupported_values(self):
+        names = ["CustomDelegate", "MulticastDelegateProperty", "None"]
+        payload = b"".join(
+            [
+                make_test_property(
+                    names,
+                    "CustomDelegate",
+                    "MulticastDelegateProperty",
+                    b"\x00\x00\x00\x00",
+                ),
+                make_test_none_property(names),
+            ]
+        )
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(
+            properties,
+            {
+                "CustomDelegate": {
+                    "_type": "MulticastDelegateProperty",
+                    "_size": 4,
+                    "_unparsed": True,
+                    "_raw_hex": "00 00 00 00",
+                }
+            },
+        )
+
+    def test_review_property_parser_keeps_unparsed_known_property_bytes(self):
+        names = ["OddName", "NameProperty", "None"]
+        payload = b"".join(
+            [
+                make_test_property(names, "OddName", "NameProperty", b"\x01\x02"),
+                make_test_none_property(names),
+            ]
+        )
+
+        properties = uasset.extract_review_properties_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(
+            properties,
+            {
+                "OddName": {
+                    "_type": "NameProperty",
+                    "_size": 2,
+                    "_unparsed": True,
+                    "_raw_hex": "01 02",
+                }
+            },
+        )
+
     def test_review_property_parser_extracts_rich_text_decorator_classes(self):
         names = [
             "DecoratorClasses",

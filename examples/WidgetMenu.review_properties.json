@@ -1,9 +1,57 @@
 {
   "file": {
     "path": "local_test_assets/UE427_UMG/WidgetMenu_Original.uasset",
-    "note": "Focused review_properties excerpt showing Button style/slot links and TextBlock text/color/font fields."
+    "note": "Parsed UMG review_properties for every export with readable tagged properties; unparsed values include _raw_hex."
   },
   "exports": [
+    {
+      "path": "WidgetMenu.WidgetTree.Border_0",
+      "class": "/Script/UMG.Border",
+      "review_properties": {
+        "BrushColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 0.0
+        },
+        "Slots": [
+          "WidgetMenu.WidgetTree.Border_0.BorderSlot_0"
+        ],
+        "bExpandedInDesigner": true
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Border_0",
+      "class": "/Script/UMG.Border",
+      "review_properties": {
+        "BrushColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 0.0
+        },
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0"
+        ],
+        "bExpandedInDesigner": true
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.Border_0.BorderSlot_0",
+      "class": "/Script/UMG.BorderSlot",
+      "review_properties": {
+        "Parent": "WidgetMenu.WidgetTree.Border_0",
+        "Content": "WidgetMenu.WidgetTree.VerticalBox_48"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0",
+      "class": "/Script/UMG.BorderSlot",
+      "review_properties": {
+        "Parent": "WidgetMenu_C.WidgetTree.Border_0",
+        "Content": "WidgetMenu_C.WidgetTree.VerticalBox_48"
+      }
+    },
     {
       "path": "WidgetMenu.WidgetTree.ExitButton",
       "class": "/Script/UMG.Button",
@@ -33,7 +81,9 @@
         "Slots": [
           "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0"
         ],
-        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+        "bExpandedInDesigner": true,
+        "DisplayLabel": "ExitButton"
       }
     },
     {
@@ -65,7 +115,9 @@
         "Slots": [
           "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0"
         ],
-        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0"
+        "Slot": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+        "bExpandedInDesigner": true,
+        "DisplayLabel": "RestartButton"
       }
     },
     {
@@ -97,7 +149,9 @@
         "Slots": [
           "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0"
         ],
-        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+        "bExpandedInDesigner": true,
+        "DisplayLabel": "ExitButton"
       }
     },
     {
@@ -129,7 +183,9 @@
         "Slots": [
           "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0"
         ],
-        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0"
+        "Slot": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+        "bExpandedInDesigner": true,
+        "DisplayLabel": "RestartButton"
       }
     },
     {
@@ -184,7 +240,8 @@
         "Font": {
           "TypefaceFontName": "Regular"
         },
-        "Slot": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0"
+        "Slot": "WidgetMenu.WidgetTree.ExitButton.ButtonSlot_0",
+        "DisplayLabel": "Text_ExitButton"
       }
     },
     {
@@ -207,7 +264,8 @@
         "Font": {
           "TypefaceFontName": "Regular"
         },
-        "Slot": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0"
+        "Slot": "WidgetMenu.WidgetTree.RestartButton.ButtonSlot_0",
+        "DisplayLabel": "Text_RestartButton"
       }
     },
     {
@@ -230,7 +288,8 @@
         "Font": {
           "TypefaceFontName": "Regular"
         },
-        "Slot": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0"
+        "Slot": "WidgetMenu_C.WidgetTree.ExitButton.ButtonSlot_0",
+        "DisplayLabel": "Text_ExitButton"
       }
     },
     {
@@ -253,7 +312,158 @@
         "Font": {
           "TypefaceFontName": "Regular"
         },
-        "Slot": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0"
+        "Slot": "WidgetMenu_C.WidgetTree.RestartButton.ButtonSlot_0",
+        "DisplayLabel": "Text_RestartButton"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48",
+      "class": "/Script/UMG.VerticalBox",
+      "review_properties": {
+        "Slots": [
+          "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+          "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+        ],
+        "Slot": "WidgetMenu.WidgetTree.Border_0.BorderSlot_0",
+        "bExpandedInDesigner": true
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48",
+      "class": "/Script/UMG.VerticalBox",
+      "review_properties": {
+        "Slots": [
+          "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+          "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1"
+        ],
+        "Slot": "WidgetMenu_C.WidgetTree.Border_0.BorderSlot_0",
+        "bExpandedInDesigner": true
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu.WidgetTree.RestartButton"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu.WidgetTree.ExitButton"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_0",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu_C.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu_C.WidgetTree.RestartButton"
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree.VerticalBox_48.VerticalBoxSlot_1",
+      "class": "/Script/UMG.VerticalBoxSlot",
+      "review_properties": {
+        "Size": {
+          "SizeRule": "ESlateSizeRule::Fill"
+        },
+        "Padding": {
+          "Top": 4.0,
+          "Bottom": 4.0
+        },
+        "Parent": "WidgetMenu_C.WidgetTree.VerticalBox_48",
+        "Content": "WidgetMenu_C.WidgetTree.ExitButton"
+      }
+    },
+    {
+      "path": "WidgetMenu",
+      "class": "/Script/UMGEditor.WidgetBlueprint",
+      "review_properties": {
+        "WidgetTree": "WidgetMenu.WidgetTree",
+        "ParentClass": "/Script/UMG.UserWidget",
+        "BlueprintSystemVersion": 2,
+        "UbergraphPages": [
+          "WidgetMenu.EventGraph"
+        ],
+        "CategorySorting": [
+          "Event Graph",
+          "Widget Menu"
+        ],
+        "LastEditedDocuments": {
+          "_inner_type": "StructProperty",
+          "_count": 1,
+          "_unparsed": true,
+          "_raw_hex": "01 00 00 00 71 00 00 00 00 00 00 00 af 00 00 00 00 00 00 00 a6 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 49 00 00 00 00 00 00 00 af 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 a9 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 0b 00 00 00 45 76 65 6e 74 47 72 61 70 68 00 9c 00 00 00 00 00 00 00 af 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 96 e2 d8 c3 32 25 b5 c3 9d 00 00 00 00 00 00 00 5e 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 00 cd cc 2c 3f 84 00 00 00 00 00 00 00"
+        },
+        "GeneratedClass": "WidgetMenu_C",
+        "bLegacyNeedToPurgeSkelRefs": false,
+        "BlueprintGuid": "5c42c0ee-406f-f524-aa66-2abab5763aab"
+      }
+    },
+    {
+      "path": "WidgetMenu_C",
+      "class": "/Script/UMG.WidgetBlueprintGeneratedClass",
+      "review_properties": {
+        "WidgetTree": "WidgetMenu_C.WidgetTree",
+        "DynamicBindingObjects": [
+          "WidgetMenu_C.ComponentDelegateBinding_2"
+        ],
+        "UberGraphFunction": "WidgetMenu_C.ExecuteUbergraph_WidgetMenu"
+      }
+    },
+    {
+      "path": "WidgetMenu.WidgetTree",
+      "class": "/Script/UMG.WidgetTree",
+      "review_properties": {
+        "RootWidget": "WidgetMenu.WidgetTree.Border_0",
+        "AllWidgets": [
+          "WidgetMenu.WidgetTree.Border_0",
+          "WidgetMenu.WidgetTree.VerticalBox_48",
+          "WidgetMenu.WidgetTree.RestartButton",
+          "WidgetMenu.WidgetTree.Text_RestartButton",
+          "WidgetMenu.WidgetTree.ExitButton",
+          "WidgetMenu.WidgetTree.Text_ExitButton"
+        ]
+      }
+    },
+    {
+      "path": "WidgetMenu_C.WidgetTree",
+      "class": "/Script/UMG.WidgetTree",
+      "review_properties": {
+        "RootWidget": "WidgetMenu_C.WidgetTree.Border_0",
+        "AllWidgets": [
+          "WidgetMenu_C.WidgetTree.Border_0",
+          "WidgetMenu_C.WidgetTree.VerticalBox_48",
+          "WidgetMenu_C.WidgetTree.RestartButton",
+          "WidgetMenu_C.WidgetTree.Text_RestartButton",
+          "WidgetMenu_C.WidgetTree.ExitButton",
+          "WidgetMenu_C.WidgetTree.Text_ExitButton"
+        ]
       }
     }
   ]
