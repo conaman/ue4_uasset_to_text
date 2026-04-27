@@ -342,21 +342,24 @@ Merge arguments:
   %b %2 %1
 ```
 
-Windows, assuming `python` is on `PATH`:
+Windows, assuming `python` is on `PATH`, use the included P4V wrapper files:
 
 ```text
 Diff application:
-  python
+  C:\path\to\ue4-uasset-tools\uasset_p4v_diff.bat
 
 Diff arguments:
-  "C:\path\to\ue4-uasset-tools\uasset_p4merge.py" %1 %2
+  %1 %2
 
 Merge application:
-  python
+  C:\path\to\ue4-uasset-tools\uasset_p4v_merge.bat
 
 Merge arguments:
-  "C:\path\to\ue4-uasset-tools\uasset_p4merge.py" %b %2 %1
+  %b %2 %1
 ```
+
+The wrapper files call `uasset_p4merge.py` from the same directory, so the P4V
+configuration does not need to include the Python script path in the arguments.
 
 Important: this merge registration opens a metadata JSON 3-way view. It does
 not write a merged `.uasset` result back to P4V. Do not pass P4V's `%r`
