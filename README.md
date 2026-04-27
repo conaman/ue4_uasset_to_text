@@ -200,14 +200,15 @@ Application:
   C:\path\to\ue4-uasset-tools\uasset_umg_summary.bat
 
 Arguments:
-  "%f"
-
-Start in:
   %f
+
+Run tool in terminal window:
+  enabled
 ```
 
-Enable "Run tool in terminal window" so the printed summary is visible. Use the
-lowercase `%f` argument so P4V passes one selected file at a time.
+Use the lowercase `%f` argument so P4V passes one selected file at a time. Do
+not wrap `%f` in quotes here; the batch wrapper quotes the received path before
+calling Python.
 
 Metadata JSON from `uasset_to_text.py` can also be used as input:
 
