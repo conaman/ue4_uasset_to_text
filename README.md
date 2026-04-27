@@ -159,22 +159,25 @@ Example output:
 ```text
 Asset: WidgetMenu
 UMG: WidgetBlueprint
-ParentClass: UserWidget
+ParentClass: /Script/UMG.UserWidget
 Widgets: 6
 
 WidgetTree
-  Border_0: Border
-    VerticalBox_48: VerticalBox
-      RestartButton: Button
-        Text_RestartButton: TextBlock
-      ExitButton: Button
-        Text_ExitButton: TextBlock
+  Border_0: /Script/UMG.Border
+    VerticalBox_48: /Script/UMG.VerticalBox
+      RestartButton: /Script/UMG.Button
+        Text_RestartButton: /Script/UMG.TextBlock
+      ExitButton: /Script/UMG.Button
+        Text_ExitButton: /Script/UMG.TextBlock
 ```
 
-The default output shows `Name: Type` entries. UMG slot exports are hidden by
-default. The hierarchy is restored from `review_properties` fields such as
-`RootWidget`, `Slots`, `Parent`, and `Content`. If those fields are unavailable,
-the tool falls back to a flat WidgetTree export list.
+The default output shows `Name: FullClassPath` entries. This keeps custom
+Blueprint-generated widgets such as `/Game/UI.CustomTextBlock_C` traceable by
+their package path, which is useful when reviewing summaries directly or
+feeding them to an LLM. UMG slot exports are hidden by default. The hierarchy
+is restored from `review_properties` fields such as `RootWidget`, `Slots`,
+`Parent`, and `Content`. If those fields are unavailable, the tool falls back
+to a flat WidgetTree export list.
 
 Common options:
 

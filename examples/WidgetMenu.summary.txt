@@ -1,12 +1,12 @@
 Asset: WidgetMenu
 UMG: WidgetBlueprint
-ParentClass: UserWidget
+ParentClass: /Script/UMG.UserWidget
 Widgets: 6
 
 WidgetTree
-  Border_0: Border
-    VerticalBox_48: VerticalBox
-      RestartButton: Button
-        Text_RestartButton: TextBlock
-      ExitButton: Button
-        Text_ExitButton: TextBlock
+  Border_0: /Script/UMG.Border
+    VerticalBox_48: /Script/UMG.VerticalBox
+      RestartButton: /Script/UMG.Button
+        Text_RestartButton: /Script/UMG.TextBlock
+      ExitButton: /Script/UMG.Button
+        Text_ExitButton: /Script/UMG.TextBlock

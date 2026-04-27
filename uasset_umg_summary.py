@@ -57,6 +57,13 @@ def object_name(export: dict[str, Any]) -> str:
 def export_type_name(export: dict[str, Any]) -> str:
     class_path = export.get("class")
     if isinstance(class_path, str):
+        return class_path
+    return object_name(export)
+
+
+def export_short_type_name(export: dict[str, Any]) -> str:
+    class_path = export.get("class")
+    if isinstance(class_path, str):
         return short_type_name(class_path)
     return object_name(export)
 
@@ -69,7 +76,7 @@ def is_widget_tree_path(path: str | None) -> bool:
 
 def is_widget_tree_export(export: dict[str, Any]) -> bool:
     path = export_path(export)
-    return export_type_name(export) == "WidgetTree" or (
+    return export_short_type_name(export) == "WidgetTree" or (
         isinstance(path, str) and path.endswith(".WidgetTree")
     )
 
@@ -105,7 +112,7 @@ def is_widget_export(
     if not is_umg_class and not is_widget_tree_path(path):
         return False
 
-    widget_type = export_type_name(export)
+    widget_type = export_short_type_name(export)
     if not include_internal and widget_type in NON_WIDGET_UMG_TYPES:
         return False
     if not include_slots and is_slot_type(widget_type):
@@ -309,7 +316,7 @@ def collect_hierarchy_widgets(
         for slot_path in string_refs(properties.get("Slots")):
             append_unique(slots_by_parent.setdefault(path, []), slot_path)
 
-        if is_slot_type(export_type_name(export)):
+        if is_slot_type(export_short_type_name(export)):
             for parent_path in string_refs(properties.get("Parent")):
                 append_unique(slots_by_parent.setdefault(parent_path, []), path)
 
@@ -450,7 +457,7 @@ def format_widget_tree(summary: dict[str, Any], *, show_paths: bool = False) -> 
     lines.append(f"UMG: {summary['umg_kind']}")
     parent_class = summary.get("parent_class")
     if isinstance(parent_class, str):
-        lines.append(f"ParentClass: {short_type_name(parent_class)}")
+        lines.append(f"ParentClass: {parent_class}")
     lines.append(f"Widgets: {len(rows)}")
     lines.append("")
     lines.append("WidgetTree")

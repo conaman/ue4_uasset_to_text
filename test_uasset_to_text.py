@@ -295,7 +295,7 @@ class UAssetParserValidationTests(unittest.TestCase):
             [
                 {
                     "name": "Panel",
-                    "type": "VerticalBox",
+                    "type": "/Script/UMG.VerticalBox",
                     "class": "/Script/UMG.VerticalBox",
                     "tree_path": ["Panel"],
                     "paths": [
@@ -305,7 +305,7 @@ class UAssetParserValidationTests(unittest.TestCase):
                 },
                 {
                     "name": "ExitButton",
-                    "type": "Button",
+                    "type": "/Script/UMG.Button",
                     "class": "/Script/UMG.Button",
                     "tree_path": ["Panel", "ExitButton"],
                     "paths": [
@@ -315,7 +315,7 @@ class UAssetParserValidationTests(unittest.TestCase):
                 },
                 {
                     "name": "TitleText",
-                    "type": "CustomTextBlock_C",
+                    "type": "/Game/UI.CustomTextBlock_C",
                     "class": "/Game/UI.CustomTextBlock_C",
                     "tree_path": ["TitleText"],
                     "paths": ["WidgetMenu.WidgetTree.TitleText"],
@@ -383,7 +383,7 @@ class UAssetParserValidationTests(unittest.TestCase):
         self.assertEqual(summary["umg_kind"], "UMGReference")
         self.assertEqual(
             [(item["name"], item["type"]) for item in summary["widgets"]],
-            [("ModuleCustom", "ModuleCustom_C")],
+            [("ModuleCustom", "/Game/UI.ModuleCustom_C")],
         )
 
     def test_uasset_umg_summary_formats_widget_tree(self):
@@ -395,13 +395,13 @@ class UAssetParserValidationTests(unittest.TestCase):
             "widgets": [
                 {
                     "name": "Panel",
-                    "type": "VerticalBox",
+                    "type": "/Script/UMG.VerticalBox",
                     "tree_path": ["Panel"],
                     "paths": ["WidgetMenu.WidgetTree.Panel"],
                 },
                 {
                     "name": "StartButton",
-                    "type": "Button",
+                    "type": "/Script/UMG.Button",
                     "tree_path": ["Panel", "StartButton"],
                     "paths": ["WidgetMenu.WidgetTree.Panel.StartButton"],
                 },
@@ -410,8 +410,12 @@ class UAssetParserValidationTests(unittest.TestCase):
 
         output = uasset_umg_summary.format_widget_tree(summary)
 
-        self.assertIn("ParentClass: UserWidget", output)
-        self.assertIn("WidgetTree\n  Panel: VerticalBox\n    StartButton: Button", output)
+        self.assertIn("ParentClass: /Script/UMG.UserWidget", output)
+        self.assertIn(
+            "WidgetTree\n  Panel: /Script/UMG.VerticalBox\n"
+            "    StartButton: /Script/UMG.Button",
+            output,
+        )
         self.assertNotIn("Exports", output)
 
     def test_uasset_umg_summary_can_include_slots_and_internal_exports(self):
@@ -430,7 +434,10 @@ class UAssetParserValidationTests(unittest.TestCase):
 
         self.assertEqual(
             [(item["name"], item["type"]) for item in summary["widgets"]],
-            [("ButtonSlot_0", "ButtonSlot"), ("WidgetTree", "WidgetTree")],
+            [
+                ("ButtonSlot_0", "/Script/UMG.ButtonSlot"),
+                ("WidgetTree", "/Script/UMG.WidgetTree"),
+            ],
         )
 
     def test_uasset_umg_summary_accepts_string_object_names(self):
@@ -449,7 +456,10 @@ class UAssetParserValidationTests(unittest.TestCase):
 
         self.assertEqual(
             [(item["name"], item["type"]) for item in summary["widgets"]],
-            [("ButtonSlot_0", "ButtonSlot"), ("WidgetTree", "WidgetTree")],
+            [
+                ("ButtonSlot_0", "/Script/UMG.ButtonSlot"),
+                ("WidgetTree", "/Script/UMG.WidgetTree"),
+            ],
         )
 
     def test_uasset_umg_summary_rejects_non_umg_assets(self):
