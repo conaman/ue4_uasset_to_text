@@ -412,10 +412,9 @@ The metadata object can include:
 
 - `file`: input path and file size.
 - `summary`: package file summary fields and version data.
-- `names`: package name table.
-- `imports`: imported object table.
-- `exports`: exported object table, with `review_properties` on supported UMG
-  exports when tagged properties are found.
+- `imports`: imported object table with Name references expanded to strings.
+- `exports`: exported object table with Name references expanded to strings and
+  `review_properties` on supported UMG exports when tagged properties are found.
 - `depends`: export dependency map.
 - `soft_package_references`: soft package references.
 - `preload_dependencies`: cooked preload dependency indexes.

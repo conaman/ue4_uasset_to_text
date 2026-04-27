@@ -42,6 +42,8 @@ def export_path(export: dict[str, Any]) -> str | None:
 
 def object_name(export: dict[str, Any]) -> str:
     name = export.get("object_name")
+    if isinstance(name, str):
+        return name
     if isinstance(name, dict):
         value = name.get("value")
         if isinstance(value, str):

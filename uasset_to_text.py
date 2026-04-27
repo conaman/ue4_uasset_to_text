@@ -777,15 +777,15 @@ def read_property_tag(
         return None
 
     type_name = format_name_ref(read_name_ref(reader), names)
+    type_number = type_name["number"]
     tag: dict[str, Any] = {
         "name": name["value"],
         "type": type_name["value"],
-        "type_number": type_name["number"],
         "size": reader.i32(),
         "array_index": reader.i32(),
     }
 
-    if tag["type_number"] == 0:
+    if type_number == 0:
         if tag["type"] == "StructProperty":
             tag["struct_name"] = format_name_ref(read_name_ref(reader), names)["value"]
             if version >= VER_UE4_STRUCT_GUID_IN_PROPERTY_TAG:
@@ -1280,12 +1280,38 @@ def preview_export_data(
     return previews
 
 
+NAME_REF_FIELDS = {"class_package", "class_name", "object_name", "package_name"}
+
+
+def public_name_ref(value: Any) -> Any:
+    if isinstance(value, dict) and isinstance(value.get("value"), str):
+        return value["value"]
+    return value
+
+
+def public_name_ref_fields(item: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: public_name_ref(value) if key in NAME_REF_FIELDS else value
+        for key, value in item.items()
+    }
+
+
+def public_imports(imports: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [public_name_ref_fields(item) for item in imports]
+
+
 def public_exports(exports: list[dict[str, Any]]) -> list[dict[str, Any]]:
     hidden_fields = {"serial_size", "serial_offset"}
     return [
-        {key: value for key, value in export.items() if key not in hidden_fields}
+        public_name_ref_fields(
+            {key: value for key, value in export.items() if key not in hidden_fields}
+        )
         for export in exports
     ]
+
+
+def public_soft_package_references(references: list[Any]) -> list[Any]:
+    return [public_name_ref(reference) for reference in references]
 
 
 def resolve_references(imports: list[dict[str, Any]], exports: list[dict[str, Any]]) -> None:
@@ -1338,11 +1364,12 @@ def parse_uasset(
             "size": len(data),
         },
         "summary": summary,
-        "names": [{"index": index, "value": value} for index, value in enumerate(names)],
-        "imports": imports,
+        "imports": public_imports(imports),
         "exports": public_exports(exports),
         "depends": read_depends_map(reader, summary),
-        "soft_package_references": read_soft_package_references(reader, summary, names),
+        "soft_package_references": public_soft_package_references(
+            read_soft_package_references(reader, summary, names)
+        ),
         "preload_dependencies": read_preload_dependencies(reader, summary),
     }
     if include_export_data:

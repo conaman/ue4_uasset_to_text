@@ -100,2048 +100,578 @@
     "preload_dependency_offset": 26135,
     "summary_size": 404
   },
-  "names": [
-    {
-      "index": 0,
-      "value": "/Game/VRTemplate/Blueprints/WidgetMenu"
-    },
-    {
-      "index": 1,
-      "value": "/Game/VRTemplate/Blueprints/WidgetMenu.WidgetMenu"
-    },
-    {
-      "index": 2,
-      "value": "/Script/BlueprintGraph"
-    },
-    {
-      "index": 3,
-      "value": "/Script/CoreUObject"
-    },
-    {
-      "index": 4,
-      "value": "/Script/Engine"
-    },
-    {
-      "index": 5,
-      "value": "/Script/SlateCore"
-    },
-    {
-      "index": 6,
-      "value": "/Script/UMG"
-    },
-    {
-      "index": 7,
-      "value": "/Script/UMGEditor"
-    },
-    {
-      "index": 8,
-      "value": "/Script/UnrealEd"
-    },
-    {
-      "index": 9,
-      "value": "AdvancedPinDisplay"
-    },
-    {
-      "index": 10,
-      "value": "AllWidgets"
-    },
-    {
-      "index": 11,
-      "value": "ArrayProperty"
-    },
-    {
-      "index": 12,
-      "value": "bAbsolute"
-    },
-    {
-      "index": 13,
-      "value": "bAllowDeletion"
-    },
-    {
-      "index": 14,
-      "value": "bCommentBubblePinned"
-    },
-    {
-      "index": 15,
-      "value": "bCommentBubbleVisible"
-    },
-    {
-      "index": 16,
-      "value": "bCommentBubbleVisible_InDetailsPanel"
-    },
-    {
-      "index": 17,
-      "value": "bExpandedInDesigner"
-    },
-    {
-      "index": 18,
-      "value": "bHasScriptImplementedPaint"
-    },
-    {
-      "index": 19,
-      "value": "bHasScriptImplementedTick"
-    },
-    {
-      "index": 20,
-      "value": "bIgnorePlatformRestrictions"
-    },
-    {
-      "index": 21,
-      "value": "bInternalEvent"
-    },
-    {
-      "index": 22,
-      "value": "bLegacyNeedToPurgeSkelRefs"
-    },
-    {
-      "index": 23,
-      "value": "BlueprintComponentDelegateBinding"
-    },
-    {
-      "index": 24,
-      "value": "BlueprintGuid"
-    },
-    {
-      "index": 25,
-      "value": "BlueprintSystemVersion"
-    },
-    {
-      "index": 26,
-      "value": "BlueprintType"
-    },
-    {
-      "index": 27,
-      "value": "BndEvt__WidgetMenu_ExitButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature"
-    },
-    {
-      "index": 28,
-      "value": "BndEvt__WidgetMenu_RestartButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature"
-    },
-    {
-      "index": 29,
-      "value": "bool"
-    },
-    {
-      "index": 30,
-      "value": "BoolProperty"
-    },
-    {
-      "index": 31,
-      "value": "Border"
-    },
-    {
-      "index": 32,
-      "value": "BorderSlot"
-    },
-    {
-      "index": 33,
-      "value": "Bottom"
-    },
-    {
-      "index": 34,
-      "value": "bOverrideFunction"
-    },
-    {
-      "index": 35,
-      "value": "BrushColor"
-    },
-    {
-      "index": 36,
-      "value": "Button"
-    },
-    {
-      "index": 37,
-      "value": "ButtonSlot"
-    },
-    {
-      "index": 38,
-      "value": "ButtonStyle"
-    },
-    {
-      "index": 39,
-      "value": "byte"
-    },
-    {
-      "index": 40,
-      "value": "ByteProperty"
-    },
-    {
-      "index": 41,
-      "value": "Category"
-    },
-    {
-      "index": 42,
-      "value": "CategorySorting"
-    },
-    {
-      "index": 43,
-      "value": "Class"
-    },
-    {
-      "index": 44,
-      "value": "ColorAndOpacity"
-    },
-    {
-      "index": 45,
-      "value": "Comment"
-    },
-    {
-      "index": 46,
-      "value": "CommentColor"
-    },
-    {
-      "index": 47,
-      "value": "ComponentDelegateBinding"
-    },
-    {
-      "index": 48,
-      "value": "ComponentDelegateBindings"
-    },
-    {
-      "index": 49,
-      "value": "ComponentPropertyName"
-    },
-    {
-      "index": 50,
-      "value": "Construct"
-    },
-    {
-      "index": 51,
-      "value": "Content"
-    },
-    {
-      "index": 52,
-      "value": "CustomFunctionName"
-    },
-    {
-      "index": 53,
-      "value": "Default__GameplayStatics"
-    },
-    {
-      "index": 54,
-      "value": "Default__KismetSystemLibrary"
-    },
-    {
-      "index": 55,
-      "value": "Default__UserWidget"
-    },
-    {
-      "index": 56,
-      "value": "Default__WidgetBlueprint"
-    },
-    {
-      "index": 57,
-      "value": "Default__WidgetMenu_C"
-    },
-    {
-      "index": 58,
-      "value": "DefaultGraphNode"
-    },
-    {
-      "index": 59,
-      "value": "delegate"
-    },
-    {
-      "index": 60,
-      "value": "DelegateOwnerClass"
-    },
-    {
-      "index": 61,
-      "value": "DelegatePropertyDisplayName"
-    },
-    {
-      "index": 62,
-      "value": "DelegatePropertyName"
-    },
-    {
-      "index": 63,
-      "value": "DesignSizeMode"
-    },
-    {
-      "index": 64,
-      "value": "DisplayLabel"
-    },
-    {
-      "index": 65,
-      "value": "DisplayName"
-    },
-    {
-      "index": 66,
-      "value": "DynamicBindingObjects"
-    },
-    {
-      "index": 67,
-      "value": "EDesignPreviewSizeMode"
-    },
-    {
-      "index": 68,
-      "value": "EDesignPreviewSizeMode::Desired"
-    },
-    {
-      "index": 69,
-      "value": "EdGraph"
-    },
-    {
-      "index": 70,
-      "value": "EdGraphNode_Comment"
-    },
-    {
-      "index": 71,
-      "value": "EdGraphSchema_K2"
-    },
-    {
-      "index": 72,
-      "value": "EditedDocumentInfo"
-    },
-    {
-      "index": 73,
-      "value": "EditedObjectPath"
-    },
-    {
-      "index": 74,
-      "value": "EnabledState"
-    },
-    {
-      "index": 75,
-      "value": "Engine"
-    },
-    {
-      "index": 76,
-      "value": "ENodeAdvancedPins"
-    },
-    {
-      "index": 77,
-      "value": "ENodeAdvancedPins::Hidden"
-    },
-    {
-      "index": 78,
-      "value": "ENodeEnabledState"
-    },
-    {
-      "index": 79,
-      "value": "ENodeEnabledState::Disabled"
-    },
-    {
-      "index": 80,
-      "value": "EntryPoint"
-    },
-    {
-      "index": 81,
-      "value": "Enum"
-    },
-    {
-      "index": 82,
-      "value": "EnumProperty"
-    },
-    {
-      "index": 83,
-      "value": "EQuitPreference"
-    },
-    {
-      "index": 84,
-      "value": "ESlateSizeRule"
-    },
-    {
-      "index": 85,
-      "value": "ESlateSizeRule::Fill"
-    },
-    {
-      "index": 86,
-      "value": "Event Graph"
-    },
-    {
-      "index": 87,
-      "value": "EventGraph"
-    },
-    {
-      "index": 88,
-      "value": "EventReference"
-    },
-    {
-      "index": 89,
-      "value": "exec"
-    },
-    {
-      "index": 90,
-      "value": "execute"
-    },
-    {
-      "index": 91,
-      "value": "ExecuteUbergraph_WidgetMenu"
-    },
-    {
-      "index": 92,
-      "value": "ExitButton"
-    },
-    {
-      "index": 93,
-      "value": "float"
-    },
-    {
-      "index": 94,
-      "value": "FloatProperty"
-    },
-    {
-      "index": 95,
-      "value": "Font"
-    },
-    {
-      "index": 96,
-      "value": "Function"
-    },
-    {
-      "index": 97,
-      "value": "FunctionNameToBind"
-    },
-    {
-      "index": 98,
-      "value": "FunctionReference"
-    },
-    {
-      "index": 99,
-      "value": "GameplayStatics"
-    },
-    {
-      "index": 100,
-      "value": "GeneratedClass"
-    },
-    {
-      "index": 101,
-      "value": "Geometry"
-    },
-    {
-      "index": 102,
-      "value": "GraphGuid"
-    },
-    {
-      "index": 103,
-      "value": "Guid"
-    },
-    {
-      "index": 104,
-      "value": "Hovered"
-    },
-    {
-      "index": 105,
-      "value": "InDeltaTime"
-    },
-    {
-      "index": 106,
-      "value": "IntProperty"
-    },
-    {
-      "index": 107,
-      "value": "IsDesignTime"
-    },
-    {
-      "index": 108,
-      "value": "K2Node_CallFunction"
-    },
-    {
-      "index": 109,
-      "value": "K2Node_ComponentBoundEvent"
-    },
-    {
-      "index": 110,
-      "value": "K2Node_Event"
-    },
-    {
-      "index": 111,
-      "value": "Keywords"
-    },
-    {
-      "index": 112,
-      "value": "KismetSystemLibrary"
-    },
-    {
-      "index": 113,
-      "value": "LastEditedDocuments"
-    },
-    {
-      "index": 114,
-      "value": "LevelName"
-    },
-    {
-      "index": 115,
-      "value": "LinearColor"
-    },
-    {
-      "index": 116,
-      "value": "Margin"
-    },
-    {
-      "index": 117,
-      "value": "MemberName"
-    },
-    {
-      "index": 118,
-      "value": "MemberParent"
-    },
-    {
-      "index": 119,
-      "value": "MemberReference"
-    },
-    {
-      "index": 120,
-      "value": "MetaData"
-    },
-    {
-      "index": 121,
-      "value": "ModuleRelativePath"
-    },
-    {
-      "index": 122,
-      "value": "MyGeometry"
-    },
-    {
-      "index": 123,
-      "value": "name"
-    },
-    {
-      "index": 124,
-      "value": "NameProperty"
-    },
-    {
-      "index": 125,
-      "value": "NodeComment"
-    },
-    {
-      "index": 126,
-      "value": "NodeGuid"
-    },
-    {
-      "index": 127,
-      "value": "NodeHeight"
-    },
-    {
-      "index": 128,
-      "value": "NodePosX"
-    },
-    {
-      "index": 129,
-      "value": "NodePosY"
-    },
-    {
-      "index": 130,
-      "value": "Nodes"
-    },
-    {
-      "index": 131,
-      "value": "NodeWidth"
-    },
-    {
-      "index": 132,
-      "value": "None"
-    },
-    {
-      "index": 133,
-      "value": "Normal"
-    },
-    {
-      "index": 134,
-      "value": "object"
-    },
-    {
-      "index": 135,
-      "value": "Object"
-    },
-    {
-      "index": 136,
-      "value": "ObjectProperty"
-    },
-    {
-      "index": 137,
-      "value": "OnButtonClickedEvent__DelegateSignature"
-    },
-    {
-      "index": 138,
-      "value": "OnClicked"
-    },
-    {
-      "index": 139,
-      "value": "OpenLevel"
-    },
-    {
-      "index": 140,
-      "value": "Options"
-    },
-    {
-      "index": 141,
-      "value": "OutputDelegate"
-    },
-    {
-      "index": 142,
-      "value": "Package"
-    },
-    {
-      "index": 143,
-      "value": "PackageLocalizationNamespace"
-    },
-    {
-      "index": 144,
-      "value": "PackageMetaData"
-    },
-    {
-      "index": 145,
-      "value": "Padding"
-    },
-    {
-      "index": 146,
-      "value": "Parent"
-    },
-    {
-      "index": 147,
-      "value": "ParentClass"
-    },
-    {
-      "index": 148,
-      "value": "PlayerController"
-    },
-    {
-      "index": 149,
-      "value": "PointerToUberGraphFrame"
-    },
-    {
-      "index": 150,
-      "value": "PreConstruct"
-    },
-    {
-      "index": 151,
-      "value": "QuitGame"
-    },
-    {
-      "index": 152,
-      "value": "QuitPreference"
-    },
-    {
-      "index": 153,
-      "value": "Regular"
-    },
-    {
-      "index": 154,
-      "value": "RestartButton"
-    },
-    {
-      "index": 155,
-      "value": "RootWidget"
-    },
-    {
-      "index": 156,
-      "value": "SavedViewOffset"
-    },
-    {
-      "index": 157,
-      "value": "SavedZoomAmount"
-    },
-    {
-      "index": 158,
-      "value": "Schema"
-    },
-    {
-      "index": 159,
-      "value": "ScriptStruct"
-    },
-    {
-      "index": 160,
-      "value": "self"
-    },
-    {
-      "index": 161,
-      "value": "Size"
-    },
-    {
-      "index": 162,
-      "value": "SizeRule"
-    },
-    {
-      "index": 163,
-      "value": "SlateBrush"
-    },
-    {
-      "index": 164,
-      "value": "SlateChildSize"
-    },
-    {
-      "index": 165,
-      "value": "SlateColor"
-    },
-    {
-      "index": 166,
-      "value": "SlateFontInfo"
-    },
-    {
-      "index": 167,
-      "value": "Slot"
-    },
-    {
-      "index": 168,
-      "value": "Slots"
-    },
-    {
-      "index": 169,
-      "value": "SoftObjectPath"
-    },
-    {
-      "index": 170,
-      "value": "SpecificPlayer"
-    },
-    {
-      "index": 171,
-      "value": "SpecifiedColor"
-    },
-    {
-      "index": 172,
-      "value": "string"
-    },
-    {
-      "index": 173,
-      "value": "StrProperty"
-    },
-    {
-      "index": 174,
-      "value": "struct"
-    },
-    {
-      "index": 175,
-      "value": "StructProperty"
-    },
-    {
-      "index": 176,
-      "value": "Text"
-    },
-    {
-      "index": 177,
-      "value": "Text_ExitButton"
-    },
-    {
-      "index": 178,
-      "value": "Text_RestartButton"
-    },
-    {
-      "index": 179,
-      "value": "TextBlock"
-    },
-    {
-      "index": 180,
-      "value": "TextProperty"
-    },
-    {
-      "index": 181,
-      "value": "then"
-    },
-    {
-      "index": 182,
-      "value": "Tick"
-    },
-    {
-      "index": 183,
-      "value": "TintColor"
-    },
-    {
-      "index": 184,
-      "value": "ToolTip"
-    },
-    {
-      "index": 185,
-      "value": "Top"
-    },
-    {
-      "index": 186,
-      "value": "TypefaceFontName"
-    },
-    {
-      "index": 187,
-      "value": "UberGraphFrame"
-    },
-    {
-      "index": 188,
-      "value": "UberGraphFunction"
-    },
-    {
-      "index": 189,
-      "value": "UbergraphPages"
-    },
-    {
-      "index": 190,
-      "value": "UserWidget"
-    },
-    {
-      "index": 191,
-      "value": "Vector2D"
-    },
-    {
-      "index": 192,
-      "value": "VerticalBox"
-    },
-    {
-      "index": 193,
-      "value": "VerticalBoxSlot"
-    },
-    {
-      "index": 194,
-      "value": "VRTemplateMap"
-    },
-    {
-      "index": 195,
-      "value": "Widget Menu"
-    },
-    {
-      "index": 196,
-      "value": "WidgetBlueprint"
-    },
-    {
-      "index": 197,
-      "value": "WidgetBlueprintGeneratedClass"
-    },
-    {
-      "index": 198,
-      "value": "WidgetMenu"
-    },
-    {
-      "index": 199,
-      "value": "WidgetMenu_C"
-    },
-    {
-      "index": 200,
-      "value": "WidgetStyle"
-    },
-    {
-      "index": 201,
-      "value": "WidgetTree"
-    },
-    {
-      "index": 202,
-      "value": "WorldContextObject"
-    }
-  ],
   "imports": [
     {
       "index": 0,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -30,
         "kind": "import",
         "index": 29
       },
-      "object_name": {
-        "index": 71,
-        "number": 0,
-        "value": "EdGraphSchema_K2"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "EdGraphSchema_K2",
+      "package_name": "None",
       "path": "/Script/BlueprintGraph.EdGraphSchema_K2",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 1,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -30,
         "kind": "import",
         "index": 29
       },
-      "object_name": {
-        "index": 108,
-        "number": 0,
-        "value": "K2Node_CallFunction"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "K2Node_CallFunction",
+      "package_name": "None",
       "path": "/Script/BlueprintGraph.K2Node_CallFunction",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 2,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -30,
         "kind": "import",
         "index": 29
       },
-      "object_name": {
-        "index": 109,
-        "number": 0,
-        "value": "K2Node_ComponentBoundEvent"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "K2Node_ComponentBoundEvent",
+      "package_name": "None",
       "path": "/Script/BlueprintGraph.K2Node_ComponentBoundEvent",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 3,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -30,
         "kind": "import",
         "index": 29
       },
-      "object_name": {
-        "index": 110,
-        "number": 0,
-        "value": "K2Node_Event"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "K2Node_Event",
+      "package_name": "None",
       "path": "/Script/BlueprintGraph.K2Node_Event",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 4,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -31,
         "kind": "import",
         "index": 30
       },
-      "object_name": {
-        "index": 96,
-        "number": 0,
-        "value": "Function"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Function",
+      "package_name": "None",
       "path": "/Script/CoreUObject.Function",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 5,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -31,
         "kind": "import",
         "index": 30
       },
-      "object_name": {
-        "index": 120,
-        "number": 0,
-        "value": "MetaData"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "MetaData",
+      "package_name": "None",
       "path": "/Script/CoreUObject.MetaData",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 6,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -31,
         "kind": "import",
         "index": 30
       },
-      "object_name": {
-        "index": 135,
-        "number": 0,
-        "value": "Object"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Object",
+      "package_name": "None",
       "path": "/Script/CoreUObject.Object",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 7,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 47,
-        "number": 0,
-        "value": "ComponentDelegateBinding"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "ComponentDelegateBinding",
+      "package_name": "None",
       "path": "/Script/Engine.ComponentDelegateBinding",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 8,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 69,
-        "number": 0,
-        "value": "EdGraph"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "EdGraph",
+      "package_name": "None",
       "path": "/Script/Engine.EdGraph",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 9,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 99,
-        "number": 0,
-        "value": "GameplayStatics"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "GameplayStatics",
+      "package_name": "None",
       "path": "/Script/Engine.GameplayStatics",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 10,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 112,
-        "number": 0,
-        "value": "KismetSystemLibrary"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "KismetSystemLibrary",
+      "package_name": "None",
       "path": "/Script/Engine.KismetSystemLibrary",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 11,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 148,
-        "number": 0,
-        "value": "PlayerController"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "PlayerController",
+      "package_name": "None",
       "path": "/Script/Engine.PlayerController",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 12,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 31,
-        "number": 0,
-        "value": "Border"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Border",
+      "package_name": "None",
       "path": "/Script/UMG.Border",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 13,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 32,
-        "number": 0,
-        "value": "BorderSlot"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "BorderSlot",
+      "package_name": "None",
       "path": "/Script/UMG.BorderSlot",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 14,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 36,
-        "number": 0,
-        "value": "Button"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Button",
+      "package_name": "None",
       "path": "/Script/UMG.Button",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 15,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 37,
-        "number": 0,
-        "value": "ButtonSlot"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "ButtonSlot",
+      "package_name": "None",
       "path": "/Script/UMG.ButtonSlot",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 16,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 179,
-        "number": 0,
-        "value": "TextBlock"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "TextBlock",
+      "package_name": "None",
       "path": "/Script/UMG.TextBlock",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 17,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 190,
-        "number": 0,
-        "value": "UserWidget"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "UserWidget",
+      "package_name": "None",
       "path": "/Script/UMG.UserWidget",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 18,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 192,
-        "number": 0,
-        "value": "VerticalBox"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "VerticalBox",
+      "package_name": "None",
       "path": "/Script/UMG.VerticalBox",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 19,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 193,
-        "number": 0,
-        "value": "VerticalBoxSlot"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "VerticalBoxSlot",
+      "package_name": "None",
       "path": "/Script/UMG.VerticalBoxSlot",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 20,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 197,
-        "number": 0,
-        "value": "WidgetBlueprintGeneratedClass"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "WidgetBlueprintGeneratedClass",
+      "package_name": "None",
       "path": "/Script/UMG.WidgetBlueprintGeneratedClass",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 21,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 201,
-        "number": 0,
-        "value": "WidgetTree"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "WidgetTree",
+      "package_name": "None",
       "path": "/Script/UMG.WidgetTree",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 22,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -35,
         "kind": "import",
         "index": 34
       },
-      "object_name": {
-        "index": 196,
-        "number": 0,
-        "value": "WidgetBlueprint"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "WidgetBlueprint",
+      "package_name": "None",
       "path": "/Script/UMGEditor.WidgetBlueprint",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 23,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 43,
-        "number": 0,
-        "value": "Class"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Class",
       "outer_index": {
         "raw": -36,
         "kind": "import",
         "index": 35
       },
-      "object_name": {
-        "index": 70,
-        "number": 0,
-        "value": "EdGraphNode_Comment"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "EdGraphNode_Comment",
+      "package_name": "None",
       "path": "/Script/UnrealEd.EdGraphNode_Comment",
       "class": "/Script/CoreUObject.Class"
     },
     {
       "index": 24,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 81,
-        "number": 0,
-        "value": "Enum"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Enum",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 83,
-        "number": 0,
-        "value": "EQuitPreference"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "EQuitPreference",
+      "package_name": "None",
       "path": "/Script/Engine.EQuitPreference",
       "class": "/Script/CoreUObject.Enum"
     },
     {
       "index": 25,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 96,
-        "number": 0,
-        "value": "Function"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Function",
       "outer_index": {
         "raw": -10,
         "kind": "import",
         "index": 9
       },
-      "object_name": {
-        "index": 139,
-        "number": 0,
-        "value": "OpenLevel"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "OpenLevel",
+      "package_name": "None",
       "path": "/Script/Engine.GameplayStatics.OpenLevel",
       "class": "/Script/CoreUObject.Function"
     },
     {
       "index": 26,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 96,
-        "number": 0,
-        "value": "Function"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Function",
       "outer_index": {
         "raw": -11,
         "kind": "import",
         "index": 10
       },
-      "object_name": {
-        "index": 151,
-        "number": 0,
-        "value": "QuitGame"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "QuitGame",
+      "package_name": "None",
       "path": "/Script/Engine.KismetSystemLibrary.QuitGame",
       "class": "/Script/CoreUObject.Function"
     },
     {
       "index": 27,
-      "class_package": {
-        "index": 4,
-        "number": 0,
-        "value": "/Script/Engine"
-      },
-      "class_name": {
-        "index": 99,
-        "number": 0,
-        "value": "GameplayStatics"
-      },
+      "class_package": "/Script/Engine",
+      "class_name": "GameplayStatics",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 53,
-        "number": 0,
-        "value": "Default__GameplayStatics"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Default__GameplayStatics",
+      "package_name": "None",
       "path": "/Script/Engine.Default__GameplayStatics",
       "class": "/Script/Engine.GameplayStatics"
     },
     {
       "index": 28,
-      "class_package": {
-        "index": 4,
-        "number": 0,
-        "value": "/Script/Engine"
-      },
-      "class_name": {
-        "index": 112,
-        "number": 0,
-        "value": "KismetSystemLibrary"
-      },
+      "class_package": "/Script/Engine",
+      "class_name": "KismetSystemLibrary",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 54,
-        "number": 0,
-        "value": "Default__KismetSystemLibrary"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Default__KismetSystemLibrary",
+      "package_name": "None",
       "path": "/Script/Engine.Default__KismetSystemLibrary",
       "class": "/Script/Engine.KismetSystemLibrary"
     },
     {
       "index": 29,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 142,
-        "number": 0,
-        "value": "Package"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Package",
       "outer_index": {
         "raw": 0,
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 2,
-        "number": 0,
-        "value": "/Script/BlueprintGraph"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "/Script/BlueprintGraph",
+      "package_name": "None",
       "path": "/Script/BlueprintGraph",
       "class": "/Script/CoreUObject.Package"
     },
     {
       "index": 30,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 142,
-        "number": 0,
-        "value": "Package"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Package",
       "outer_index": {
         "raw": 0,
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "/Script/CoreUObject",
+      "package_name": "None",
       "path": "/Script/CoreUObject",
       "class": "/Script/CoreUObject.Package"
     },
     {
       "index": 31,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 142,
-        "number": 0,
-        "value": "Package"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Package",
       "outer_index": {
         "raw": 0,
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 4,
-        "number": 0,
-        "value": "/Script/Engine"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "/Script/Engine",
+      "package_name": "None",
       "path": "/Script/Engine",
       "class": "/Script/CoreUObject.Package"
     },
     {
       "index": 32,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 142,
-        "number": 0,
-        "value": "Package"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Package",
       "outer_index": {
         "raw": 0,
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 5,
-        "number": 0,
-        "value": "/Script/SlateCore"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "/Script/SlateCore",
+      "package_name": "None",
       "path": "/Script/SlateCore",
       "class": "/Script/CoreUObject.Package"
     },
     {
       "index": 33,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 142,
-        "number": 0,
-        "value": "Package"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Package",
       "outer_index": {
         "raw": 0,
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 6,
-        "number": 0,
-        "value": "/Script/UMG"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "/Script/UMG",
+      "package_name": "None",
       "path": "/Script/UMG",
       "class": "/Script/CoreUObject.Package"
     },
     {
       "index": 34,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 142,
-        "number": 0,
-        "value": "Package"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Package",
       "outer_index": {
         "raw": 0,
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 7,
-        "number": 0,
-        "value": "/Script/UMGEditor"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "/Script/UMGEditor",
+      "package_name": "None",
       "path": "/Script/UMGEditor",
       "class": "/Script/CoreUObject.Package"
     },
     {
       "index": 35,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 142,
-        "number": 0,
-        "value": "Package"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "Package",
       "outer_index": {
         "raw": 0,
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 8,
-        "number": 0,
-        "value": "/Script/UnrealEd"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "/Script/UnrealEd",
+      "package_name": "None",
       "path": "/Script/UnrealEd",
       "class": "/Script/CoreUObject.Package"
     },
     {
       "index": 36,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 159,
-        "number": 0,
-        "value": "ScriptStruct"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "ScriptStruct",
       "outer_index": {
         "raw": -32,
         "kind": "import",
         "index": 31
       },
-      "object_name": {
-        "index": 149,
-        "number": 0,
-        "value": "PointerToUberGraphFrame"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "PointerToUberGraphFrame",
+      "package_name": "None",
       "path": "/Script/Engine.PointerToUberGraphFrame",
       "class": "/Script/CoreUObject.ScriptStruct"
     },
     {
       "index": 37,
-      "class_package": {
-        "index": 3,
-        "number": 0,
-        "value": "/Script/CoreUObject"
-      },
-      "class_name": {
-        "index": 159,
-        "number": 0,
-        "value": "ScriptStruct"
-      },
+      "class_package": "/Script/CoreUObject",
+      "class_name": "ScriptStruct",
       "outer_index": {
         "raw": -33,
         "kind": "import",
         "index": 32
       },
-      "object_name": {
-        "index": 101,
-        "number": 0,
-        "value": "Geometry"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Geometry",
+      "package_name": "None",
       "path": "/Script/SlateCore.Geometry",
       "class": "/Script/CoreUObject.ScriptStruct"
     },
     {
       "index": 38,
-      "class_package": {
-        "index": 6,
-        "number": 0,
-        "value": "/Script/UMG"
-      },
-      "class_name": {
-        "index": 190,
-        "number": 0,
-        "value": "UserWidget"
-      },
+      "class_package": "/Script/UMG",
+      "class_name": "UserWidget",
       "outer_index": {
         "raw": -34,
         "kind": "import",
         "index": 33
       },
-      "object_name": {
-        "index": 55,
-        "number": 0,
-        "value": "Default__UserWidget"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Default__UserWidget",
+      "package_name": "None",
       "path": "/Script/UMG.Default__UserWidget",
       "class": "/Script/UMG.UserWidget"
     },
     {
       "index": 39,
-      "class_package": {
-        "index": 7,
-        "number": 0,
-        "value": "/Script/UMGEditor"
-      },
-      "class_name": {
-        "index": 196,
-        "number": 0,
-        "value": "WidgetBlueprint"
-      },
+      "class_package": "/Script/UMGEditor",
+      "class_name": "WidgetBlueprint",
       "outer_index": {
         "raw": -35,
         "kind": "import",
         "index": 34
       },
-      "object_name": {
-        "index": 56,
-        "number": 0,
-        "value": "Default__WidgetBlueprint"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "Default__WidgetBlueprint",
+      "package_name": "None",
       "path": "/Script/UMGEditor.Default__WidgetBlueprint",
       "class": "/Script/UMGEditor.WidgetBlueprint"
     },
     {
       "index": 40,
-      "class_package": {
-        "index": 6,
-        "number": 0,
-        "value": "/Script/UMG"
-      },
-      "class_name": {
-        "index": 201,
-        "number": 0,
-        "value": "WidgetTree"
-      },
+      "class_package": "/Script/UMG",
+      "class_name": "WidgetTree",
       "outer_index": {
         "raw": -40,
         "kind": "import",
         "index": 39
       },
-      "object_name": {
-        "index": 201,
-        "number": 0,
-        "value": "WidgetTree"
-      },
-      "package_name": {
-        "index": 132,
-        "number": 0,
-        "value": "None"
-      },
+      "object_name": "WidgetTree",
+      "package_name": "None",
       "path": "/Script/UMGEditor.Default__WidgetBlueprint.WidgetTree",
       "class": "/Script/UMG.WidgetTree"
     }
@@ -2169,11 +699,7 @@
         "kind": "export",
         "index": 40
       },
-      "object_name": {
-        "index": 31,
-        "number": 1,
-        "value": "Border_0"
-      },
+      "object_name": "Border_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2232,11 +758,7 @@
         "kind": "export",
         "index": 41
       },
-      "object_name": {
-        "index": 31,
-        "number": 1,
-        "value": "Border_0"
-      },
+      "object_name": "Border_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2295,11 +817,7 @@
         "kind": "export",
         "index": 0
       },
-      "object_name": {
-        "index": 32,
-        "number": 1,
-        "value": "BorderSlot_0"
-      },
+      "object_name": "BorderSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2350,11 +868,7 @@
         "kind": "export",
         "index": 1
       },
-      "object_name": {
-        "index": 32,
-        "number": 1,
-        "value": "BorderSlot_0"
-      },
+      "object_name": "BorderSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2405,11 +919,7 @@
         "kind": "export",
         "index": 40
       },
-      "object_name": {
-        "index": 92,
-        "number": 0,
-        "value": "ExitButton"
-      },
+      "object_name": "ExitButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2486,11 +996,7 @@
         "kind": "export",
         "index": 40
       },
-      "object_name": {
-        "index": 154,
-        "number": 0,
-        "value": "RestartButton"
-      },
+      "object_name": "RestartButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2567,11 +1073,7 @@
         "kind": "export",
         "index": 41
       },
-      "object_name": {
-        "index": 92,
-        "number": 0,
-        "value": "ExitButton"
-      },
+      "object_name": "ExitButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2648,11 +1150,7 @@
         "kind": "export",
         "index": 41
       },
-      "object_name": {
-        "index": 154,
-        "number": 0,
-        "value": "RestartButton"
-      },
+      "object_name": "RestartButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2729,11 +1227,7 @@
         "kind": "export",
         "index": 4
       },
-      "object_name": {
-        "index": 37,
-        "number": 1,
-        "value": "ButtonSlot_0"
-      },
+      "object_name": "ButtonSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2784,11 +1278,7 @@
         "kind": "export",
         "index": 5
       },
-      "object_name": {
-        "index": 37,
-        "number": 1,
-        "value": "ButtonSlot_0"
-      },
+      "object_name": "ButtonSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2839,11 +1329,7 @@
         "kind": "export",
         "index": 6
       },
-      "object_name": {
-        "index": 37,
-        "number": 1,
-        "value": "ButtonSlot_0"
-      },
+      "object_name": "ButtonSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2894,11 +1380,7 @@
         "kind": "export",
         "index": 7
       },
-      "object_name": {
-        "index": 37,
-        "number": 1,
-        "value": "ButtonSlot_0"
-      },
+      "object_name": "ButtonSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -2949,11 +1431,7 @@
         "kind": "export",
         "index": 38
       },
-      "object_name": {
-        "index": 47,
-        "number": 3,
-        "value": "ComponentDelegateBinding_2"
-      },
+      "object_name": "ComponentDelegateBinding_2",
       "object_flags": 0,
       "object_flags_hex": "0x00000000",
       "object_flag_names": [],
@@ -2998,11 +1476,7 @@
         "kind": "export",
         "index": 37
       },
-      "object_name": {
-        "index": 87,
-        "number": 0,
-        "value": "EventGraph"
-      },
+      "object_name": "EventGraph",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3049,11 +1523,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 70,
-        "number": 7,
-        "value": "EdGraphNode_Comment_6"
-      },
+      "object_name": "EdGraphNode_Comment_6",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3100,11 +1570,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 70,
-        "number": 8,
-        "value": "EdGraphNode_Comment_7"
-      },
+      "object_name": "EdGraphNode_Comment_7",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3151,11 +1617,7 @@
         "kind": "export",
         "index": 38
       },
-      "object_name": {
-        "index": 27,
-        "number": 0,
-        "value": "BndEvt__WidgetMenu_ExitButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature"
-      },
+      "object_name": "BndEvt__WidgetMenu_ExitButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature",
       "object_flags": 1,
       "object_flags_hex": "0x00000001",
       "object_flag_names": [
@@ -3202,11 +1664,7 @@
         "kind": "export",
         "index": 38
       },
-      "object_name": {
-        "index": 28,
-        "number": 0,
-        "value": "BndEvt__WidgetMenu_RestartButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature"
-      },
+      "object_name": "BndEvt__WidgetMenu_RestartButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature",
       "object_flags": 1,
       "object_flags_hex": "0x00000001",
       "object_flag_names": [
@@ -3253,11 +1711,7 @@
         "kind": "export",
         "index": 38
       },
-      "object_name": {
-        "index": 91,
-        "number": 0,
-        "value": "ExecuteUbergraph_WidgetMenu"
-      },
+      "object_name": "ExecuteUbergraph_WidgetMenu",
       "object_flags": 1,
       "object_flags_hex": "0x00000001",
       "object_flag_names": [
@@ -3304,11 +1758,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 108,
-        "number": 1,
-        "value": "K2Node_CallFunction_0"
-      },
+      "object_name": "K2Node_CallFunction_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3355,11 +1805,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 108,
-        "number": 2,
-        "value": "K2Node_CallFunction_1"
-      },
+      "object_name": "K2Node_CallFunction_1",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3406,11 +1852,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 109,
-        "number": 1,
-        "value": "K2Node_ComponentBoundEvent_0"
-      },
+      "object_name": "K2Node_ComponentBoundEvent_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3457,11 +1899,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 109,
-        "number": 2,
-        "value": "K2Node_ComponentBoundEvent_1"
-      },
+      "object_name": "K2Node_ComponentBoundEvent_1",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3508,11 +1946,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 110,
-        "number": 1,
-        "value": "K2Node_Event_0"
-      },
+      "object_name": "K2Node_Event_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3559,11 +1993,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 110,
-        "number": 2,
-        "value": "K2Node_Event_1"
-      },
+      "object_name": "K2Node_Event_1",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3610,11 +2040,7 @@
         "kind": "export",
         "index": 13
       },
-      "object_name": {
-        "index": 110,
-        "number": 3,
-        "value": "K2Node_Event_2"
-      },
+      "object_name": "K2Node_Event_2",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3661,11 +2087,7 @@
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 144,
-        "number": 0,
-        "value": "PackageMetaData"
-      },
+      "object_name": "PackageMetaData",
       "object_flags": 2,
       "object_flags_hex": "0x00000002",
       "object_flag_names": [
@@ -3712,11 +2134,7 @@
         "kind": "export",
         "index": 40
       },
-      "object_name": {
-        "index": 177,
-        "number": 0,
-        "value": "Text_ExitButton"
-      },
+      "object_name": "Text_ExitButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3783,11 +2201,7 @@
         "kind": "export",
         "index": 40
       },
-      "object_name": {
-        "index": 178,
-        "number": 0,
-        "value": "Text_RestartButton"
-      },
+      "object_name": "Text_RestartButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3854,11 +2268,7 @@
         "kind": "export",
         "index": 41
       },
-      "object_name": {
-        "index": 177,
-        "number": 0,
-        "value": "Text_ExitButton"
-      },
+      "object_name": "Text_ExitButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3925,11 +2335,7 @@
         "kind": "export",
         "index": 41
       },
-      "object_name": {
-        "index": 178,
-        "number": 0,
-        "value": "Text_RestartButton"
-      },
+      "object_name": "Text_RestartButton",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -3996,11 +2402,7 @@
         "kind": "export",
         "index": 40
       },
-      "object_name": {
-        "index": 192,
-        "number": 49,
-        "value": "VerticalBox_48"
-      },
+      "object_name": "VerticalBox_48",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -4055,11 +2457,7 @@
         "kind": "export",
         "index": 41
       },
-      "object_name": {
-        "index": 192,
-        "number": 49,
-        "value": "VerticalBox_48"
-      },
+      "object_name": "VerticalBox_48",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -4114,11 +2512,7 @@
         "kind": "export",
         "index": 31
       },
-      "object_name": {
-        "index": 193,
-        "number": 1,
-        "value": "VerticalBoxSlot_0"
-      },
+      "object_name": "VerticalBoxSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -4176,11 +2570,7 @@
         "kind": "export",
         "index": 31
       },
-      "object_name": {
-        "index": 193,
-        "number": 2,
-        "value": "VerticalBoxSlot_1"
-      },
+      "object_name": "VerticalBoxSlot_1",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -4238,11 +2628,7 @@
         "kind": "export",
         "index": 32
       },
-      "object_name": {
-        "index": 193,
-        "number": 1,
-        "value": "VerticalBoxSlot_0"
-      },
+      "object_name": "VerticalBoxSlot_0",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -4300,11 +2686,7 @@
         "kind": "export",
         "index": 32
       },
-      "object_name": {
-        "index": 193,
-        "number": 2,
-        "value": "VerticalBoxSlot_1"
-      },
+      "object_name": "VerticalBoxSlot_1",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -4362,11 +2744,7 @@
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 198,
-        "number": 0,
-        "value": "WidgetMenu"
-      },
+      "object_name": "WidgetMenu",
       "object_flags": 11,
       "object_flags_hex": "0x0000000b",
       "object_flag_names": [
@@ -4436,11 +2814,7 @@
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 199,
-        "number": 0,
-        "value": "WidgetMenu_C"
-      },
+      "object_name": "WidgetMenu_C",
       "object_flags": 9,
       "object_flags_hex": "0x00000009",
       "object_flag_names": [
@@ -4495,11 +2869,7 @@
         "kind": "null",
         "index": null
       },
-      "object_name": {
-        "index": 57,
-        "number": 0,
-        "value": "Default__WidgetMenu_C"
-      },
+      "object_name": "Default__WidgetMenu_C",
       "object_flags": 49,
       "object_flags_hex": "0x00000031",
       "object_flag_names": [
@@ -4548,11 +2918,7 @@
         "kind": "export",
         "index": 37
       },
-      "object_name": {
-        "index": 201,
-        "number": 0,
-        "value": "WidgetTree"
-      },
+      "object_name": "WidgetTree",
       "object_flags": 262153,
       "object_flags_hex": "0x00040009",
       "object_flag_names": [
@@ -4612,11 +2978,7 @@
         "kind": "export",
         "index": 38
       },
-      "object_name": {
-        "index": 201,
-        "number": 0,
-        "value": "WidgetTree"
-      },
+      "object_name": "WidgetTree",
       "object_flags": 8,
       "object_flags_hex": "0x00000008",
       "object_flag_names": [
@@ -5201,11 +3563,7 @@
     ]
   ],
   "soft_package_references": [
-    {
-      "index": 0,
-      "number": 0,
-      "value": "/Game/VRTemplate/Blueprints/WidgetMenu"
-    }
+    "/Game/VRTemplate/Blueprints/WidgetMenu"
   ],
   "preload_dependencies": []
 }

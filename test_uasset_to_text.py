@@ -433,6 +433,25 @@ class UAssetParserValidationTests(unittest.TestCase):
             [("ButtonSlot_0", "ButtonSlot"), ("WidgetTree", "WidgetTree")],
         )
 
+    def test_uasset_umg_summary_accepts_string_object_names(self):
+        metadata = {
+            "exports": [
+                {"class": "/Script/UMG.WidgetTree", "object_name": "WidgetTree"},
+                {"class": "/Script/UMG.ButtonSlot", "object_name": "ButtonSlot_0"},
+            ],
+        }
+
+        summary = uasset_umg_summary.summarize_umg(
+            metadata,
+            include_slots=True,
+            include_internal=True,
+        )
+
+        self.assertEqual(
+            [(item["name"], item["type"]) for item in summary["widgets"]],
+            [("ButtonSlot_0", "ButtonSlot"), ("WidgetTree", "WidgetTree")],
+        )
+
     def test_uasset_umg_summary_rejects_non_umg_assets(self):
         metadata = {
             "file": {"path": "/tmp/Material.uasset"},
@@ -519,6 +538,7 @@ class UAssetParserValidationTests(unittest.TestCase):
             {
                 "index": 0,
                 "path": "Widget.WidgetTree.Button",
+                "object_name": {"index": 12, "number": 0, "value": "Button"},
                 "serial_size": 128,
                 "serial_offset": 4096,
                 "class": "/Script/UMG.Button",
@@ -533,12 +553,48 @@ class UAssetParserValidationTests(unittest.TestCase):
                 {
                     "index": 0,
                     "path": "Widget.WidgetTree.Button",
+                    "object_name": "Button",
                     "class": "/Script/UMG.Button",
                 }
             ],
         )
         self.assertEqual(exports[0]["serial_size"], 128)
         self.assertEqual(exports[0]["serial_offset"], 4096)
+        self.assertEqual(exports[0]["object_name"]["value"], "Button")
+
+    def test_public_imports_expand_name_refs_to_strings(self):
+        imports = [
+            {
+                "index": 0,
+                "class_package": {"index": 1, "number": 0, "value": "/Script/UMG"},
+                "class_name": {"index": 2, "number": 0, "value": "Button"},
+                "outer_index": {"raw": 0, "kind": "null", "index": None},
+                "object_name": {"index": 3, "number": 1, "value": "MyButton_0"},
+                "package_name": {"index": 4, "number": 0, "value": "/Game/UI"},
+            }
+        ]
+
+        self.assertEqual(
+            uasset.public_imports(imports),
+            [
+                {
+                    "index": 0,
+                    "class_package": "/Script/UMG",
+                    "class_name": "Button",
+                    "outer_index": {"raw": 0, "kind": "null", "index": None},
+                    "object_name": "MyButton_0",
+                    "package_name": "/Game/UI",
+                }
+            ],
+        )
+
+    def test_public_soft_package_references_expand_name_refs_to_strings(self):
+        references = [{"index": 1, "number": 0, "value": "/Game/UI/Icon"}]
+
+        self.assertEqual(
+            uasset.public_soft_package_references(references),
+            ["/Game/UI/Icon"],
+        )
 
     def test_review_property_parser_extracts_umg_padding(self):
         names = [
@@ -1050,6 +1106,20 @@ class UAssetParserValidationTests(unittest.TestCase):
             diff_text = uasset_diff.diff_uassets(left_path, right_path)
 
         self.assertEqual(diff_text, "")
+
+    def test_parse_uasset_omits_name_table_from_public_metadata(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = os.path.join(temp_dir, "Asset.uasset")
+            with open(path, "wb") as file:
+                file.write(make_minimal_uasset())
+
+            metadata = uasset.parse_uasset(
+                path,
+                include_export_data=False,
+                preview_bytes=64,
+            )
+
+        self.assertNotIn("names", metadata)
 
     def test_uasset_diff3_reports_one_sided_change(self):
         with tempfile.TemporaryDirectory() as temp_dir:
