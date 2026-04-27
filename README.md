@@ -342,7 +342,8 @@ Merge arguments:
   %b %2 %1
 ```
 
-Windows, assuming `python` is on `PATH`, use the included P4V wrapper files:
+Windows, assuming `python` is on `PATH`, use the included P4V wrapper files.
+Configure P4V for the `.uasset` file type like this:
 
 ```text
 Diff application:
@@ -360,6 +361,8 @@ Merge arguments:
 
 The wrapper files call `uasset_p4merge.py` from the same directory, so the P4V
 configuration does not need to include the Python script path in the arguments.
+`uasset_p4v_merge.bat` expects P4V to pass merge arguments as `%b %2 %1`, then
+forwards them to `uasset_p4merge.py` as `base ours theirs`.
 
 Important: this merge registration opens a metadata JSON 3-way view. It does
 not write a merged `.uasset` result back to P4V. Do not pass P4V's `%r`
