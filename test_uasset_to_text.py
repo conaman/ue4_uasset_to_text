@@ -678,6 +678,35 @@ class UAssetParserValidationTests(unittest.TestCase):
             "01 00 00 00 01 00 00 00 00 00 00 00 01 02",
         )
 
+    def test_data_table_parser_omits_trailing_hex_after_readable_rows(self):
+        names = [
+            "None",
+            "RowA",
+            "Health",
+            "IntProperty",
+        ]
+        payload = b"".join(
+            [
+                make_test_none_property(names),
+                struct.pack("<i", 1),
+                struct.pack("<ii", names.index("RowA"), 0),
+                make_test_property(names, "Health", "IntProperty", struct.pack("<i", 100)),
+                make_test_none_property(names),
+                b"\xde\xad\xbe\xef",
+            ]
+        )
+
+        data_table = uasset.extract_data_table_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertNotIn("_trailing_hex", data_table)
+        self.assertEqual(data_table["rows"]["RowA"], {"Health": 100})
+
     def test_data_table_review_data_is_added_to_data_table_exports(self):
         names = ["None"]
         payload = b"".join(

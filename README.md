@@ -3,8 +3,7 @@
 Current release: `2026-04-27`
 
 `ue4-uasset-tools` is a small standalone Python toolkit for reviewing Unreal
-Engine 4.27 `.uasset` metadata, UMG widget changes, and DataTable row changes
-as readable JSON.
+Engine 4.27 `.uasset` metadata and UMG widget changes as readable JSON.
 
 It can:
 
@@ -12,14 +11,12 @@ It can:
 - Extract UMG review properties such as slot padding, layout data, alignment,
   visibility, colors, widget styling, button/slider state, and custom primitive
   variables.
-- Extract DataTable rows when the row struct is serialized as tagged
-  properties, with raw fallback data when the row payload cannot be decoded.
 - Print a compact UMG WidgetTree hierarchy with widget names and types.
 - Print 2-way and 3-way metadata JSON diffs for `.uasset` files.
 - Open Perforce P4Merge on generated metadata JSON files for visual comparison.
 
-The parser reads UE4.27 package metadata plus supported UMG and DataTable
-tagged property values. It does not link against Unreal Engine.
+The parser reads UE4.27 package metadata plus supported UMG tagged property
+values. It does not link against Unreal Engine.
 
 ## Requirements
 
@@ -41,8 +38,6 @@ No third-party Python packages are required.
   font, color, shadow, wrapping, and justification.
 - See custom primitive fields serialized on widgets without maintaining a
   property-name filter.
-- Review DataTable row additions and value changes when the row data uses
-  readable tagged properties.
 - Compare binary `.uasset` metadata without launching Unreal Editor.
 - Inspect imports, exports, dependencies, and soft package references.
 - Use P4Merge as a visual JSON diff viewer for UE4 assets.
@@ -456,8 +451,8 @@ The metadata object can include:
 - `summary`: package file summary fields and version data.
 - `imports`: imported object table with Name references expanded to strings.
 - `exports`: exported object table with Name references expanded to strings and
-  `review_properties` on supported UMG exports or `data_table` rows on
-  supported DataTable exports when readable payload data is found.
+  `review_properties` on supported UMG exports when readable payload data is
+  found.
 - `depends`: export dependency map.
 - `soft_package_references`: soft package references.
 - `preload_dependencies`: cooked preload dependency indexes.
@@ -489,24 +484,10 @@ When a property is present but its value is not decoded yet, it is kept as
 `_unparsed` with `_raw_hex`. That means the diff can still show that a value
 changed, even when this tool cannot name every field inside that value.
 
-## DataTable Review Coverage
-
-DataTable exports include a `data_table` section when their payload can be
-reviewed. The output includes `row_count` and a `rows` object keyed by row name.
-Rows whose struct values are saved as tagged properties can show primitive
-fields such as bool, int, float, string, text, name, enum, object/class
-references, supported structs, and arrays of those values.
-
-When a DataTable row payload uses a native or custom serializer this tool cannot
-decode yet, the remaining row bytes are kept as `_unparsed` with `_raw_hex`.
-That still lets `uasset_diff.py` show byte-level DataTable payload changes, even
-when the tool cannot name each row field.
-
 ## Limitations
 
 This tool focuses on package metadata tables, supported UMG tagged property
-values, and best-effort DataTable row payloads. It is not a full UObject
-property serializer.
+values, and visual review diffs. It is not a full UObject property serializer.
 
 Unsupported custom serializers are marked as `_unparsed` with `_raw_hex`
 instead of guessed. Default-valued properties may not appear if Unreal did not

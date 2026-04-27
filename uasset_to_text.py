@@ -1328,8 +1328,6 @@ def extract_data_table_from_payload(
         )
         return result
 
-    if reader.tell() < len(payload):
-        result["_trailing_hex"] = payload[reader.tell() :].hex(" ")
     return result
 
 
