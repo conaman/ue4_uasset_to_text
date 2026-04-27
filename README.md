@@ -1,6 +1,6 @@
 # ue4-uasset-tools
 
-Current release: `2026-04-26`
+Current release: `2026-04-27`
 
 `ue4-uasset-tools` is a small standalone Python toolkit for reviewing Unreal
 Engine 4.27 `.uasset` metadata and UMG widget changes as readable JSON.
@@ -275,7 +275,9 @@ The script looks for P4Merge in this order:
 - `--tool`
 - `P4MERGE`
 - `MERGE`
-- `p4merge` or `launchp4merge` on `PATH`
+- `p4merge`, `p4merge.exe`, `P4Merge.exe`, `launchp4merge`, or
+  `launchp4merge.exe` on `PATH`
+- common Windows Perforce install paths
 - common macOS P4Merge app paths
 
 Tool path examples:
@@ -289,6 +291,18 @@ On Windows, this README assumes `python` and `p4merge` are both on `PATH`:
 
 ```bat
 python uasset_p4merge.py A.uasset B.uasset
+```
+
+If `p4merge` is installed but not found, try the explicit `.exe` command:
+
+```bat
+python uasset_p4merge.py A.uasset B.uasset --tool p4merge.exe
+```
+
+For a full path with spaces, quote the executable path:
+
+```bat
+python uasset_p4merge.py A.uasset B.uasset --tool "C:\Program Files\Perforce\p4merge.exe"
 ```
 
 ### Registering in P4V

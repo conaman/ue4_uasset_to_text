@@ -7,6 +7,7 @@ import os
 import struct
 import tempfile
 import unittest
+from unittest import mock
 
 import uasset_diff
 import uasset_diff3
@@ -16,7 +17,7 @@ import uasset_umg_summary
 import uasset_to_text as uasset
 
 
-TOOL_VERSION = "2026-04-26"
+TOOL_VERSION = "2026-04-27"
 
 
 def make_summary(**overrides):
@@ -1263,6 +1264,30 @@ class UAssetParserValidationTests(unittest.TestCase):
 
         self.assertEqual(run.returncode, 0)
         self.assertEqual(result_json["summary"]["package_source"], 1)
+
+    def test_p4merge_tool_resolution_checks_windows_exe_names(self):
+        def fake_which(name):
+            if name == "p4merge.exe":
+                return r"C:\Tools\p4merge.exe"
+            return None
+
+        with mock.patch("shutil.which", side_effect=fake_which):
+            self.assertEqual(
+                uasset_p4merge.resolve_p4merge_tool(),
+                [r"C:\Tools\p4merge.exe"],
+            )
+
+    def test_p4merge_tool_command_accepts_quoted_windows_path_with_spaces(self):
+        tool_path = r"C:\Program Files\Perforce\p4merge.exe"
+
+        with mock.patch(
+            "uasset_p4_common.os.path.exists",
+            side_effect=lambda path: path == tool_path,
+        ):
+            self.assertEqual(
+                uasset_p4_common.split_tool_command(f'"{tool_path}"'),
+                [tool_path],
+            )
 
     def test_name_entry_length_is_bounded_like_ue4(self):
         data = struct.pack("<i", uasset.MAX_NAME_CODE_UNITS + 1)

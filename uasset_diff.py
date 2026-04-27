@@ -15,7 +15,7 @@ from typing import Any
 import uasset_to_text
 
 
-TOOL_VERSION = "2026-04-26"
+TOOL_VERSION = "2026-04-27"
 
 
 def normalize_paths(document: dict[str, Any], *, keep_paths: bool) -> dict[str, Any]:

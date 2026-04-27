@@ -16,12 +16,14 @@ import uasset_p4_common
 import uasset_to_text
 
 
-TOOL_VERSION = "2026-04-26"
+TOOL_VERSION = "2026-04-27"
 
 P4MERGE_EXECUTABLE_PATHS = (
     "/Applications/p4merge.app/Contents/Resources/launchp4merge",
     "/Applications/P4Merge.app/Contents/Resources/launchp4merge",
     "/Applications/P4V.app/Contents/Resources/launchp4merge",
+    r"C:\Program Files\Perforce\p4merge.exe",
+    r"C:\Program Files (x86)\Perforce\p4merge.exe",
 )
 
 
@@ -37,7 +39,13 @@ def resolve_p4merge_tool(explicit_tool: str | None = None) -> list[str]:
     return uasset_p4_common.resolve_tool(
         explicit_tool=explicit_tool,
         env_names=("P4MERGE", "MERGE"),
-        executable_names=("p4merge", "launchp4merge"),
+        executable_names=(
+            "p4merge",
+            "p4merge.exe",
+            "P4Merge.exe",
+            "launchp4merge",
+            "launchp4merge.exe",
+        ),
         executable_paths=P4MERGE_EXECUTABLE_PATHS,
         tool_label="P4Merge",
     )

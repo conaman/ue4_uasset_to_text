@@ -15,7 +15,7 @@ import uasset_diff
 import uasset_to_text
 
 
-TOOL_VERSION = "2026-04-26"
+TOOL_VERSION = "2026-04-27"
 
 
 class P4ToolError(Exception):
@@ -23,6 +23,14 @@ class P4ToolError(Exception):
 
 
 def split_tool_command(command: str) -> list[str]:
+    command = command.strip()
+    if not command:
+        raise P4ToolError("tool command is empty")
+
+    unquoted_command = strip_outer_quotes(command)
+    if os.path.exists(unquoted_command):
+        return [unquoted_command]
+
     try:
         parts = shlex.split(command)
     except ValueError as exc:
@@ -30,7 +38,13 @@ def split_tool_command(command: str) -> list[str]:
 
     if not parts:
         raise P4ToolError("tool command is empty")
-    return parts
+    return [strip_outer_quotes(part) for part in parts]
+
+
+def strip_outer_quotes(value: str) -> str:
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+        return value[1:-1]
+    return value
 
 
 def resolve_tool(
