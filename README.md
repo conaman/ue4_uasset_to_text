@@ -355,7 +355,8 @@ P4V merge placeholders:
 - `%r`: result file.
 
 `uasset_p4merge.py` expects 3-way input as `base ours theirs`, so P4V merge
-arguments must use `%b %2 %1`.
+arguments must use `%b %2 %1 %r`. The fourth `%r` argument is required by P4V
+for merge result handling, but this tool ignores it.
 
 macOS or Linux, when the script is executable:
 
@@ -370,7 +371,7 @@ Merge application:
   /path/to/ue4-uasset-tools/uasset_p4merge.py
 
 Merge arguments:
-  %b %2 %1
+  %b %2 %1 %r
 ```
 
 Windows, assuming `python` is on `PATH`, use the included P4V wrapper files.
@@ -387,19 +388,20 @@ Merge application:
   C:\path\to\ue4-uasset-tools\uasset_p4v_merge.bat
 
 Merge arguments:
-  %b %2 %1
+  %b %2 %1 %r
 ```
 
 The wrapper files call `uasset_p4merge.py` from the same directory, so the P4V
 configuration does not need to include the Python script path in the arguments.
-`uasset_p4v_merge.bat` expects P4V to pass merge arguments as `%b %2 %1`, then
-forwards them to `uasset_p4merge.py` as `base ours theirs`.
+`uasset_p4v_merge.bat` expects P4V to pass merge arguments as `%b %2 %1 %r`,
+then forwards the first three arguments to `uasset_p4merge.py` as `base ours
+theirs`.
 
 Important: this merge registration opens a metadata JSON 3-way view. It does
-not write a merged `.uasset` result back to P4V. Do not pass P4V's `%r`
-placeholder to `--result`, because `%r` is normally the original `.uasset`
-merge target and `uasset_p4merge.py` intentionally only allows `.json` review
-result files.
+not write a merged `.uasset` result back to P4V. Pass P4V's `%r` placeholder as
+the fourth merge argument, but do not pass it to `--result`, because `%r` is
+normally the original `.uasset` merge target and `uasset_p4merge.py`
+intentionally only allows `.json` review result files.
 
 ### Result Files
 

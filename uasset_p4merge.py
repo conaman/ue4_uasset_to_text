@@ -211,7 +211,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         nargs="+",
         help=(
             "Two .uasset files for compare, or three files as: base ours theirs. "
-            "For 3-way P4Merge is invoked as base, theirs, yours, result."
+            "A fourth P4V %r result placeholder is accepted and ignored."
         ),
     )
     parser.add_argument(
@@ -268,8 +268,14 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Do not print generated temp or result paths.",
     )
     args = parser.parse_args(argv)
-    if len(args.uassets) not in (2, 3):
-        parser.error("provide exactly two .uasset files for 2-way, or three for 3-way")
+    if len(args.uassets) not in (2, 3, 4):
+        parser.error(
+            "provide exactly two .uasset files for 2-way, or three for 3-way; "
+            "a fourth P4V %r result placeholder may be supplied"
+        )
+    args.p4v_result_placeholder = args.uassets[3] if len(args.uassets) == 4 else None
+    if args.p4v_result_placeholder is not None:
+        args.uassets = args.uassets[:3]
     return args
 
 

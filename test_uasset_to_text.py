@@ -1247,6 +1247,14 @@ class UAssetParserValidationTests(unittest.TestCase):
         self.assertEqual(p4_args[3], os.path.abspath(result_path))
         self.assertEqual(result_json["summary"]["package_source"], 1)
 
+    def test_uasset_p4merge_accepts_p4v_result_placeholder(self):
+        args = uasset_p4merge.parse_args(
+            ["Base.uasset", "Ours.uasset", "Theirs.uasset", "Result.uasset"]
+        )
+
+        self.assertEqual(args.uassets, ["Base.uasset", "Ours.uasset", "Theirs.uasset"])
+        self.assertEqual(args.p4v_result_placeholder, "Result.uasset")
+
     def test_uasset_p4merge_prints_result_path_to_stdout(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             tool_path = os.path.join(temp_dir, "fake_p4merge.py")
