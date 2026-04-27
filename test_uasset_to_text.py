@@ -606,6 +606,105 @@ class UAssetParserValidationTests(unittest.TestCase):
             ["/Game/UI/Icon"],
         )
 
+    def test_data_table_parser_extracts_tagged_rows(self):
+        names = [
+            "None",
+            "RowA",
+            "Health",
+            "IntProperty",
+            "Label",
+            "StrProperty",
+        ]
+        row_payload = b"".join(
+            [
+                make_test_property(names, "Health", "IntProperty", struct.pack("<i", 100)),
+                make_test_property(names, "Label", "StrProperty", make_test_fstring("Potion")),
+                make_test_none_property(names),
+            ]
+        )
+        payload = b"".join(
+            [
+                make_test_none_property(names),
+                struct.pack("<i", 1),
+                struct.pack("<ii", names.index("RowA"), 0),
+                row_payload,
+            ]
+        )
+
+        data_table = uasset.extract_data_table_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(
+            data_table,
+            {
+                "row_count": 1,
+                "rows": {
+                    "RowA": {
+                        "Health": 100,
+                        "Label": "Potion",
+                    }
+                },
+            },
+        )
+
+    def test_data_table_parser_keeps_unparsed_rows_as_raw_hex(self):
+        names = ["None", "RowA"]
+        payload = b"".join(
+            [
+                make_test_none_property(names),
+                struct.pack("<i", 1),
+                struct.pack("<ii", names.index("RowA"), 0),
+                b"\x01\x02",
+            ]
+        )
+
+        data_table = uasset.extract_data_table_from_payload(
+            payload,
+            names,
+            uasset.VER_UE4_AUTOMATIC_VERSION,
+            [],
+            [],
+        )
+
+        self.assertEqual(data_table["rows"]["_unparsed"], True)
+        self.assertIn("could not read DataTable rows", data_table["rows"]["_reason"])
+        self.assertEqual(
+            data_table["rows"]["_raw_hex"],
+            "01 00 00 00 01 00 00 00 00 00 00 00 01 02",
+        )
+
+    def test_data_table_review_data_is_added_to_data_table_exports(self):
+        names = ["None"]
+        payload = b"".join(
+            [
+                make_test_none_property(names),
+                struct.pack("<i", 0),
+            ]
+        )
+        exports = [
+            {
+                "index": 0,
+                "class": "/Script/Engine.DataTable",
+                "serial_offset": 0,
+                "serial_size": len(payload),
+            }
+        ]
+
+        uasset.add_data_table_review_data(
+            payload,
+            {"effective_file_version_ue4": uasset.VER_UE4_AUTOMATIC_VERSION},
+            names,
+            [],
+            exports,
+        )
+
+        self.assertEqual(exports[0]["data_table"], {"row_count": 0, "rows": {}})
+
     def test_review_property_parser_extracts_umg_padding(self):
         names = [
             "Padding",

@@ -58,6 +58,10 @@ UMG_REVIEW_CLASS_PREFIXES = (
     "/Script/UMG.",
     "/Script/UMGEditor.",
 )
+DATA_TABLE_CLASS_PATHS = {
+    "/Script/Engine.DataTable",
+    "/Script/Engine.CompositeDataTable",
+}
 
 TEXT_HISTORY_TYPE_NAMES = {
     -1: "None",
@@ -767,6 +771,10 @@ def is_umg_export(export: dict[str, Any]) -> bool:
     return isinstance(path, str) and (".WidgetTree." in path or path.endswith(".WidgetTree"))
 
 
+def is_data_table_export(export: dict[str, Any]) -> bool:
+    return export.get("class") in DATA_TABLE_CLASS_PATHS
+
+
 def read_property_tag(
     reader: Reader,
     names: list[str],
@@ -822,11 +830,15 @@ def read_tagged_review_properties(
     imports: list[dict[str, Any]],
     exports: list[dict[str, Any]],
     end_pos: int,
+    *,
+    require_terminator: bool = False,
 ) -> dict[str, Any]:
     properties: dict[str, Any] = {}
+    terminated = False
     while reader.tell() < end_pos:
         tag = read_property_tag(reader, names, version)
         if tag is None:
+            terminated = True
             break
 
         value_start = reader.tell()
@@ -857,6 +869,8 @@ def read_tagged_review_properties(
         elif isinstance(value, dict) and value.get("_unparsed") and "_raw_hex" not in value:
             value["_raw_hex"] = raw_value.hex(" ")
         properties[tag["name"]] = value
+    if require_terminator and not terminated:
+        raise UAssetError("tagged property stream is missing a None terminator")
     return properties
 
 
@@ -1225,6 +1239,100 @@ def extract_review_properties_from_payload(
     )
 
 
+def data_table_unparsed(raw: bytes, reason: str) -> dict[str, Any]:
+    return {
+        "_unparsed": True,
+        "_reason": reason,
+        "_raw_hex": raw.hex(" "),
+    }
+
+
+def read_data_table_rows(
+    reader: Reader,
+    names: list[str],
+    version: int,
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+    end_pos: int,
+) -> dict[str, Any]:
+    row_count = reader.i32()
+    validate_count(row_count, "DataTable row")
+    rows: dict[str, Any] = {}
+    for _ in range(row_count):
+        row_name = format_name_ref(read_name_ref(reader), names)["value"]
+        row_start = reader.tell()
+        row_values = read_tagged_review_properties(
+            reader,
+            names,
+            version,
+            imports,
+            exports,
+            end_pos,
+            require_terminator=True,
+        )
+        if reader.tell() == row_start:
+            raise UAssetError(f"DataTable row {row_name} did not advance")
+        rows[row_name] = row_values
+    return {
+        "row_count": row_count,
+        "rows": rows,
+    }
+
+
+def extract_data_table_from_payload(
+    payload: bytes,
+    names: list[str],
+    version: int,
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+) -> dict[str, Any]:
+    reader = Reader(payload, "<data-table-export-payload>")
+    result: dict[str, Any] = {}
+    try:
+        properties = read_tagged_review_properties(
+            reader,
+            names,
+            version,
+            imports,
+            exports,
+            len(payload),
+            require_terminator=True,
+        )
+    except (UAssetError, struct.error, UnicodeDecodeError) as exc:
+        return data_table_unparsed(payload, f"could not read DataTable properties: {exc}")
+
+    if properties:
+        result["properties"] = properties
+
+    row_map_start = reader.tell()
+    if row_map_start >= len(payload):
+        result["row_count"] = 0
+        result["rows"] = {}
+        return result
+
+    try:
+        result.update(
+            read_data_table_rows(
+                reader,
+                names,
+                version,
+                imports,
+                exports,
+                len(payload),
+            )
+        )
+    except (UAssetError, struct.error, UnicodeDecodeError) as exc:
+        result["rows"] = data_table_unparsed(
+            payload[row_map_start:],
+            f"could not read DataTable rows: {exc}",
+        )
+        return result
+
+    if reader.tell() < len(payload):
+        result["_trailing_hex"] = payload[reader.tell() :].hex(" ")
+    return result
+
+
 def add_umg_review_properties(
     data: bytes,
     summary: dict[str, Any],
@@ -1253,6 +1361,31 @@ def add_umg_review_properties(
             continue
         if review_properties:
             export["review_properties"] = review_properties
+
+
+def add_data_table_review_data(
+    data: bytes,
+    summary: dict[str, Any],
+    names: list[str],
+    imports: list[dict[str, Any]],
+    exports: list[dict[str, Any]],
+) -> None:
+    version = summary["effective_file_version_ue4"]
+    for export in exports:
+        if not is_data_table_export(export):
+            continue
+        offset = export["serial_offset"]
+        size = export["serial_size"]
+        if size <= 0 or offset < 0 or offset + size > len(data):
+            continue
+        payload = data[offset : offset + size]
+        export["data_table"] = extract_data_table_from_payload(
+            payload,
+            names,
+            version,
+            imports,
+            exports,
+        )
 
 
 def preview_export_data(
@@ -1357,6 +1490,7 @@ def parse_uasset(
     resolve_references(imports, exports)
     if include_review_properties:
         add_umg_review_properties(data, summary, names, imports, exports)
+        add_data_table_review_data(data, summary, names, imports, exports)
 
     result: dict[str, Any] = {
         "file": {
@@ -1426,7 +1560,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument(
         "--no-review-properties",
         action="store_true",
-        help="Do not include best-effort UMG review properties parsed from export payloads.",
+        help="Do not include best-effort UMG/DataTable review data parsed from export payloads.",
     )
     parser.add_argument(
         "--exports-only",
