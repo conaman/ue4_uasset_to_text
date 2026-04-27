@@ -514,6 +514,32 @@ class UAssetParserValidationTests(unittest.TestCase):
             },
         )
 
+    def test_public_exports_hide_serial_location_fields(self):
+        exports = [
+            {
+                "index": 0,
+                "path": "Widget.WidgetTree.Button",
+                "serial_size": 128,
+                "serial_offset": 4096,
+                "class": "/Script/UMG.Button",
+            }
+        ]
+
+        public = uasset.public_exports(exports)
+
+        self.assertEqual(
+            public,
+            [
+                {
+                    "index": 0,
+                    "path": "Widget.WidgetTree.Button",
+                    "class": "/Script/UMG.Button",
+                }
+            ],
+        )
+        self.assertEqual(exports[0]["serial_size"], 128)
+        self.assertEqual(exports[0]["serial_offset"], 4096)
+
     def test_review_property_parser_extracts_umg_padding(self):
         names = [
             "Padding",

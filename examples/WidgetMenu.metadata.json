@@ -2179,8 +2179,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 144,
-      "serial_offset": 26135,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2244,8 +2242,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 144,
-      "serial_offset": 26279,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2309,8 +2305,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 70,
-      "serial_offset": 26423,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2366,8 +2360,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 70,
-      "serial_offset": 26493,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2423,8 +2415,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 563,
-      "serial_offset": 26563,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2506,8 +2496,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 566,
-      "serial_offset": 27126,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2589,8 +2577,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 563,
-      "serial_offset": 27692,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2672,8 +2658,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 566,
-      "serial_offset": 28255,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2755,8 +2739,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 70,
-      "serial_offset": 28821,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2812,8 +2794,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 70,
-      "serial_offset": 28891,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2869,8 +2849,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 70,
-      "serial_offset": 28961,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2926,8 +2904,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 70,
-      "serial_offset": 29031,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -2981,8 +2957,6 @@
       "object_flags": 0,
       "object_flags_hex": "0x00000000",
       "object_flag_names": [],
-      "serial_size": 312,
-      "serial_offset": 29101,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3034,8 +3008,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 205,
-      "serial_offset": 29413,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3087,8 +3059,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 405,
-      "serial_offset": 29618,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3140,8 +3110,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 392,
-      "serial_offset": 30023,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3193,8 +3161,6 @@
       "object_flag_names": [
         "RF_Public"
       ],
-      "serial_size": 62,
-      "serial_offset": 30415,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3246,8 +3212,6 @@
       "object_flag_names": [
         "RF_Public"
       ],
-      "serial_size": 62,
-      "serial_offset": 30477,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3299,8 +3263,6 @@
       "object_flag_names": [
         "RF_Public"
       ],
-      "serial_size": 169,
-      "serial_offset": 30539,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3352,8 +3314,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 1697,
-      "serial_offset": 30708,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3405,8 +3365,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 1644,
-      "serial_offset": 32405,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3458,8 +3416,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 877,
-      "serial_offset": 34049,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3511,8 +3467,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 877,
-      "serial_offset": 34926,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3564,8 +3518,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 1035,
-      "serial_offset": 35803,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3617,8 +3569,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 841,
-      "serial_offset": 36838,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3670,8 +3620,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 1346,
-      "serial_offset": 37679,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3723,8 +3671,6 @@
       "object_flag_names": [
         "RF_Standalone"
       ],
-      "serial_size": 2910,
-      "serial_offset": 39025,
       "forced_export": false,
       "not_for_client": true,
       "not_for_server": true,
@@ -3776,8 +3722,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 418,
-      "serial_offset": 41935,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3849,8 +3793,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 419,
-      "serial_offset": 42353,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3922,8 +3864,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 418,
-      "serial_offset": 42772,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -3995,8 +3935,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 419,
-      "serial_offset": 43190,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4068,8 +4006,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 112,
-      "serial_offset": 43609,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4129,8 +4065,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 112,
-      "serial_offset": 43721,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4190,8 +4124,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 283,
-      "serial_offset": 43833,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4254,8 +4186,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 283,
-      "serial_offset": 44116,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4318,8 +4248,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 283,
-      "serial_offset": 44399,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4382,8 +4310,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 283,
-      "serial_offset": 44682,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4448,8 +4374,6 @@
         "RF_Standalone",
         "RF_Transactional"
       ],
-      "serial_size": 565,
-      "serial_offset": 44965,
       "forced_export": false,
       "not_for_client": true,
       "not_for_server": true,
@@ -4523,8 +4447,6 @@
         "RF_Public",
         "RF_Transactional"
       ],
-      "serial_size": 495,
-      "serial_offset": 45530,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4585,8 +4507,6 @@
         "RF_ClassDefaultObject",
         "RF_ArchetypeObject"
       ],
-      "serial_size": 158,
-      "serial_offset": 46025,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4640,8 +4560,6 @@
         "RF_Transactional",
         "RF_DefaultSubObject"
       ],
-      "serial_size": 102,
-      "serial_offset": 46183,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,
@@ -4704,8 +4622,6 @@
       "object_flag_names": [
         "RF_Transactional"
       ],
-      "serial_size": 102,
-      "serial_offset": 46285,
       "forced_export": false,
       "not_for_client": false,
       "not_for_server": false,

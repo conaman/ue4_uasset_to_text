@@ -1280,6 +1280,14 @@ def preview_export_data(
     return previews
 
 
+def public_exports(exports: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    hidden_fields = {"serial_size", "serial_offset"}
+    return [
+        {key: value for key, value in export.items() if key not in hidden_fields}
+        for export in exports
+    ]
+
+
 def resolve_references(imports: list[dict[str, Any]], exports: list[dict[str, Any]]) -> None:
     for item in imports:
         item["path"] = resolve_package_index(
@@ -1332,7 +1340,7 @@ def parse_uasset(
         "summary": summary,
         "names": [{"index": index, "value": value} for index, value in enumerate(names)],
         "imports": imports,
-        "exports": exports,
+        "exports": public_exports(exports),
         "depends": read_depends_map(reader, summary),
         "soft_package_references": read_soft_package_references(reader, summary, names),
         "preload_dependencies": read_preload_dependencies(reader, summary),
