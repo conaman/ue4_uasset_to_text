@@ -69,6 +69,12 @@ Print a compact UMG WidgetTree summary:
 ./uasset_umg_summary.py /path/to/Widget.uasset
 ```
 
+On Windows:
+
+```bat
+uasset_umg_summary.bat "C:\path\to\Widget.uasset"
+```
+
 Compare two `.uasset` files as metadata JSON:
 
 ```bash
@@ -177,6 +183,31 @@ Common options:
 ./uasset_umg_summary.py /path/to/Widget.uasset --json
 ./uasset_umg_summary.py /path/to/Widget.uasset --show-paths
 ```
+
+On Windows, the included batch wrapper accepts one input file:
+
+```bat
+uasset_umg_summary.bat "C:\path\to\Widget.uasset"
+```
+
+To run the summary from P4V's Tools menu, create a custom tool:
+
+```text
+Name:
+  UMG Summary
+
+Application:
+  C:\path\to\ue4-uasset-tools\uasset_umg_summary.bat
+
+Arguments:
+  "%f"
+
+Start in:
+  %f
+```
+
+Enable "Run tool in terminal window" so the printed summary is visible. Use the
+lowercase `%f` argument so P4V passes one selected file at a time.
 
 Metadata JSON from `uasset_to_text.py` can also be used as input:
 
